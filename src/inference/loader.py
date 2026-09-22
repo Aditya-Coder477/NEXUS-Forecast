@@ -60,6 +60,11 @@ class ModelLoader:
 
         for rel_path, meta in artifacts.items():
             expected_hash = meta["sha256"]
+            allowed_hashes = {expected_hash.lower()}
+            if "crlf_sha256" in meta:
+                allowed_hashes.add(meta["crlf_sha256"].lower())
+            if "lf_sha256" in meta:
+                allowed_hashes.add(meta["lf_sha256"].lower())
 
             # Anchor path resolution to project root first, then cwd
             resolved_path = None
@@ -73,17 +78,17 @@ class ModelLoader:
                 raise IntegrityError(f"Mandatory pipeline artifact missing: {rel_path}")
 
             actual_hash = self.calculate_sha256(resolved_path)
-            if actual_hash != expected_hash:
+            if actual_hash.lower() not in allowed_hashes:
                 # Handle cross-platform line-ending differences (CRLF vs LF) for text/JSON artifacts
                 if resolved_path.endswith((".json", ".txt", ".csv", ".md")):
                     with open(resolved_path, "rb") as f:
                         raw_bytes = f.read()
-                    crlf_hash = hashlib.sha256(raw_bytes.replace(b"\r\n", b"\n").replace(b"\n", b"\r\n")).hexdigest()
-                    lf_hash = hashlib.sha256(raw_bytes.replace(b"\r\n", b"\n")).hexdigest()
-                    if expected_hash in (crlf_hash, lf_hash):
+                    crlf_hash = hashlib.sha256(raw_bytes.replace(b"\r\n", b"\n").replace(b"\n", b"\r\n")).hexdigest().lower()
+                    lf_hash = hashlib.sha256(raw_bytes.replace(b"\r\n", b"\n")).hexdigest().lower()
+                    if crlf_hash in allowed_hashes or lf_hash in allowed_hashes:
                         actual_hash = expected_hash
 
-            if actual_hash != expected_hash:
+            if actual_hash.lower() not in allowed_hashes:
                 raise IntegrityError(
                     f"Cryptographic hash mismatch for {rel_path}!\n"
                     f"Expected: {expected_hash}\n"
