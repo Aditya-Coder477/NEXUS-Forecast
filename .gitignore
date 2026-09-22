@@ -113,6 +113,8 @@ venv.bak/
 ehthumbs.db
 Thumbs.db
 desktop.ini
+~$*
+*.tmp
 
 .idea/
 .vscode/*

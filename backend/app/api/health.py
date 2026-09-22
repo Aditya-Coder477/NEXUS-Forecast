@@ -10,7 +10,7 @@ from backend.app.utils.validation import compute_sha256
 router = APIRouter(tags=["Health & Status"])
 
 
-@router.get("/health", response_model=HealthResponse)
+@router.api_route("/health", methods=["GET", "HEAD"], response_model=HealthResponse)
 def get_health():
     """Check API health and offline status."""
     return HealthResponse(

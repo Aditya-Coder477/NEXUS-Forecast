@@ -49,7 +49,7 @@ app.include_router(reports.router, prefix="/api")
 if settings.static_dir.exists():
     app.mount("/static", StaticFiles(directory=str(settings.static_dir)), name="static")
 
-    @app.get("/", response_class=HTMLResponse)
+    @app.api_route("/", methods=["GET", "HEAD"], response_class=HTMLResponse)
     def serve_frontend_root():
         index_file = settings.static_dir / "index.html"
         if index_file.exists():
