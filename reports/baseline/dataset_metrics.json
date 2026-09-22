@@ -1,0 +1,1666 @@
+{
+  "CIC-IDS2017": {
+    "k1": {
+      "metadata": {
+        "horizon": 1,
+        "feature_count": 22,
+        "features": [
+          "S_t_total_flows",
+          "S_t_unique_src_hosts",
+          "S_t_unique_dst_hosts",
+          "S_t_unique_dst_ports",
+          "S_t_unique_protocols",
+          "S_t_total_packets",
+          "S_t_total_bytes",
+          "S_t_inbound_bytes",
+          "S_t_outbound_bytes",
+          "S_t_inbound_outbound_ratio",
+          "S_t_mean_flow_duration",
+          "S_t_mean_packet_rate",
+          "S_t_mean_byte_rate",
+          "S_t_mean_iat",
+          "S_t_std_iat",
+          "S_t_syn_count",
+          "S_t_ack_count",
+          "S_t_rst_count",
+          "S_t_fin_count",
+          "S_t_connection_failure_rate",
+          "S_t_unique_host_pair_count",
+          "S_t_fan_out_ratio"
+        ],
+        "distribution": {
+          "train": {
+            "benign_count": 2526,
+            "attack_count": 806,
+            "total": 3332,
+            "attack_pct": 24.19
+          },
+          "val": {
+            "benign_count": 560,
+            "attack_count": 151,
+            "total": 711,
+            "attack_pct": 21.24
+          },
+          "test": {
+            "benign_count": 648,
+            "attack_count": 75,
+            "total": 723,
+            "attack_pct": 10.37
+          }
+        },
+        "time_range": {
+          "train": [
+            "2017-03-07T01:05:31",
+            "2017-07-07T11:46:00"
+          ],
+          "val": [
+            "2017-03-07T10:33:31",
+            "2017-07-07T12:20:30"
+          ],
+          "test": [
+            "2017-03-07T11:45:01",
+            "2017-07-07T12:56:00"
+          ]
+        }
+      },
+      "val_metrics": {
+        "threshold": 0.5,
+        "f1": 0.1572,
+        "precision": 0.125,
+        "recall": 0.2119,
+        "false_positive_rate": 0.4,
+        "false_positive_rate_percent": 40.0,
+        "accuracy": 0.5176,
+        "specificity": 0.6,
+        "roc_auc": 0.273,
+        "pr_auc": 0.1419,
+        "confusion_matrix": {
+          "tn": 336,
+          "fp": 224,
+          "fn": 119,
+          "tp": 32
+        },
+        "sample_counts": {
+          "total": 711,
+          "actual_benign": 560,
+          "actual_attack": 151,
+          "pred_benign": 455,
+          "pred_attack": 256
+        }
+      },
+      "test_metrics": {
+        "threshold": 0.5,
+        "f1": 0.0423,
+        "precision": 0.0287,
+        "recall": 0.08,
+        "false_positive_rate": 0.3133,
+        "false_positive_rate_percent": 31.33,
+        "accuracy": 0.6238,
+        "specificity": 0.6867,
+        "roc_auc": 0.2422,
+        "pr_auc": 0.0639,
+        "confusion_matrix": {
+          "tn": 445,
+          "fp": 203,
+          "fn": 69,
+          "tp": 6
+        },
+        "sample_counts": {
+          "total": 723,
+          "actual_benign": 648,
+          "actual_attack": 75,
+          "pred_benign": 514,
+          "pred_attack": 209
+        }
+      },
+      "coefficients": {
+        "S_t_total_flows": -0.033824839605819446,
+        "S_t_unique_src_hosts": -0.8613190784986783,
+        "S_t_unique_dst_hosts": -0.4578416202134525,
+        "S_t_unique_dst_ports": -0.01369776580989326,
+        "S_t_unique_protocols": 0.06521682249589716,
+        "S_t_total_packets": -0.363430776199533,
+        "S_t_total_bytes": 0.2080883339496063,
+        "S_t_inbound_bytes": 0.1522747884006799,
+        "S_t_outbound_bytes": 0.16675255123948213,
+        "S_t_inbound_outbound_ratio": -0.06375550531428592,
+        "S_t_mean_flow_duration": -0.4000901265413057,
+        "S_t_mean_packet_rate": 0.0954454632583791,
+        "S_t_mean_byte_rate": -1.2786127933657547,
+        "S_t_mean_iat": 0.01526126318233066,
+        "S_t_std_iat": 0.34219547417180285,
+        "S_t_syn_count": 0.6688567238618025,
+        "S_t_ack_count": 0.37037578250998704,
+        "S_t_rst_count": 0.12178760120765966,
+        "S_t_fin_count": -0.11278178691037143,
+        "S_t_connection_failure_rate": -0.32696029851768343,
+        "S_t_unique_host_pair_count": 1.3168788814446606,
+        "S_t_fan_out_ratio": 0.07542270961812539
+      }
+    },
+    "k3": {
+      "metadata": {
+        "horizon": 3,
+        "feature_count": 22,
+        "features": [
+          "S_t_total_flows",
+          "S_t_unique_src_hosts",
+          "S_t_unique_dst_hosts",
+          "S_t_unique_dst_ports",
+          "S_t_unique_protocols",
+          "S_t_total_packets",
+          "S_t_total_bytes",
+          "S_t_inbound_bytes",
+          "S_t_outbound_bytes",
+          "S_t_inbound_outbound_ratio",
+          "S_t_mean_flow_duration",
+          "S_t_mean_packet_rate",
+          "S_t_mean_byte_rate",
+          "S_t_mean_iat",
+          "S_t_std_iat",
+          "S_t_syn_count",
+          "S_t_ack_count",
+          "S_t_rst_count",
+          "S_t_fin_count",
+          "S_t_connection_failure_rate",
+          "S_t_unique_host_pair_count",
+          "S_t_fan_out_ratio"
+        ],
+        "distribution": {
+          "train": {
+            "benign_count": 2524,
+            "attack_count": 808,
+            "total": 3332,
+            "attack_pct": 24.25
+          },
+          "val": {
+            "benign_count": 562,
+            "attack_count": 149,
+            "total": 711,
+            "attack_pct": 20.96
+          },
+          "test": {
+            "benign_count": 648,
+            "attack_count": 75,
+            "total": 723,
+            "attack_pct": 10.37
+          }
+        },
+        "time_range": {
+          "train": [
+            "2017-03-07T01:05:31",
+            "2017-07-07T11:46:00"
+          ],
+          "val": [
+            "2017-03-07T10:33:31",
+            "2017-07-07T12:20:30"
+          ],
+          "test": [
+            "2017-03-07T11:45:01",
+            "2017-07-07T12:56:00"
+          ]
+        }
+      },
+      "val_metrics": {
+        "threshold": 0.5,
+        "f1": 0.1891,
+        "precision": 0.146,
+        "recall": 0.2685,
+        "false_positive_rate": 0.4164,
+        "false_positive_rate_percent": 41.64,
+        "accuracy": 0.5176,
+        "specificity": 0.5836,
+        "roc_auc": 0.3145,
+        "pr_auc": 0.1569,
+        "confusion_matrix": {
+          "tn": 328,
+          "fp": 234,
+          "fn": 109,
+          "tp": 40
+        },
+        "sample_counts": {
+          "total": 711,
+          "actual_benign": 562,
+          "actual_attack": 149,
+          "pred_benign": 437,
+          "pred_attack": 274
+        }
+      },
+      "test_metrics": {
+        "threshold": 0.5,
+        "f1": 0.0282,
+        "precision": 0.0191,
+        "recall": 0.0533,
+        "false_positive_rate": 0.3164,
+        "false_positive_rate_percent": 31.64,
+        "accuracy": 0.6183,
+        "specificity": 0.6836,
+        "roc_auc": 0.2449,
+        "pr_auc": 0.0909,
+        "confusion_matrix": {
+          "tn": 443,
+          "fp": 205,
+          "fn": 71,
+          "tp": 4
+        },
+        "sample_counts": {
+          "total": 723,
+          "actual_benign": 648,
+          "actual_attack": 75,
+          "pred_benign": 514,
+          "pred_attack": 209
+        }
+      },
+      "coefficients": {
+        "S_t_total_flows": 0.16054510975887037,
+        "S_t_unique_src_hosts": -0.6327634579061666,
+        "S_t_unique_dst_hosts": -0.42139537567425417,
+        "S_t_unique_dst_ports": 0.06270005425432071,
+        "S_t_unique_protocols": -0.04493337063714963,
+        "S_t_total_packets": -0.02313289259315679,
+        "S_t_total_bytes": 1.0533306997363676,
+        "S_t_inbound_bytes": 0.24264929013113937,
+        "S_t_outbound_bytes": -1.0464988292271091,
+        "S_t_inbound_outbound_ratio": 0.040032282492846356,
+        "S_t_mean_flow_duration": -0.48761336555331924,
+        "S_t_mean_packet_rate": -0.08549790336963081,
+        "S_t_mean_byte_rate": -0.9380302092670285,
+        "S_t_mean_iat": 0.022352327381843447,
+        "S_t_std_iat": 0.4243642943994721,
+        "S_t_syn_count": 0.572228807756795,
+        "S_t_ack_count": -0.19163838998384694,
+        "S_t_rst_count": 0.37025058398686644,
+        "S_t_fin_count": -0.11474974126884643,
+        "S_t_connection_failure_rate": -0.7867852822005237,
+        "S_t_unique_host_pair_count": 1.049513446280315,
+        "S_t_fan_out_ratio": 0.0752241470926829
+      }
+    },
+    "k6": {
+      "metadata": {
+        "horizon": 6,
+        "feature_count": 22,
+        "features": [
+          "S_t_total_flows",
+          "S_t_unique_src_hosts",
+          "S_t_unique_dst_hosts",
+          "S_t_unique_dst_ports",
+          "S_t_unique_protocols",
+          "S_t_total_packets",
+          "S_t_total_bytes",
+          "S_t_inbound_bytes",
+          "S_t_outbound_bytes",
+          "S_t_inbound_outbound_ratio",
+          "S_t_mean_flow_duration",
+          "S_t_mean_packet_rate",
+          "S_t_mean_byte_rate",
+          "S_t_mean_iat",
+          "S_t_std_iat",
+          "S_t_syn_count",
+          "S_t_ack_count",
+          "S_t_rst_count",
+          "S_t_fin_count",
+          "S_t_connection_failure_rate",
+          "S_t_unique_host_pair_count",
+          "S_t_fan_out_ratio"
+        ],
+        "distribution": {
+          "train": {
+            "benign_count": 2518,
+            "attack_count": 814,
+            "total": 3332,
+            "attack_pct": 24.43
+          },
+          "val": {
+            "benign_count": 567,
+            "attack_count": 144,
+            "total": 711,
+            "attack_pct": 20.25
+          },
+          "test": {
+            "benign_count": 646,
+            "attack_count": 77,
+            "total": 723,
+            "attack_pct": 10.65
+          }
+        },
+        "time_range": {
+          "train": [
+            "2017-03-07T01:05:31",
+            "2017-07-07T11:46:00"
+          ],
+          "val": [
+            "2017-03-07T10:33:31",
+            "2017-07-07T12:20:30"
+          ],
+          "test": [
+            "2017-03-07T11:45:01",
+            "2017-07-07T12:56:00"
+          ]
+        }
+      },
+      "val_metrics": {
+        "threshold": 0.5,
+        "f1": 0.1796,
+        "precision": 0.1381,
+        "recall": 0.2569,
+        "false_positive_rate": 0.4074,
+        "false_positive_rate_percent": 40.74,
+        "accuracy": 0.5246,
+        "specificity": 0.5926,
+        "roc_auc": 0.3229,
+        "pr_auc": 0.1441,
+        "confusion_matrix": {
+          "tn": 336,
+          "fp": 231,
+          "fn": 107,
+          "tp": 37
+        },
+        "sample_counts": {
+          "total": 711,
+          "actual_benign": 567,
+          "actual_attack": 144,
+          "pred_benign": 443,
+          "pred_attack": 268
+        }
+      },
+      "test_metrics": {
+        "threshold": 0.5,
+        "f1": 0.0424,
+        "precision": 0.0291,
+        "recall": 0.0779,
+        "false_positive_rate": 0.3096,
+        "false_positive_rate_percent": 30.96,
+        "accuracy": 0.6252,
+        "specificity": 0.6904,
+        "roc_auc": 0.2578,
+        "pr_auc": 0.067,
+        "confusion_matrix": {
+          "tn": 446,
+          "fp": 200,
+          "fn": 71,
+          "tp": 6
+        },
+        "sample_counts": {
+          "total": 723,
+          "actual_benign": 646,
+          "actual_attack": 77,
+          "pred_benign": 517,
+          "pred_attack": 206
+        }
+      },
+      "coefficients": {
+        "S_t_total_flows": 0.03021336559538399,
+        "S_t_unique_src_hosts": -0.9429010314534355,
+        "S_t_unique_dst_hosts": -0.2721004745197091,
+        "S_t_unique_dst_ports": 0.06649582723798744,
+        "S_t_unique_protocols": 0.02964158366176609,
+        "S_t_total_packets": -0.07601825172295257,
+        "S_t_total_bytes": 0.5247932779465172,
+        "S_t_inbound_bytes": 0.24105358302018917,
+        "S_t_outbound_bytes": -0.4514659599707925,
+        "S_t_inbound_outbound_ratio": -0.011389390395632339,
+        "S_t_mean_flow_duration": -0.4070637893250386,
+        "S_t_mean_packet_rate": -0.05864154861819086,
+        "S_t_mean_byte_rate": -0.9150844104242077,
+        "S_t_mean_iat": -0.002554676537990712,
+        "S_t_std_iat": 0.38239232921476,
+        "S_t_syn_count": 0.58458360618269,
+        "S_t_ack_count": -0.11725916263615233,
+        "S_t_rst_count": 0.28385136190000076,
+        "S_t_fin_count": -0.05579652496632754,
+        "S_t_connection_failure_rate": -0.5787293711914742,
+        "S_t_unique_host_pair_count": 1.2392240409428428,
+        "S_t_fan_out_ratio": -0.03395742179106188
+      }
+    }
+  },
+  "UNSW-NB15": {
+    "k1": {
+      "metadata": {
+        "horizon": 1,
+        "feature_count": 22,
+        "features": [
+          "S_t_total_flows",
+          "S_t_unique_src_hosts",
+          "S_t_unique_dst_hosts",
+          "S_t_unique_dst_ports",
+          "S_t_unique_protocols",
+          "S_t_total_packets",
+          "S_t_total_bytes",
+          "S_t_inbound_bytes",
+          "S_t_outbound_bytes",
+          "S_t_inbound_outbound_ratio",
+          "S_t_mean_flow_duration",
+          "S_t_mean_packet_rate",
+          "S_t_mean_byte_rate",
+          "S_t_mean_iat",
+          "S_t_std_iat",
+          "S_t_syn_count",
+          "S_t_ack_count",
+          "S_t_rst_count",
+          "S_t_fin_count",
+          "S_t_connection_failure_rate",
+          "S_t_unique_host_pair_count",
+          "S_t_fan_out_ratio"
+        ],
+        "distribution": {
+          "train": {
+            "benign_count": 1269,
+            "attack_count": 763,
+            "total": 2032,
+            "attack_pct": 37.55
+          },
+          "val": {
+            "benign_count": 0,
+            "attack_count": 435,
+            "total": 435,
+            "attack_pct": 100.0
+          },
+          "test": {
+            "benign_count": 10,
+            "attack_count": 427,
+            "total": 437,
+            "attack_pct": 97.71
+          }
+        },
+        "time_range": {
+          "train": [
+            "2015-01-22T07:55:11",
+            "2015-02-18T01:10:41"
+          ],
+          "val": [
+            "2015-02-18T01:11:11",
+            "2015-02-18T04:48:11"
+          ],
+          "test": [
+            "2015-02-18T04:48:41",
+            "2015-02-18T08:26:41"
+          ]
+        }
+      },
+      "val_metrics": {
+        "threshold": 0.5,
+        "f1": 0.9988,
+        "precision": 1.0,
+        "recall": 0.9977,
+        "false_positive_rate": 0.0,
+        "false_positive_rate_percent": 0.0,
+        "accuracy": 0.9977,
+        "specificity": 0.0,
+        "roc_auc": "N/A",
+        "pr_auc": "N/A",
+        "confusion_matrix": {
+          "tn": 0,
+          "fp": 0,
+          "fn": 1,
+          "tp": 434
+        },
+        "sample_counts": {
+          "total": 435,
+          "actual_benign": 0,
+          "actual_attack": 435,
+          "pred_benign": 1,
+          "pred_attack": 434
+        }
+      },
+      "test_metrics": {
+        "threshold": 0.5,
+        "f1": 0.9896,
+        "precision": 0.9794,
+        "recall": 1.0,
+        "false_positive_rate": 0.9,
+        "false_positive_rate_percent": 90.0,
+        "accuracy": 0.9794,
+        "specificity": 0.1,
+        "roc_auc": 0.6295,
+        "pr_auc": 0.9859,
+        "confusion_matrix": {
+          "tn": 1,
+          "fp": 9,
+          "fn": 0,
+          "tp": 427
+        },
+        "sample_counts": {
+          "total": 437,
+          "actual_benign": 10,
+          "actual_attack": 427,
+          "pred_benign": 1,
+          "pred_attack": 436
+        }
+      },
+      "coefficients": {
+        "S_t_total_flows": -0.8069892130722943,
+        "S_t_unique_src_hosts": 2.505950200923705,
+        "S_t_unique_dst_hosts": 2.366389804738971,
+        "S_t_unique_dst_ports": 0.5715378564950196,
+        "S_t_unique_protocols": -0.4788401022733979,
+        "S_t_total_packets": -0.49368923419699484,
+        "S_t_total_bytes": -0.8923545790786448,
+        "S_t_inbound_bytes": 0.4936469433637742,
+        "S_t_outbound_bytes": -0.2524519747597176,
+        "S_t_inbound_outbound_ratio": 0.02319358621693327,
+        "S_t_mean_flow_duration": 0.6845569245819,
+        "S_t_mean_packet_rate": -1.330395809858918,
+        "S_t_mean_byte_rate": 0.9229232999643923,
+        "S_t_mean_iat": -0.7817243815355661,
+        "S_t_std_iat": 0.18108427644048777,
+        "S_t_syn_count": 0.12399460289958494,
+        "S_t_ack_count": -0.8027000813947183,
+        "S_t_rst_count": 0.3715766348484586,
+        "S_t_fin_count": 0.023324577582997975,
+        "S_t_connection_failure_rate": 0.5442835520014746,
+        "S_t_unique_host_pair_count": 0.24787546716623785,
+        "S_t_fan_out_ratio": 0.19429978278652169
+      }
+    },
+    "k3": {
+      "metadata": {
+        "horizon": 3,
+        "feature_count": 22,
+        "features": [
+          "S_t_total_flows",
+          "S_t_unique_src_hosts",
+          "S_t_unique_dst_hosts",
+          "S_t_unique_dst_ports",
+          "S_t_unique_protocols",
+          "S_t_total_packets",
+          "S_t_total_bytes",
+          "S_t_inbound_bytes",
+          "S_t_outbound_bytes",
+          "S_t_inbound_outbound_ratio",
+          "S_t_mean_flow_duration",
+          "S_t_mean_packet_rate",
+          "S_t_mean_byte_rate",
+          "S_t_mean_iat",
+          "S_t_std_iat",
+          "S_t_syn_count",
+          "S_t_ack_count",
+          "S_t_rst_count",
+          "S_t_fin_count",
+          "S_t_connection_failure_rate",
+          "S_t_unique_host_pair_count",
+          "S_t_fan_out_ratio"
+        ],
+        "distribution": {
+          "train": {
+            "benign_count": 1269,
+            "attack_count": 763,
+            "total": 2032,
+            "attack_pct": 37.55
+          },
+          "val": {
+            "benign_count": 0,
+            "attack_count": 435,
+            "total": 435,
+            "attack_pct": 100.0
+          },
+          "test": {
+            "benign_count": 10,
+            "attack_count": 427,
+            "total": 437,
+            "attack_pct": 97.71
+          }
+        },
+        "time_range": {
+          "train": [
+            "2015-01-22T07:55:11",
+            "2015-02-18T01:10:41"
+          ],
+          "val": [
+            "2015-02-18T01:11:11",
+            "2015-02-18T04:48:11"
+          ],
+          "test": [
+            "2015-02-18T04:48:41",
+            "2015-02-18T08:26:41"
+          ]
+        }
+      },
+      "val_metrics": {
+        "threshold": 0.5,
+        "f1": 0.9977,
+        "precision": 1.0,
+        "recall": 0.9954,
+        "false_positive_rate": 0.0,
+        "false_positive_rate_percent": 0.0,
+        "accuracy": 0.9954,
+        "specificity": 0.0,
+        "roc_auc": "N/A",
+        "pr_auc": "N/A",
+        "confusion_matrix": {
+          "tn": 0,
+          "fp": 0,
+          "fn": 2,
+          "tp": 433
+        },
+        "sample_counts": {
+          "total": 435,
+          "actual_benign": 0,
+          "actual_attack": 435,
+          "pred_benign": 2,
+          "pred_attack": 433
+        }
+      },
+      "test_metrics": {
+        "threshold": 0.5,
+        "f1": 0.9873,
+        "precision": 0.9771,
+        "recall": 0.9977,
+        "false_positive_rate": 1.0,
+        "false_positive_rate_percent": 100.0,
+        "accuracy": 0.9748,
+        "specificity": 0.0,
+        "roc_auc": 0.4932,
+        "pr_auc": 0.981,
+        "confusion_matrix": {
+          "tn": 0,
+          "fp": 10,
+          "fn": 1,
+          "tp": 426
+        },
+        "sample_counts": {
+          "total": 437,
+          "actual_benign": 10,
+          "actual_attack": 427,
+          "pred_benign": 1,
+          "pred_attack": 436
+        }
+      },
+      "coefficients": {
+        "S_t_total_flows": -0.6820243573442066,
+        "S_t_unique_src_hosts": 2.4244892703136878,
+        "S_t_unique_dst_hosts": 2.232388039294274,
+        "S_t_unique_dst_ports": 0.258491485542726,
+        "S_t_unique_protocols": -0.40773560793648034,
+        "S_t_total_packets": -0.11707402401494116,
+        "S_t_total_bytes": -0.7631493772817591,
+        "S_t_inbound_bytes": -0.16283861181578083,
+        "S_t_outbound_bytes": -0.27584278697882186,
+        "S_t_inbound_outbound_ratio": -0.00816681500747453,
+        "S_t_mean_flow_duration": 0.7421799086246599,
+        "S_t_mean_packet_rate": -1.0021914341562432,
+        "S_t_mean_byte_rate": 0.5295729155943775,
+        "S_t_mean_iat": -0.6717079394756329,
+        "S_t_std_iat": -0.0050733359899475215,
+        "S_t_syn_count": -0.014378099351614326,
+        "S_t_ack_count": -0.7099021498819035,
+        "S_t_rst_count": 0.36868237235632767,
+        "S_t_fin_count": -0.23933450210264867,
+        "S_t_connection_failure_rate": 0.5362822143310839,
+        "S_t_unique_host_pair_count": 0.42685867053889925,
+        "S_t_fan_out_ratio": 0.14189373928814258
+      }
+    },
+    "k6": {
+      "metadata": {
+        "horizon": 6,
+        "feature_count": 22,
+        "features": [
+          "S_t_total_flows",
+          "S_t_unique_src_hosts",
+          "S_t_unique_dst_hosts",
+          "S_t_unique_dst_ports",
+          "S_t_unique_protocols",
+          "S_t_total_packets",
+          "S_t_total_bytes",
+          "S_t_inbound_bytes",
+          "S_t_outbound_bytes",
+          "S_t_inbound_outbound_ratio",
+          "S_t_mean_flow_duration",
+          "S_t_mean_packet_rate",
+          "S_t_mean_byte_rate",
+          "S_t_mean_iat",
+          "S_t_std_iat",
+          "S_t_syn_count",
+          "S_t_ack_count",
+          "S_t_rst_count",
+          "S_t_fin_count",
+          "S_t_connection_failure_rate",
+          "S_t_unique_host_pair_count",
+          "S_t_fan_out_ratio"
+        ],
+        "distribution": {
+          "train": {
+            "benign_count": 1269,
+            "attack_count": 763,
+            "total": 2032,
+            "attack_pct": 37.55
+          },
+          "val": {
+            "benign_count": 0,
+            "attack_count": 435,
+            "total": 435,
+            "attack_pct": 100.0
+          },
+          "test": {
+            "benign_count": 10,
+            "attack_count": 427,
+            "total": 437,
+            "attack_pct": 97.71
+          }
+        },
+        "time_range": {
+          "train": [
+            "2015-01-22T07:55:11",
+            "2015-02-18T01:10:41"
+          ],
+          "val": [
+            "2015-02-18T01:11:11",
+            "2015-02-18T04:48:11"
+          ],
+          "test": [
+            "2015-02-18T04:48:41",
+            "2015-02-18T08:26:41"
+          ]
+        }
+      },
+      "val_metrics": {
+        "threshold": 0.5,
+        "f1": 0.9988,
+        "precision": 1.0,
+        "recall": 0.9977,
+        "false_positive_rate": 0.0,
+        "false_positive_rate_percent": 0.0,
+        "accuracy": 0.9977,
+        "specificity": 0.0,
+        "roc_auc": "N/A",
+        "pr_auc": "N/A",
+        "confusion_matrix": {
+          "tn": 0,
+          "fp": 0,
+          "fn": 1,
+          "tp": 434
+        },
+        "sample_counts": {
+          "total": 435,
+          "actual_benign": 0,
+          "actual_attack": 435,
+          "pred_benign": 1,
+          "pred_attack": 434
+        }
+      },
+      "test_metrics": {
+        "threshold": 0.5,
+        "f1": 0.9873,
+        "precision": 0.9771,
+        "recall": 0.9977,
+        "false_positive_rate": 1.0,
+        "false_positive_rate_percent": 100.0,
+        "accuracy": 0.9748,
+        "specificity": 0.0,
+        "roc_auc": 0.3321,
+        "pr_auc": 0.9684,
+        "confusion_matrix": {
+          "tn": 0,
+          "fp": 10,
+          "fn": 1,
+          "tp": 426
+        },
+        "sample_counts": {
+          "total": 437,
+          "actual_benign": 10,
+          "actual_attack": 427,
+          "pred_benign": 1,
+          "pred_attack": 436
+        }
+      },
+      "coefficients": {
+        "S_t_total_flows": -0.5496370793576193,
+        "S_t_unique_src_hosts": 2.319075539530318,
+        "S_t_unique_dst_hosts": 2.3980651826644594,
+        "S_t_unique_dst_ports": 0.0949260149108927,
+        "S_t_unique_protocols": -0.2194156848106657,
+        "S_t_total_packets": -0.33838532049416686,
+        "S_t_total_bytes": -0.8105356043544741,
+        "S_t_inbound_bytes": 0.18920511297446624,
+        "S_t_outbound_bytes": -0.14966503609440285,
+        "S_t_inbound_outbound_ratio": 0.6540699573986781,
+        "S_t_mean_flow_duration": 0.8064487830246323,
+        "S_t_mean_packet_rate": -0.3849899368387876,
+        "S_t_mean_byte_rate": 0.4904790627225771,
+        "S_t_mean_iat": -0.30649801626725065,
+        "S_t_std_iat": -0.08184320951617106,
+        "S_t_syn_count": -0.08609709080235278,
+        "S_t_ack_count": -0.4941429795944715,
+        "S_t_rst_count": 0.36831799347833255,
+        "S_t_fin_count": -0.25218032794185463,
+        "S_t_connection_failure_rate": 0.27302619946108014,
+        "S_t_unique_host_pair_count": -0.17311205078358122,
+        "S_t_fan_out_ratio": 0.2940159636728175
+      }
+    }
+  },
+  "CTU-13": {
+    "k1": {
+      "metadata": {
+        "horizon": 1,
+        "feature_count": 22,
+        "features": [
+          "S_t_total_flows",
+          "S_t_unique_src_hosts",
+          "S_t_unique_dst_hosts",
+          "S_t_unique_dst_ports",
+          "S_t_unique_protocols",
+          "S_t_total_packets",
+          "S_t_total_bytes",
+          "S_t_inbound_bytes",
+          "S_t_outbound_bytes",
+          "S_t_inbound_outbound_ratio",
+          "S_t_mean_flow_duration",
+          "S_t_mean_packet_rate",
+          "S_t_mean_byte_rate",
+          "S_t_mean_iat",
+          "S_t_std_iat",
+          "S_t_syn_count",
+          "S_t_ack_count",
+          "S_t_rst_count",
+          "S_t_fin_count",
+          "S_t_connection_failure_rate",
+          "S_t_unique_host_pair_count",
+          "S_t_fan_out_ratio"
+        ],
+        "distribution": {
+          "train": {
+            "benign_count": 6410,
+            "attack_count": 4518,
+            "total": 10928,
+            "attack_pct": 41.34
+          },
+          "val": {
+            "benign_count": 1015,
+            "attack_count": 1322,
+            "total": 2337,
+            "attack_pct": 56.57
+          },
+          "test": {
+            "benign_count": 177,
+            "attack_count": 2178,
+            "total": 2355,
+            "attack_pct": 92.48
+          }
+        },
+        "time_range": {
+          "train": [
+            "2011-08-10T09:52:23.047277",
+            "2011-08-19T11:21:13.748728"
+          ],
+          "val": [
+            "2011-08-10T14:03:53.047277",
+            "2011-08-19T11:31:43.748728"
+          ],
+          "test": [
+            "2011-08-10T14:57:23.047277",
+            "2011-08-19T11:42:43.748728"
+          ]
+        }
+      },
+      "val_metrics": {
+        "threshold": 0.5,
+        "f1": 0.7002,
+        "precision": 0.563,
+        "recall": 0.9259,
+        "false_positive_rate": 0.936,
+        "false_positive_rate_percent": 93.6,
+        "accuracy": 0.5516,
+        "specificity": 0.064,
+        "roc_auc": 0.5372,
+        "pr_auc": 0.6298,
+        "confusion_matrix": {
+          "tn": 65,
+          "fp": 950,
+          "fn": 98,
+          "tp": 1224
+        },
+        "sample_counts": {
+          "total": 2337,
+          "actual_benign": 1015,
+          "actual_attack": 1322,
+          "pred_benign": 163,
+          "pred_attack": 2174
+        }
+      },
+      "test_metrics": {
+        "threshold": 0.5,
+        "f1": 0.8963,
+        "precision": 0.9778,
+        "recall": 0.8274,
+        "false_positive_rate": 0.2316,
+        "false_positive_rate_percent": 23.16,
+        "accuracy": 0.8229,
+        "specificity": 0.7684,
+        "roc_auc": 0.8676,
+        "pr_auc": 0.9863,
+        "confusion_matrix": {
+          "tn": 136,
+          "fp": 41,
+          "fn": 376,
+          "tp": 1802
+        },
+        "sample_counts": {
+          "total": 2355,
+          "actual_benign": 177,
+          "actual_attack": 2178,
+          "pred_benign": 512,
+          "pred_attack": 1843
+        }
+      },
+      "coefficients": {
+        "S_t_total_flows": 1.9189493929001349,
+        "S_t_unique_src_hosts": 0.12885274632903002,
+        "S_t_unique_dst_hosts": 0.8651767794385145,
+        "S_t_unique_dst_ports": -3.9285820524351776,
+        "S_t_unique_protocols": 0.20790807819078758,
+        "S_t_total_packets": -0.4623444478839341,
+        "S_t_total_bytes": 0.24890795732036464,
+        "S_t_inbound_bytes": 0.12607708016744895,
+        "S_t_outbound_bytes": 0.0049568671157926795,
+        "S_t_inbound_outbound_ratio": -0.016440621841034682,
+        "S_t_mean_flow_duration": 0.7988322919215838,
+        "S_t_mean_packet_rate": -1.4797311715394217,
+        "S_t_mean_byte_rate": 0.36565341502413823,
+        "S_t_mean_iat": 0.0,
+        "S_t_std_iat": 0.0,
+        "S_t_syn_count": 7.747084700006289,
+        "S_t_ack_count": 1.1688616424626865,
+        "S_t_rst_count": -6.86396150735682,
+        "S_t_fin_count": -2.2798725340034833,
+        "S_t_connection_failure_rate": 0.5928284797376571,
+        "S_t_unique_host_pair_count": -2.0236881902756756,
+        "S_t_fan_out_ratio": -0.8325261714718781
+      }
+    },
+    "k3": {
+      "metadata": {
+        "horizon": 3,
+        "feature_count": 22,
+        "features": [
+          "S_t_total_flows",
+          "S_t_unique_src_hosts",
+          "S_t_unique_dst_hosts",
+          "S_t_unique_dst_ports",
+          "S_t_unique_protocols",
+          "S_t_total_packets",
+          "S_t_total_bytes",
+          "S_t_inbound_bytes",
+          "S_t_outbound_bytes",
+          "S_t_inbound_outbound_ratio",
+          "S_t_mean_flow_duration",
+          "S_t_mean_packet_rate",
+          "S_t_mean_byte_rate",
+          "S_t_mean_iat",
+          "S_t_std_iat",
+          "S_t_syn_count",
+          "S_t_ack_count",
+          "S_t_rst_count",
+          "S_t_fin_count",
+          "S_t_connection_failure_rate",
+          "S_t_unique_host_pair_count",
+          "S_t_fan_out_ratio"
+        ],
+        "distribution": {
+          "train": {
+            "benign_count": 6398,
+            "attack_count": 4530,
+            "total": 10928,
+            "attack_pct": 41.45
+          },
+          "val": {
+            "benign_count": 1014,
+            "attack_count": 1323,
+            "total": 2337,
+            "attack_pct": 56.61
+          },
+          "test": {
+            "benign_count": 179,
+            "attack_count": 2176,
+            "total": 2355,
+            "attack_pct": 92.4
+          }
+        },
+        "time_range": {
+          "train": [
+            "2011-08-10T09:52:23.047277",
+            "2011-08-19T11:21:13.748728"
+          ],
+          "val": [
+            "2011-08-10T14:03:53.047277",
+            "2011-08-19T11:31:43.748728"
+          ],
+          "test": [
+            "2011-08-10T14:57:23.047277",
+            "2011-08-19T11:42:43.748728"
+          ]
+        }
+      },
+      "val_metrics": {
+        "threshold": 0.5,
+        "f1": 0.698,
+        "precision": 0.5624,
+        "recall": 0.9199,
+        "false_positive_rate": 0.9339,
+        "false_positive_rate_percent": 93.39,
+        "accuracy": 0.5494,
+        "specificity": 0.0661,
+        "roc_auc": 0.5223,
+        "pr_auc": 0.6175,
+        "confusion_matrix": {
+          "tn": 67,
+          "fp": 947,
+          "fn": 106,
+          "tp": 1217
+        },
+        "sample_counts": {
+          "total": 2337,
+          "actual_benign": 1014,
+          "actual_attack": 1323,
+          "pred_benign": 173,
+          "pred_attack": 2164
+        }
+      },
+      "test_metrics": {
+        "threshold": 0.5,
+        "f1": 0.8912,
+        "precision": 0.9754,
+        "recall": 0.8203,
+        "false_positive_rate": 0.2514,
+        "false_positive_rate_percent": 25.14,
+        "accuracy": 0.8149,
+        "specificity": 0.7486,
+        "roc_auc": 0.8698,
+        "pr_auc": 0.9873,
+        "confusion_matrix": {
+          "tn": 134,
+          "fp": 45,
+          "fn": 391,
+          "tp": 1785
+        },
+        "sample_counts": {
+          "total": 2355,
+          "actual_benign": 179,
+          "actual_attack": 2176,
+          "pred_benign": 525,
+          "pred_attack": 1830
+        }
+      },
+      "coefficients": {
+        "S_t_total_flows": 1.77113923952851,
+        "S_t_unique_src_hosts": -0.1055150748842344,
+        "S_t_unique_dst_hosts": 0.6929624124504613,
+        "S_t_unique_dst_ports": -3.2530195221881053,
+        "S_t_unique_protocols": 0.22295295346182603,
+        "S_t_total_packets": -0.48074610445623456,
+        "S_t_total_bytes": 0.25685394513560594,
+        "S_t_inbound_bytes": 0.13816704357299356,
+        "S_t_outbound_bytes": 0.012264578584097949,
+        "S_t_inbound_outbound_ratio": -0.06935795519052296,
+        "S_t_mean_flow_duration": 0.7903915189309962,
+        "S_t_mean_packet_rate": -1.2394802600019672,
+        "S_t_mean_byte_rate": -0.03366573930736276,
+        "S_t_mean_iat": 0.0,
+        "S_t_std_iat": 0.0,
+        "S_t_syn_count": 7.474085917448414,
+        "S_t_ack_count": 1.0363948022674963,
+        "S_t_rst_count": -7.123496787715284,
+        "S_t_fin_count": -2.121444876256002,
+        "S_t_connection_failure_rate": 0.6015186363140221,
+        "S_t_unique_host_pair_count": -1.621605899240674,
+        "S_t_fan_out_ratio": -0.8262868176816991
+      }
+    },
+    "k6": {
+      "metadata": {
+        "horizon": 6,
+        "feature_count": 22,
+        "features": [
+          "S_t_total_flows",
+          "S_t_unique_src_hosts",
+          "S_t_unique_dst_hosts",
+          "S_t_unique_dst_ports",
+          "S_t_unique_protocols",
+          "S_t_total_packets",
+          "S_t_total_bytes",
+          "S_t_inbound_bytes",
+          "S_t_outbound_bytes",
+          "S_t_inbound_outbound_ratio",
+          "S_t_mean_flow_duration",
+          "S_t_mean_packet_rate",
+          "S_t_mean_byte_rate",
+          "S_t_mean_iat",
+          "S_t_std_iat",
+          "S_t_syn_count",
+          "S_t_ack_count",
+          "S_t_rst_count",
+          "S_t_fin_count",
+          "S_t_connection_failure_rate",
+          "S_t_unique_host_pair_count",
+          "S_t_fan_out_ratio"
+        ],
+        "distribution": {
+          "train": {
+            "benign_count": 6376,
+            "attack_count": 4552,
+            "total": 10928,
+            "attack_pct": 41.65
+          },
+          "val": {
+            "benign_count": 1012,
+            "attack_count": 1325,
+            "total": 2337,
+            "attack_pct": 56.7
+          },
+          "test": {
+            "benign_count": 194,
+            "attack_count": 2161,
+            "total": 2355,
+            "attack_pct": 91.76
+          }
+        },
+        "time_range": {
+          "train": [
+            "2011-08-10T09:52:23.047277",
+            "2011-08-19T11:21:13.748728"
+          ],
+          "val": [
+            "2011-08-10T14:03:53.047277",
+            "2011-08-19T11:31:43.748728"
+          ],
+          "test": [
+            "2011-08-10T14:57:23.047277",
+            "2011-08-19T11:42:43.748728"
+          ]
+        }
+      },
+      "val_metrics": {
+        "threshold": 0.5,
+        "f1": 0.6983,
+        "precision": 0.5622,
+        "recall": 0.9215,
+        "false_positive_rate": 0.9397,
+        "false_positive_rate_percent": 93.97,
+        "accuracy": 0.5486,
+        "specificity": 0.0603,
+        "roc_auc": 0.5203,
+        "pr_auc": 0.6175,
+        "confusion_matrix": {
+          "tn": 61,
+          "fp": 951,
+          "fn": 104,
+          "tp": 1221
+        },
+        "sample_counts": {
+          "total": 2337,
+          "actual_benign": 1012,
+          "actual_attack": 1325,
+          "pred_benign": 165,
+          "pred_attack": 2172
+        }
+      },
+      "test_metrics": {
+        "threshold": 0.5,
+        "f1": 0.8946,
+        "precision": 0.9718,
+        "recall": 0.8288,
+        "false_positive_rate": 0.268,
+        "false_positive_rate_percent": 26.8,
+        "accuracy": 0.8208,
+        "specificity": 0.732,
+        "roc_auc": 0.861,
+        "pr_auc": 0.9837,
+        "confusion_matrix": {
+          "tn": 142,
+          "fp": 52,
+          "fn": 370,
+          "tp": 1791
+        },
+        "sample_counts": {
+          "total": 2355,
+          "actual_benign": 194,
+          "actual_attack": 2161,
+          "pred_benign": 512,
+          "pred_attack": 1843
+        }
+      },
+      "coefficients": {
+        "S_t_total_flows": 1.7025538033681238,
+        "S_t_unique_src_hosts": -0.036294887554207934,
+        "S_t_unique_dst_hosts": 0.798164887272793,
+        "S_t_unique_dst_ports": -3.384637561444571,
+        "S_t_unique_protocols": 0.24555242966054705,
+        "S_t_total_packets": -0.5426667067210149,
+        "S_t_total_bytes": 0.3325146531970593,
+        "S_t_inbound_bytes": 0.14454857438007518,
+        "S_t_outbound_bytes": 0.010861957116563417,
+        "S_t_inbound_outbound_ratio": -0.05580406189316151,
+        "S_t_mean_flow_duration": 0.7963571832259972,
+        "S_t_mean_packet_rate": -1.1660749717450576,
+        "S_t_mean_byte_rate": -0.14172813425621317,
+        "S_t_mean_iat": 0.0,
+        "S_t_std_iat": 0.0,
+        "S_t_syn_count": 7.321483448665973,
+        "S_t_ack_count": 0.8367920938254181,
+        "S_t_rst_count": -6.540081229412164,
+        "S_t_fin_count": -2.0567432995487915,
+        "S_t_connection_failure_rate": 0.5357390160059068,
+        "S_t_unique_host_pair_count": -1.7300197107602366,
+        "S_t_fan_out_ratio": -0.8543364621600334
+      }
+    }
+  },
+  "Overall": {
+    "k1": {
+      "metadata": {
+        "horizon": 1,
+        "feature_count": 22,
+        "features": [
+          "S_t_total_flows",
+          "S_t_unique_src_hosts",
+          "S_t_unique_dst_hosts",
+          "S_t_unique_dst_ports",
+          "S_t_unique_protocols",
+          "S_t_total_packets",
+          "S_t_total_bytes",
+          "S_t_inbound_bytes",
+          "S_t_outbound_bytes",
+          "S_t_inbound_outbound_ratio",
+          "S_t_mean_flow_duration",
+          "S_t_mean_packet_rate",
+          "S_t_mean_byte_rate",
+          "S_t_mean_iat",
+          "S_t_std_iat",
+          "S_t_syn_count",
+          "S_t_ack_count",
+          "S_t_rst_count",
+          "S_t_fin_count",
+          "S_t_connection_failure_rate",
+          "S_t_unique_host_pair_count",
+          "S_t_fan_out_ratio"
+        ],
+        "distribution": {
+          "train": {
+            "benign_count": 10205,
+            "attack_count": 6087,
+            "total": 16292,
+            "attack_pct": 37.36
+          },
+          "val": {
+            "benign_count": 1575,
+            "attack_count": 1908,
+            "total": 3483,
+            "attack_pct": 54.78
+          },
+          "test": {
+            "benign_count": 835,
+            "attack_count": 2680,
+            "total": 3515,
+            "attack_pct": 76.24
+          }
+        },
+        "time_range": {
+          "train": [
+            "2011-08-10T09:52:23.047277",
+            "2017-07-07T11:46:00"
+          ],
+          "val": [
+            "2011-08-10T14:03:53.047277",
+            "2017-07-07T12:20:30"
+          ],
+          "test": [
+            "2011-08-10T14:57:23.047277",
+            "2017-07-07T12:56:00"
+          ]
+        }
+      },
+      "val_metrics": {
+        "threshold": 0.5,
+        "f1": 0.7021,
+        "precision": 0.6161,
+        "recall": 0.816,
+        "false_positive_rate": 0.6159,
+        "false_positive_rate_percent": 61.59,
+        "accuracy": 0.6207,
+        "specificity": 0.3841,
+        "roc_auc": 0.5873,
+        "pr_auc": 0.6296,
+        "confusion_matrix": {
+          "tn": 605,
+          "fp": 970,
+          "fn": 351,
+          "tp": 1557
+        },
+        "sample_counts": {
+          "total": 3483,
+          "actual_benign": 1575,
+          "actual_attack": 1908,
+          "pred_benign": 956,
+          "pred_attack": 2527
+        }
+      },
+      "test_metrics": {
+        "threshold": 0.5,
+        "f1": 0.8569,
+        "precision": 0.9789,
+        "recall": 0.7619,
+        "false_positive_rate": 0.0527,
+        "false_positive_rate_percent": 5.27,
+        "accuracy": 0.806,
+        "specificity": 0.9473,
+        "roc_auc": 0.8761,
+        "pr_auc": 0.9579,
+        "confusion_matrix": {
+          "tn": 791,
+          "fp": 44,
+          "fn": 638,
+          "tp": 2042
+        },
+        "sample_counts": {
+          "total": 3515,
+          "actual_benign": 835,
+          "actual_attack": 2680,
+          "pred_benign": 1429,
+          "pred_attack": 2086
+        }
+      },
+      "coefficients": {
+        "S_t_total_flows": 1.4465370443128465,
+        "S_t_unique_src_hosts": -6.703141068250176,
+        "S_t_unique_dst_hosts": -2.7540775391394487,
+        "S_t_unique_dst_ports": -0.3614593329453553,
+        "S_t_unique_protocols": 0.019947907546837496,
+        "S_t_total_packets": -0.5814906209683427,
+        "S_t_total_bytes": 0.42462064057750837,
+        "S_t_inbound_bytes": 0.0845585794568241,
+        "S_t_outbound_bytes": -4.2671358416219344e-05,
+        "S_t_inbound_outbound_ratio": 0.1935007649711892,
+        "S_t_mean_flow_duration": 1.3967759225409053,
+        "S_t_mean_packet_rate": -0.03946917238792232,
+        "S_t_mean_byte_rate": -0.7069768682003098,
+        "S_t_mean_iat": 0.08522060004330338,
+        "S_t_std_iat": 0.22837400128664812,
+        "S_t_syn_count": 3.283599902268608,
+        "S_t_ack_count": -1.2471962368704324,
+        "S_t_rst_count": -3.2804413686681184,
+        "S_t_fin_count": -1.3891118558380557,
+        "S_t_connection_failure_rate": 0.5090450910579675,
+        "S_t_unique_host_pair_count": 8.042793232182758,
+        "S_t_fan_out_ratio": -0.23268634540043528
+      }
+    },
+    "k3": {
+      "metadata": {
+        "horizon": 3,
+        "feature_count": 22,
+        "features": [
+          "S_t_total_flows",
+          "S_t_unique_src_hosts",
+          "S_t_unique_dst_hosts",
+          "S_t_unique_dst_ports",
+          "S_t_unique_protocols",
+          "S_t_total_packets",
+          "S_t_total_bytes",
+          "S_t_inbound_bytes",
+          "S_t_outbound_bytes",
+          "S_t_inbound_outbound_ratio",
+          "S_t_mean_flow_duration",
+          "S_t_mean_packet_rate",
+          "S_t_mean_byte_rate",
+          "S_t_mean_iat",
+          "S_t_std_iat",
+          "S_t_syn_count",
+          "S_t_ack_count",
+          "S_t_rst_count",
+          "S_t_fin_count",
+          "S_t_connection_failure_rate",
+          "S_t_unique_host_pair_count",
+          "S_t_fan_out_ratio"
+        ],
+        "distribution": {
+          "train": {
+            "benign_count": 10191,
+            "attack_count": 6101,
+            "total": 16292,
+            "attack_pct": 37.45
+          },
+          "val": {
+            "benign_count": 1576,
+            "attack_count": 1907,
+            "total": 3483,
+            "attack_pct": 54.75
+          },
+          "test": {
+            "benign_count": 837,
+            "attack_count": 2678,
+            "total": 3515,
+            "attack_pct": 76.19
+          }
+        },
+        "time_range": {
+          "train": [
+            "2011-08-10T09:52:23.047277",
+            "2017-07-07T11:46:00"
+          ],
+          "val": [
+            "2011-08-10T14:03:53.047277",
+            "2017-07-07T12:20:30"
+          ],
+          "test": [
+            "2011-08-10T14:57:23.047277",
+            "2017-07-07T12:56:00"
+          ]
+        }
+      },
+      "val_metrics": {
+        "threshold": 0.5,
+        "f1": 0.6997,
+        "precision": 0.613,
+        "recall": 0.8149,
+        "false_positive_rate": 0.6225,
+        "false_positive_rate_percent": 62.25,
+        "accuracy": 0.617,
+        "specificity": 0.3775,
+        "roc_auc": 0.5777,
+        "pr_auc": 0.6136,
+        "confusion_matrix": {
+          "tn": 595,
+          "fp": 981,
+          "fn": 353,
+          "tp": 1554
+        },
+        "sample_counts": {
+          "total": 3483,
+          "actual_benign": 1576,
+          "actual_attack": 1907,
+          "pred_benign": 948,
+          "pred_attack": 2535
+        }
+      },
+      "test_metrics": {
+        "threshold": 0.5,
+        "f1": 0.854,
+        "precision": 0.9765,
+        "recall": 0.7588,
+        "false_positive_rate": 0.0585,
+        "false_positive_rate_percent": 5.85,
+        "accuracy": 0.8023,
+        "specificity": 0.9415,
+        "roc_auc": 0.8741,
+        "pr_auc": 0.9554,
+        "confusion_matrix": {
+          "tn": 788,
+          "fp": 49,
+          "fn": 646,
+          "tp": 2032
+        },
+        "sample_counts": {
+          "total": 3515,
+          "actual_benign": 837,
+          "actual_attack": 2678,
+          "pred_benign": 1434,
+          "pred_attack": 2081
+        }
+      },
+      "coefficients": {
+        "S_t_total_flows": 1.4023447347012978,
+        "S_t_unique_src_hosts": -6.201286127592579,
+        "S_t_unique_dst_hosts": -2.518635444315999,
+        "S_t_unique_dst_ports": -0.3193264482343858,
+        "S_t_unique_protocols": 0.025123348288809688,
+        "S_t_total_packets": -0.5414461262109173,
+        "S_t_total_bytes": 0.3704318254673466,
+        "S_t_inbound_bytes": 0.0911970991161915,
+        "S_t_outbound_bytes": 0.004437856395303989,
+        "S_t_inbound_outbound_ratio": 0.18909427678843452,
+        "S_t_mean_flow_duration": 1.3737953628718782,
+        "S_t_mean_packet_rate": -0.07216785005643199,
+        "S_t_mean_byte_rate": -0.8273862861940103,
+        "S_t_mean_iat": 0.05923346185495296,
+        "S_t_std_iat": 0.245006223504956,
+        "S_t_syn_count": 3.333822586225244,
+        "S_t_ack_count": -1.2744712366878512,
+        "S_t_rst_count": -3.3517788496385434,
+        "S_t_fin_count": -1.405397304718795,
+        "S_t_connection_failure_rate": 0.48908924782704105,
+        "S_t_unique_host_pair_count": 7.354745567733527,
+        "S_t_fan_out_ratio": -0.2588870539370598
+      }
+    },
+    "k6": {
+      "metadata": {
+        "horizon": 6,
+        "feature_count": 22,
+        "features": [
+          "S_t_total_flows",
+          "S_t_unique_src_hosts",
+          "S_t_unique_dst_hosts",
+          "S_t_unique_dst_ports",
+          "S_t_unique_protocols",
+          "S_t_total_packets",
+          "S_t_total_bytes",
+          "S_t_inbound_bytes",
+          "S_t_outbound_bytes",
+          "S_t_inbound_outbound_ratio",
+          "S_t_mean_flow_duration",
+          "S_t_mean_packet_rate",
+          "S_t_mean_byte_rate",
+          "S_t_mean_iat",
+          "S_t_std_iat",
+          "S_t_syn_count",
+          "S_t_ack_count",
+          "S_t_rst_count",
+          "S_t_fin_count",
+          "S_t_connection_failure_rate",
+          "S_t_unique_host_pair_count",
+          "S_t_fan_out_ratio"
+        ],
+        "distribution": {
+          "train": {
+            "benign_count": 10163,
+            "attack_count": 6129,
+            "total": 16292,
+            "attack_pct": 37.62
+          },
+          "val": {
+            "benign_count": 1579,
+            "attack_count": 1904,
+            "total": 3483,
+            "attack_pct": 54.67
+          },
+          "test": {
+            "benign_count": 850,
+            "attack_count": 2665,
+            "total": 3515,
+            "attack_pct": 75.82
+          }
+        },
+        "time_range": {
+          "train": [
+            "2011-08-10T09:52:23.047277",
+            "2017-07-07T11:46:00"
+          ],
+          "val": [
+            "2011-08-10T14:03:53.047277",
+            "2017-07-07T12:20:30"
+          ],
+          "test": [
+            "2011-08-10T14:57:23.047277",
+            "2017-07-07T12:56:00"
+          ]
+        }
+      },
+      "val_metrics": {
+        "threshold": 0.5,
+        "f1": 0.7005,
+        "precision": 0.6114,
+        "recall": 0.8199,
+        "false_positive_rate": 0.6282,
+        "false_positive_rate_percent": 62.82,
+        "accuracy": 0.6167,
+        "specificity": 0.3718,
+        "roc_auc": 0.5714,
+        "pr_auc": 0.6036,
+        "confusion_matrix": {
+          "tn": 587,
+          "fp": 992,
+          "fn": 343,
+          "tp": 1561
+        },
+        "sample_counts": {
+          "total": 3483,
+          "actual_benign": 1579,
+          "actual_attack": 1904,
+          "pred_benign": 930,
+          "pred_attack": 2553
+        }
+      },
+      "test_metrics": {
+        "threshold": 0.5,
+        "f1": 0.8555,
+        "precision": 0.9755,
+        "recall": 0.7617,
+        "false_positive_rate": 0.06,
+        "false_positive_rate_percent": 6.0,
+        "accuracy": 0.8048,
+        "specificity": 0.94,
+        "roc_auc": 0.8779,
+        "pr_auc": 0.9569,
+        "confusion_matrix": {
+          "tn": 799,
+          "fp": 51,
+          "fn": 635,
+          "tp": 2030
+        },
+        "sample_counts": {
+          "total": 3515,
+          "actual_benign": 850,
+          "actual_attack": 2665,
+          "pred_benign": 1434,
+          "pred_attack": 2081
+        }
+      },
+      "coefficients": {
+        "S_t_total_flows": 1.193047855121112,
+        "S_t_unique_src_hosts": -6.010351528237823,
+        "S_t_unique_dst_hosts": -2.422684586901518,
+        "S_t_unique_dst_ports": -0.4012057382659865,
+        "S_t_unique_protocols": 0.10108948444624742,
+        "S_t_total_packets": -0.6233530003495937,
+        "S_t_total_bytes": 0.45812593550610486,
+        "S_t_inbound_bytes": 0.10123888742496889,
+        "S_t_outbound_bytes": 0.0072029701877109305,
+        "S_t_inbound_outbound_ratio": 0.20644625996983254,
+        "S_t_mean_flow_duration": 1.3611000040627301,
+        "S_t_mean_packet_rate": -0.042637647973511966,
+        "S_t_mean_byte_rate": -0.9375355655495717,
+        "S_t_mean_iat": 0.04824205784470274,
+        "S_t_std_iat": 0.23102094514573782,
+        "S_t_syn_count": 3.369434584749498,
+        "S_t_ack_count": -1.34636420734741,
+        "S_t_rst_count": -3.1439302866418086,
+        "S_t_fin_count": -1.3226266985119721,
+        "S_t_connection_failure_rate": 0.4205606123370622,
+        "S_t_unique_host_pair_count": 7.189322566642815,
+        "S_t_fan_out_ratio": -0.2523807042155185
+      }
+    }
+  }
+}

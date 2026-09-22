@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "description": "Exhaustive field and feature availability audit across the 3 empirical datasets",
+    "generated_date": "2026-09-21"
+  },
+  "datasets": {
+    "CIC-IDS2017": {
+      "flow_fields": {
+        "timestamp": {"status": "available", "source_field": "Timestamp", "derivation": "Parsed from local datetime"},
+        "src_ip": {"status": "available", "source_field": "Source IP", "derivation": "Direct mapping"},
+        "dst_ip": {"status": "available", "source_field": "Destination IP", "derivation": "Direct mapping"},
+        "src_port": {"status": "available", "source_field": "Source Port", "derivation": "Direct mapping"},
+        "dst_port": {"status": "available", "source_field": "Destination Port", "derivation": "Direct mapping"},
+        "protocol": {"status": "available", "source_field": "Protocol", "derivation": "IANA protocol number to name"},
+        "duration": {"status": "available", "source_field": "Flow Duration", "derivation": "Converted from microseconds to seconds"},
+        "packets_forward": {"status": "available", "source_field": "Total Fwd Packets", "derivation": "Direct mapping"},
+        "packets_backward": {"status": "available", "source_field": "Total Backward Packets", "derivation": "Direct mapping"},
+        "bytes_forward": {"status": "available", "source_field": "Total Length of Fwd Packets", "derivation": "Direct mapping"},
+        "bytes_backward": {"status": "available", "source_field": "Total Length of Bwd Packets", "derivation": "Direct mapping"},
+        "packet_rate": {"status": "available", "source_field": "Flow Packets/s", "derivation": "Direct mapping or recomputed"},
+        "byte_rate": {"status": "available", "source_field": "Flow Bytes/s", "derivation": "Direct mapping or recomputed"},
+        "iat_mean": {"status": "available", "source_field": "Flow IAT Mean", "derivation": "Direct mapping"},
+        "iat_std": {"status": "available", "source_field": "Flow IAT Std", "derivation": "Direct mapping"},
+        "iat_max": {"status": "available", "source_field": "Flow IAT Max", "derivation": "Direct mapping"},
+        "tcp_syn": {"status": "available", "source_field": "SYN Flag Count", "derivation": "Direct mapping"},
+        "tcp_ack": {"status": "available", "source_field": "ACK Flag Count", "derivation": "Direct mapping"},
+        "tcp_fin": {"status": "available", "source_field": "FIN Flag Count", "derivation": "Direct mapping"},
+        "tcp_rst": {"status": "available", "source_field": "RST Flag Count", "derivation": "Direct mapping"},
+        "ttl_mean": {"status": "unavailable", "source_field": null, "derivation": "Not captured by CICFlowMeter in this release (-1.0 sentinel)"},
+        "ttl_std": {"status": "unavailable", "source_field": null, "derivation": "Not captured by CICFlowMeter in this release (-1.0 sentinel)"},
+        "payload_size_mean": {"status": "available", "source_field": "Fwd Packet Length Mean", "derivation": "Direct mapping"},
+        "payload_size_std": {"status": "available", "source_field": "Fwd Packet Length Std", "derivation": "Direct mapping"},
+        "label": {"status": "available", "source_field": "Label", "derivation": "0 if BENIGN else 1"},
+        "attack_type": {"status": "available", "source_field": "Label", "derivation": "Direct string mapping"}
+      }
+    },
+    "UNSW-NB15": {
+      "flow_fields": {
+        "timestamp": {"status": "available", "source_field": "Timestamp", "derivation": "Parsed from 12-hour AM/PM datetime"},
+        "src_ip": {"status": "available", "source_field": "Src IP", "derivation": "Direct mapping"},
+        "dst_ip": {"status": "available", "source_field": "Dst IP", "derivation": "Direct mapping"},
+        "src_port": {"status": "available", "source_field": "Src Port", "derivation": "Direct mapping"},
+        "dst_port": {"status": "available", "source_field": "Dst Port", "derivation": "Direct mapping"},
+        "protocol": {"status": "available", "source_field": "Protocol", "derivation": "IANA protocol number to name"},
+        "duration": {"status": "available", "source_field": "Flow Duration", "derivation": "Converted from microseconds/seconds"},
+        "packets_forward": {"status": "available", "source_field": "Total Fwd Packet", "derivation": "Direct mapping"},
+        "packets_backward": {"status": "available", "source_field": "Total Bwd packets", "derivation": "Direct mapping"},
+        "bytes_forward": {"status": "available", "source_field": "Total Length of Fwd Packet", "derivation": "Direct mapping"},
+        "bytes_backward": {"status": "available", "source_field": "Total Length of Bwd Packet", "derivation": "Direct mapping"},
+        "packet_rate": {"status": "derived", "source_field": "Total Packets / Duration", "derivation": "Computed safely with epsilon"},
+        "byte_rate": {"status": "derived", "source_field": "Total Bytes / Duration", "derivation": "Computed safely with epsilon"},
+        "iat_mean": {"status": "available", "source_field": "Flow IAT Mean", "derivation": "Direct mapping"},
+        "iat_std": {"status": "available", "source_field": "Flow IAT Std", "derivation": "Direct mapping"},
+        "iat_max": {"status": "available", "source_field": "Flow IAT Max", "derivation": "Direct mapping"},
+        "tcp_syn": {"status": "available", "source_field": "SYN Flag Count", "derivation": "Direct mapping"},
+        "tcp_ack": {"status": "available", "source_field": "ACK Flag Count", "derivation": "Direct mapping"},
+        "tcp_fin": {"status": "available", "source_field": "FIN Flag Count", "derivation": "Direct mapping"},
+        "tcp_rst": {"status": "available", "source_field": "RST Flag Count", "derivation": "Direct mapping"},
+        "ttl_mean": {"status": "unavailable", "source_field": null, "derivation": "Not in CICFlowMeter output CSV (-1.0 sentinel)"},
+        "ttl_std": {"status": "unavailable", "source_field": null, "derivation": "Not in CICFlowMeter output CSV (-1.0 sentinel)"},
+        "payload_size_mean": {"status": "available", "source_field": "Fwd Packet Length Mean", "derivation": "Direct mapping"},
+        "payload_size_std": {"status": "available", "source_field": "Fwd Packet Length Std", "derivation": "Direct mapping"},
+        "label": {"status": "available", "source_field": "Label", "derivation": "0 if Benign else 1"},
+        "attack_type": {"status": "available", "source_field": "Label", "derivation": "Direct category string mapping"}
+      }
+    },
+    "CTU-13": {
+      "flow_fields": {
+        "timestamp": {"status": "available", "source_field": "StartTime", "derivation": "High-precision ISO-like datetime"},
+        "src_ip": {"status": "available", "source_field": "SrcAddr", "derivation": "Direct mapping"},
+        "dst_ip": {"status": "available", "source_field": "DstAddr", "derivation": "Direct mapping"},
+        "src_port": {"status": "available", "source_field": "Sport", "derivation": "Parsed integer or 0 if string/symbol"},
+        "dst_port": {"status": "available", "source_field": "Dport", "derivation": "Parsed integer or 0 if string/symbol"},
+        "protocol": {"status": "available", "source_field": "Proto", "derivation": "Standardized uppercase"},
+        "duration": {"status": "available", "source_field": "Dur", "derivation": "Direct float mapping"},
+        "packets_forward": {"status": "derived_approximation", "source_field": "TotPkts, Dir", "derivation": "If Dir == '->', TotPkts; if '<->', proportional approximation; flagged derived_approximation=true"},
+        "packets_backward": {"status": "derived_approximation", "source_field": "TotPkts, Dir", "derivation": "TotPkts - packets_forward; flagged derived_approximation=true"},
+        "bytes_forward": {"status": "available", "source_field": "SrcBytes", "derivation": "Direct mapping"},
+        "bytes_backward": {"status": "available", "source_field": "TotBytes, SrcBytes", "derivation": "TotBytes - SrcBytes"},
+        "packet_rate": {"status": "derived", "source_field": "TotPkts / max(Dur, 1e-4)", "derivation": "Computed safely with epsilon"},
+        "byte_rate": {"status": "derived", "source_field": "TotBytes / max(Dur, 1e-4)", "derivation": "Computed safely with epsilon"},
+        "iat_mean": {"status": "unavailable_from_binetflow", "source_field": null, "derivation": "Argus binetflow aggregates flows, no per-packet IATs recorded (-1.0 sentinel)"},
+        "iat_std": {"status": "unavailable_from_binetflow", "source_field": null, "derivation": "Argus binetflow aggregates flows, no per-packet IATs recorded (-1.0 sentinel)"},
+        "iat_max": {"status": "unavailable_from_binetflow", "source_field": null, "derivation": "Argus binetflow aggregates flows, no per-packet IATs recorded (-1.0 sentinel)"},
+        "tcp_syn": {"status": "derived", "source_field": "State", "derivation": "Presence of 'S' in Argus State string"},
+        "tcp_ack": {"status": "derived", "source_field": "State", "derivation": "Presence of 'A' in Argus State string"},
+        "tcp_fin": {"status": "derived", "source_field": "State", "derivation": "Presence of 'F' in Argus State string"},
+        "tcp_rst": {"status": "derived", "source_field": "State", "derivation": "Presence of 'R' in Argus State string"},
+        "ttl_mean": {"status": "unavailable", "source_field": null, "derivation": "Not recorded in binetflow format (-1.0 sentinel)"},
+        "ttl_std": {"status": "unavailable", "source_field": null, "derivation": "Not recorded in binetflow format (-1.0 sentinel)"},
+        "payload_size_mean": {"status": "derived", "source_field": "TotBytes / TotPkts", "derivation": "Computed mean packet payload size"},
+        "payload_size_std": {"status": "unavailable", "source_field": null, "derivation": "Not recorded in binetflow (-1.0 sentinel)"},
+        "label": {"status": "available", "source_field": "Label", "derivation": "1 if 'botnet' in Label.lower() else 0"},
+        "attack_type": {"status": "available", "source_field": "Label", "derivation": "Extracted botnet strain name (e.g. Neris, Rbot, Virut)"}
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+window_config:
+  window_size_seconds: 60
+  step_size_seconds: 30
+  minimum_flows: 1
+  timestamp_column: "timestamp_normalized"
+  history_windows: 10
+  forecast_horizons: [1, 3, 6]
+  
+network_boundary:
+  mode: "dataset_defined"
+  # Documented monitored / internal network boundaries per dataset:
+  CIC-IDS2017:
+    internal_subnets:
+      - "192.168.10.0/24"
+      - "192.168.1.0/24"
+    server_subnet: "172.16.0.0/16"
+  UNSW-NB15:
+    internal_subnets:
+      - "175.45.176.0/24"
+      - "149.171.126.0/24"
+  CTU-13:
+    # In CTU-13, infected botnet hosts are monitored:
+    # 147.32.84.165, 147.32.84.191, 147.32.84.192, 147.32.84.193, 147.32.84.204-209
+    monitored_subnet: "147.32.84.0/24"
+
+aggregation_rules:
+  graph_features:
+    - "unique_src_hosts"
+    - "unique_dst_hosts"
+    - "unique_dst_ports"
+    - "unique_protocols"
+    - "unique_host_pairs"
+    - "fan_out_ratio"
+  volume_features:
+    - "total_flows"
+    - "total_packets"
+    - "total_bytes"
+    - "inbound_bytes"
+    - "outbound_bytes"
+    - "inbound_outbound_ratio"
+  rate_features:
+    - "mean_flow_duration"
+    - "mean_packet_rate"
+    - "mean_byte_rate"
+  timing_features:
+    - "mean_iat"
+    - "std_iat"
+  flag_features:
+    - "syn_count"
+    - "ack_count"
+    - "rst_count"
+    - "fin_count"
+    - "connection_failure_rate"
+
+splitting:
+  train_ratio: 0.70
+  val_ratio: 0.15
+  test_ratio: 0.15
+  method: "chronological_per_scenario"

@@ -1,0 +1,11 @@
+timestep_index,relative_position,mean_signed_attribution,mean_absolute_attribution,median_absolute_attribution,dominant_direction,normalized_importance
+0,T-270s (t-9),0.425671,0.461167,0.385588,attack_supporting,0.097169
+1,T-240s (t-8),0.459036,0.490987,0.421422,attack_supporting,0.103452
+2,T-210s (t-7),0.4889,0.520476,0.459643,attack_supporting,0.109666
+3,T-180s (t-6),0.509425,0.540609,0.487154,attack_supporting,0.113908
+4,T-150s (t-5),0.51606,0.548072,0.508468,attack_supporting,0.11548
+5,T-120s (t-4),0.509753,0.540022,0.516358,attack_supporting,0.113784
+6,T-90s (t-3),0.488525,0.513566,0.515306,attack_supporting,0.10821
+7,T-60s (t-2),0.447695,0.466762,0.466833,attack_supporting,0.098348
+8,T-30s (t-1),0.38039,0.393219,0.385291,attack_supporting,0.082852
+9,T (t),0.264628,0.271145,0.244021,attack_supporting,0.057131

@@ -1,0 +1,55 @@
+{
+  "catalog_name": "CAPEC",
+  "capec_version": "3.9",
+  "release_date": "2023-01-24",
+  "source_url": "https://capec.mitre.org/data/xml/views/3000.xml",
+  "acquisition_date": "2026-09-21",
+  "raw_files": [
+    {
+      "file_name": "333.csv.zip",
+      "relative_path": "raw/333.csv.zip",
+      "size_bytes": 41662,
+      "sha256": "da1bfcf61bb812293aaf9eb58e42caa630b6b546e997e56ca4b13af0fa0185b4",
+      "format": "ZIP"
+    },
+    {
+      "file_name": "658.csv.zip",
+      "relative_path": "raw/658.csv.zip",
+      "size_bytes": 119675,
+      "sha256": "d05ce29381a2420e9da97b4654da2d80093e49149ce78875ecc38f6ed2f960b8",
+      "format": "ZIP"
+    },
+    {
+      "file_name": "659.csv.zip",
+      "relative_path": "raw/659.csv.zip",
+      "size_bytes": 41852,
+      "sha256": "c79a5e3fe1a5963344ee7ff2a52f48f60c90e3a512aee237025135356ca9170a",
+      "format": "ZIP"
+    },
+    {
+      "file_name": "capec_latest.xml",
+      "relative_path": "raw/capec_latest.xml",
+      "size_bytes": 3849998,
+      "sha256": "70279a2dff0cb0ad79e546adb07828335a704ad5210e047e09e986172fc9e34d",
+      "format": "XML"
+    },
+    {
+      "file_name": "1000.csv",
+      "relative_path": "raw/1000.csv/1000.csv",
+      "size_bytes": 1433640,
+      "sha256": "6ba3971aefee4c2ce4d29c2b50b85acab15016133f1f60a765229d780af4f44f",
+      "format": "CSV"
+    },
+    {
+      "file_name": "3000.csv",
+      "relative_path": "raw/3000.csv/3000.csv",
+      "size_bytes": 1433640,
+      "sha256": "6ba3971aefee4c2ce4d29c2b50b85acab15016133f1f60a765229d780af4f44f",
+      "format": "CSV"
+    }
+  ],
+  "number_of_attack_patterns": 615,
+  "number_of_documented_attck_mappings": 272,
+  "nvd_status": "EXCLUDED_BY_DESIGN",
+  "status": "OFFLINE_LOCAL_NORMALIZED"
+}

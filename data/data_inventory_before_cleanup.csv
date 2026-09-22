@@ -1,0 +1,91 @@
+dataset,relative_path,file_name,extension,size_bytes,size_gb,file_type,estimated_role,action_candidate
+CIC-IDS2017,data/CIC-IDS2017/CSV/GeneratedLabelledFlows.md5,GeneratedLabelledFlows.md5,.md5,61,0.0,MD5 Checksum,Dataset integrity verification,KEEP
+CIC-IDS2017,data/CIC-IDS2017/CSV/GeneratedLabelledFlows/TrafficLabelling/Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv,Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv,.csv,96101069,0.089501,CSV,Extracted flow features and ground truth labels,KEEP
+CIC-IDS2017,data/CIC-IDS2017/CSV/GeneratedLabelledFlows/TrafficLabelling/Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv,Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv,.csv,101874777,0.094878,CSV,Extracted flow features and ground truth labels,KEEP
+CIC-IDS2017,data/CIC-IDS2017/CSV/GeneratedLabelledFlows/TrafficLabelling/Friday-WorkingHours-Morning.pcap_ISCX.csv,Friday-WorkingHours-Morning.pcap_ISCX.csv,.csv,75386737,0.070209,CSV,Extracted flow features and ground truth labels,KEEP
+CIC-IDS2017,data/CIC-IDS2017/CSV/GeneratedLabelledFlows/TrafficLabelling/Monday-WorkingHours.pcap_ISCX.csv,Monday-WorkingHours.pcap_ISCX.csv,.csv,268649908,0.2502,CSV,Extracted flow features and ground truth labels,KEEP
+CIC-IDS2017,data/CIC-IDS2017/CSV/GeneratedLabelledFlows/TrafficLabelling/Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv,Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv,.csv,108723183,0.101256,CSV,Extracted flow features and ground truth labels,KEEP
+CIC-IDS2017,data/CIC-IDS2017/CSV/GeneratedLabelledFlows/TrafficLabelling/Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv,Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv,.csv,92030223,0.08571,CSV,Extracted flow features and ground truth labels,KEEP
+CIC-IDS2017,data/CIC-IDS2017/CSV/GeneratedLabelledFlows/TrafficLabelling/Tuesday-WorkingHours.pcap_ISCX.csv,Tuesday-WorkingHours.pcap_ISCX.csv,.csv,174696560,0.162699,CSV,Extracted flow features and ground truth labels,KEEP
+CIC-IDS2017,data/CIC-IDS2017/CSV/GeneratedLabelledFlows/TrafficLabelling/Wednesday-workingHours.pcap_ISCX.csv,Wednesday-workingHours.pcap_ISCX.csv,.csv,285642925,0.266026,CSV,Extracted flow features and ground truth labels,KEEP
+CIC-IDS2017,data/CIC-IDS2017/CSV/MachineLearningCSV.md5,MachineLearningCSV.md5,.md5,57,0.0,MD5 Checksum,Dataset integrity verification,KEEP
+CIC-IDS2017,data/CIC-IDS2017/CSV/MachineLearningCSV/MachineLearningCVE/Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv,Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv,.csv,77123859,0.071827,CSV,Extracted flow features and ground truth labels,KEEP
+CIC-IDS2017,data/CIC-IDS2017/CSV/MachineLearningCSV/MachineLearningCVE/Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv,Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv,.csv,76906168,0.071624,CSV,Extracted flow features and ground truth labels,KEEP
+CIC-IDS2017,data/CIC-IDS2017/CSV/MachineLearningCSV/MachineLearningCVE/Friday-WorkingHours-Morning.pcap_ISCX.csv,Friday-WorkingHours-Morning.pcap_ISCX.csv,.csv,58316725,0.054312,CSV,Extracted flow features and ground truth labels,KEEP
+CIC-IDS2017,data/CIC-IDS2017/CSV/MachineLearningCSV/MachineLearningCVE/Monday-WorkingHours.pcap_ISCX.csv,Monday-WorkingHours.pcap_ISCX.csv,.csv,176927918,0.164777,CSV,Extracted flow features and ground truth labels,KEEP
+CIC-IDS2017,data/CIC-IDS2017/CSV/MachineLearningCSV/MachineLearningCVE/Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv,Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv,.csv,83102436,0.077395,CSV,Extracted flow features and ground truth labels,KEEP
+CIC-IDS2017,data/CIC-IDS2017/CSV/MachineLearningCSV/MachineLearningCVE/Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv,Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv,.csv,52023263,0.04845,CSV,Extracted flow features and ground truth labels,KEEP
+CIC-IDS2017,data/CIC-IDS2017/CSV/MachineLearningCSV/MachineLearningCVE/Tuesday-WorkingHours.pcap_ISCX.csv,Tuesday-WorkingHours.pcap_ISCX.csv,.csv,135078995,0.125802,CSV,Extracted flow features and ground truth labels,KEEP
+CIC-IDS2017,data/CIC-IDS2017/CSV/MachineLearningCSV/MachineLearningCVE/Wednesday-workingHours.pcap_ISCX.csv,Wednesday-workingHours.pcap_ISCX.csv,.csv,225166395,0.209703,CSV,Extracted flow features and ground truth labels,KEEP
+CIC-IDS2017,data/CIC-IDS2017/PCAP/Friday-WorkingHours.md5,Friday-WorkingHours.md5,.md5,59,0.0,MD5 Checksum,Dataset integrity verification,KEEP
+CIC-IDS2017,data/CIC-IDS2017/PCAP/Friday-WorkingHours.pcap,Friday-WorkingHours.pcap,.pcap,8839309056,8.232248,PCAP,Raw packet capture (evaluation / benchmark reference),KEEP
+CIC-IDS2017,data/CIC-IDS2017/PCAP/Monday-WorkingHours.md5,Monday-WorkingHours.md5,.md5,59,0.0,MD5 Checksum,Dataset integrity verification,KEEP
+CIC-IDS2017,data/CIC-IDS2017/PCAP/Monday-WorkingHours.pcap,Monday-WorkingHours.pcap,.pcap,10822507416,10.079245,PCAP,Raw packet capture (evaluation / benchmark reference),KEEP
+CIC-IDS2017,data/CIC-IDS2017/PCAP/Thursday-WorkingHours.md5,Thursday-WorkingHours.md5,.md5,61,0.0,MD5 Checksum,Dataset integrity verification,KEEP
+CIC-IDS2017,data/CIC-IDS2017/PCAP/Thursday-WorkingHours.pcap,Thursday-WorkingHours.pcap,.pcap,8302500180,7.732306,PCAP,Raw packet capture (evaluation / benchmark reference),KEEP
+CIC-IDS2017,data/CIC-IDS2017/PCAP/Tuesday-WorkingHours.md5,Tuesday-WorkingHours.md5,.md5,60,0.0,MD5 Checksum,Dataset integrity verification,KEEP
+CIC-IDS2017,data/CIC-IDS2017/PCAP/Tuesday-WorkingHours.pcap,Tuesday-WorkingHours.pcap,.pcap,11048283608,10.289516,PCAP,Raw packet capture (evaluation / benchmark reference),KEEP
+CIC-IDS2017,data/CIC-IDS2017/PCAP/Wednesday-workingHours.md5,Wednesday-workingHours.md5,.md5,62,0.0,MD5 Checksum,Dataset integrity verification,KEEP
+CIC-IDS2017,data/CIC-IDS2017/PCAP/Wednesday-workingHours.pcap,Wednesday-workingHours.pcap,.pcap,13420789612,12.499084,PCAP,Raw packet capture (evaluation / benchmark reference),KEEP
+CTU-13,data/CTU-13-Dataset/1/Neris.exe,Neris.exe,.exe,586240,0.000546,Binary Executable,Original malware sample executable (sandboxed artifact),REVIEW_REQUIRED
+CTU-13,data/CTU-13-Dataset/1/README.html,README.html,.html,4959,5e-06,Documentation / Metadata,"Scenario description, setup details, and protocol documentation",KEEP
+CTU-13,data/CTU-13-Dataset/1/botnet-capture-20110810-neris.pcap,botnet-capture-20110810-neris.pcap,.pcap,58266506,0.054265,PCAP,Raw packet capture (redundant with Binetflow for flow modeling),DELETE_CANDIDATE
+CTU-13,data/CTU-13-Dataset/1/capture20110810.binetflow,capture20110810.binetflow,.binetflow,386629271,0.360077,Binetflow,Bidirectional NetFlow records with ground-truth botnet labels,KEEP
+CTU-13,data/CTU-13-Dataset/10/README,README,(none),9329,9e-06,Documentation / Metadata,"Scenario description, setup details, and protocol documentation",KEEP
+CTU-13,data/CTU-13-Dataset/10/botnet-capture-20110818-bot.pcap,botnet-capture-20110818-bot.pcap,.pcap,70688336180,65.833643,PCAP,Raw packet capture (redundant with Binetflow for flow modeling),DELETE_CANDIDATE
+CTU-13,data/CTU-13-Dataset/10/capture20110818.binetflow,capture20110818.binetflow,.binetflow,179074339,0.166776,Binetflow,Bidirectional NetFlow records with ground-truth botnet labels,KEEP
+CTU-13,data/CTU-13-Dataset/10/rbot.exe,rbot.exe,.exe,225792,0.00021,Binary Executable,Original malware sample executable (sandboxed artifact),REVIEW_REQUIRED
+CTU-13,data/CTU-13-Dataset/11/README,README,(none),2571,2e-06,Documentation / Metadata,"Scenario description, setup details, and protocol documentation",KEEP
+CTU-13,data/CTU-13-Dataset/11/botnet-capture-20110818-bot-2.pcap,botnet-capture-20110818-bot-2.pcap,.pcap,4263638204,3.970823,PCAP,Raw packet capture (redundant with Binetflow for flow modeling),DELETE_CANDIDATE
+CTU-13,data/CTU-13-Dataset/11/capture20110818-2.binetflow,capture20110818-2.binetflow,.binetflow,14596615,0.013594,Binetflow,Bidirectional NetFlow records with ground-truth botnet labels,KEEP
+CTU-13,data/CTU-13-Dataset/11/rbot.exe,rbot.exe,.exe,225792,0.00021,Binary Executable,Original malware sample executable (sandboxed artifact),REVIEW_REQUIRED
+CTU-13,data/CTU-13-Dataset/12/3d3d%3F%3F%3F%3F.xls.exe,3d3d%3F%3F%3F%3F.xls.exe,.exe,705167,0.000657,Binary Executable,Original malware sample executable (sandboxed artifact),REVIEW_REQUIRED
+CTU-13,data/CTU-13-Dataset/12/README,README,(none),3852,4e-06,Documentation / Metadata,"Scenario description, setup details, and protocol documentation",KEEP
+CTU-13,data/CTU-13-Dataset/12/botnet-capture-20110819-bot.pcap,botnet-capture-20110819-bot.pcap,.pcap,294902378,0.274649,PCAP,Raw packet capture (redundant with Binetflow for flow modeling),DELETE_CANDIDATE
+CTU-13,data/CTU-13-Dataset/12/capture20110819.binetflow,capture20110819.binetflow,.binetflow,44718958,0.041648,Binetflow,Bidirectional NetFlow records with ground-truth botnet labels,KEEP
+CTU-13,data/CTU-13-Dataset/13/README,README,(none),1986,2e-06,Documentation / Metadata,"Scenario description, setup details, and protocol documentation",KEEP
+CTU-13,data/CTU-13-Dataset/13/botnet-capture-20110815-fast-flux-2.pcap,botnet-capture-20110815-fast-flux-2.pcap,.pcap,114572014,0.106704,PCAP,Raw packet capture (redundant with Binetflow for flow modeling),DELETE_CANDIDATE
+CTU-13,data/CTU-13-Dataset/13/capture20110815-3.binetflow,capture20110815-3.binetflow,.binetflow,262668288,0.244629,Binetflow,Bidirectional NetFlow records with ground-truth botnet labels,KEEP
+CTU-13,data/CTU-13-Dataset/13/e4f816462c4fc84bb250e2b1d295bf23_85f9a5247afbe51e64794193f1dd72eb_unpacked.exe,e4f816462c4fc84bb250e2b1d295bf23_85f9a5247afbe51e64794193f1dd72eb_unpacked.exe,.exe,598528,0.000557,Binary Executable,Original malware sample executable (sandboxed artifact),REVIEW_REQUIRED
+CTU-13,data/CTU-13-Dataset/2/Neris.exe,Neris.exe,.exe,586240,0.000546,Binary Executable,Original malware sample executable (sandboxed artifact),REVIEW_REQUIRED
+CTU-13,data/CTU-13-Dataset/2/README,README,(none),2014,2e-06,Documentation / Metadata,"Scenario description, setup details, and protocol documentation",KEEP
+CTU-13,data/CTU-13-Dataset/2/botnet-capture-20110811-neris.pcap,botnet-capture-20110811-neris.pcap,.pcap,36261479,0.033771,PCAP,Raw packet capture (redundant with Binetflow for flow modeling),DELETE_CANDIDATE
+CTU-13,data/CTU-13-Dataset/2/capture20110811.binetflow,capture20110811.binetflow,.binetflow,247231783,0.230253,Binetflow,Bidirectional NetFlow records with ground-truth botnet labels,KEEP
+CTU-13,data/CTU-13-Dataset/3/README,README,(none),2179,2e-06,Documentation / Metadata,"Scenario description, setup details, and protocol documentation",KEEP
+CTU-13,data/CTU-13-Dataset/3/botnet-capture-20110812-rbot.pcap,botnet-capture-20110812-rbot.pcap,.pcap,128575191,0.119745,PCAP,Raw packet capture (redundant with Binetflow for flow modeling),DELETE_CANDIDATE
+CTU-13,data/CTU-13-Dataset/3/capture20110812.binetflow,capture20110812.binetflow,.binetflow,639643247,0.595714,Binetflow,Bidirectional NetFlow records with ground-truth botnet labels,KEEP
+CTU-13,data/CTU-13-Dataset/3/rbot.exe,rbot.exe,.exe,225792,0.00021,Binary Executable,Original malware sample executable (sandboxed artifact),REVIEW_REQUIRED
+CTU-13,data/CTU-13-Dataset/4/README,README,(none),8076,8e-06,Documentation / Metadata,"Scenario description, setup details, and protocol documentation",KEEP
+CTU-13,data/CTU-13-Dataset/4/botnet-capture-20110815-rbot-dos.pcap,botnet-capture-20110815-rbot-dos.pcap,.pcap,222379082,0.207107,PCAP,Raw packet capture (redundant with Binetflow for flow modeling),DELETE_CANDIDATE
+CTU-13,data/CTU-13-Dataset/4/capture20110815.binetflow,capture20110815.binetflow,.binetflow,153789874,0.143228,Binetflow,Bidirectional NetFlow records with ground-truth botnet labels,KEEP
+CTU-13,data/CTU-13-Dataset/4/rbot.exe,rbot.exe,.exe,225792,0.00021,Binary Executable,Original malware sample executable (sandboxed artifact),REVIEW_REQUIRED
+CTU-13,data/CTU-13-Dataset/5/README,README,(none),2021,2e-06,Documentation / Metadata,"Scenario description, setup details, and protocol documentation",KEEP
+CTU-13,data/CTU-13-Dataset/5/botnet-capture-20110815-fast-flux.pcap,botnet-capture-20110815-fast-flux.pcap,.pcap,30941919,0.028817,PCAP,Raw packet capture (redundant with Binetflow for flow modeling),DELETE_CANDIDATE
+CTU-13,data/CTU-13-Dataset/5/capture20110815-2.binetflow,capture20110815-2.binetflow,.binetflow,17766203,0.016546,Binetflow,Bidirectional NetFlow records with ground-truth botnet labels,KEEP
+CTU-13,data/CTU-13-Dataset/5/e4f816462c4fc84bb250e2b1d295bf23_85f9a5247afbe51e64794193f1dd72eb_unpacked.exe,e4f816462c4fc84bb250e2b1d295bf23_85f9a5247afbe51e64794193f1dd72eb_unpacked.exe,.exe,598528,0.000557,Binary Executable,Original malware sample executable (sandboxed artifact),REVIEW_REQUIRED
+CTU-13,data/CTU-13-Dataset/6/README,README,(none),1904,2e-06,Documentation / Metadata,"Scenario description, setup details, and protocol documentation",KEEP
+CTU-13,data/CTU-13-Dataset/6/botnet-capture-20110816-donbot.pcap,botnet-capture-20110816-donbot.pcap,.pcap,5284095,0.004921,PCAP,Raw packet capture (redundant with Binetflow for flow modeling),DELETE_CANDIDATE
+CTU-13,data/CTU-13-Dataset/6/capture20110816.binetflow,capture20110816.binetflow,.binetflow,76780048,0.071507,Binetflow,Bidirectional NetFlow records with ground-truth botnet labels,KEEP
+CTU-13,data/CTU-13-Dataset/6/svchosta.exe,svchosta.exe,.exe,128512,0.00012,Binary Executable,Original malware sample executable (sandboxed artifact),REVIEW_REQUIRED
+CTU-13,data/CTU-13-Dataset/7/README,README,(none),2795,3e-06,Documentation / Metadata,"Scenario description, setup details, and protocol documentation",KEEP
+CTU-13,data/CTU-13-Dataset/7/botnet-capture-20110816-sogou.pcap,botnet-capture-20110816-sogou.pcap,.pcap,18868213,0.017572,PCAP,Raw packet capture (redundant with Binetflow for flow modeling),DELETE_CANDIDATE
+CTU-13,data/CTU-13-Dataset/7/capture20110816-2.binetflow,capture20110816-2.binetflow,.binetflow,15630512,0.014557,Binetflow,Bidirectional NetFlow records with ground-truth botnet labels,KEEP
+CTU-13,data/CTU-13-Dataset/7/sogou_explorer_silent_1.4.0.418_2136.exe,sogou_explorer_silent_1.4.0.418_2136.exe,.exe,4261648,0.003969,Binary Executable,Original malware sample executable (sandboxed artifact),REVIEW_REQUIRED
+CTU-13,data/CTU-13-Dataset/8/QvodSetuPuls23.exe,QvodSetuPuls23.exe,.exe,174363,0.000162,Binary Executable,Original malware sample executable (sandboxed artifact),REVIEW_REQUIRED
+CTU-13,data/CTU-13-Dataset/8/README,README,(none),1860,2e-06,Documentation / Metadata,"Scenario description, setup details, and protocol documentation",KEEP
+CTU-13,data/CTU-13-Dataset/8/botnet-capture-20110816-qvod.pcap,botnet-capture-20110816-qvod.pcap,.pcap,21366192,0.019899,PCAP,Raw packet capture (redundant with Binetflow for flow modeling),DELETE_CANDIDATE
+CTU-13,data/CTU-13-Dataset/8/capture20110816-3.binetflow,capture20110816-3.binetflow,.binetflow,403955463,0.376213,Binetflow,Bidirectional NetFlow records with ground-truth botnet labels,KEEP
+CTU-13,data/CTU-13-Dataset/9/Neris.exe,Neris.exe,.exe,586240,0.000546,Binary Executable,Original malware sample executable (sandboxed artifact),REVIEW_REQUIRED
+CTU-13,data/CTU-13-Dataset/9/README,README,(none),5807,5e-06,Documentation / Metadata,"Scenario description, setup details, and protocol documentation",KEEP
+CTU-13,data/CTU-13-Dataset/9/botnet-capture-20110817-bot.pcap,botnet-capture-20110817-bot.pcap,.pcap,1126596020,1.049224,PCAP,Raw packet capture (redundant with Binetflow for flow modeling),DELETE_CANDIDATE
+CTU-13,data/CTU-13-Dataset/9/capture20110817.binetflow,capture20110817.binetflow,.binetflow,285841002,0.26621,Binetflow,Bidirectional NetFlow records with ground-truth botnet labels,KEEP
+UNSW-NB15,data/UNSW-NB15/CICFlowMeter_out.csv,CICFlowMeter_out.csv,.csv,1914305081,1.782836,CSV,Extracted flow features and ground truth labels,KEEP
+UNSW-NB15,data/UNSW-NB15/Data.csv,Data.csv,.csv,196247534,0.18277,CSV,Extracted flow features and ground truth labels,KEEP
+UNSW-NB15,data/UNSW-NB15/Label.csv,Label.csv,.csv,895836,0.000834,CSV,Extracted flow features and ground truth labels,KEEP
+UNSW-NB15,data/UNSW-NB15/Readme.txt,Readme.txt,.txt,111,0.0,Documentation / Metadata,"Scenario description, setup details, and protocol documentation",KEEP
+CAPEC,data/knowledge/capec/processed/333.csv/333.csv,333.csv,.csv,157828,0.000147,CSV,Extracted flow features and ground truth labels,KEEP
+CAPEC,data/knowledge/capec/processed/658.csv/658.csv,658.csv,.csv,439640,0.000409,CSV,Extracted flow features and ground truth labels,KEEP
+CAPEC,data/knowledge/capec/processed/659.csv/659.csv,659.csv,.csv,149853,0.00014,CSV,Extracted flow features and ground truth labels,KEEP
+CAPEC,data/knowledge/capec/raw/1000.csv/1000.csv,1000.csv,.csv,1433640,0.001335,CSV,Extracted flow features and ground truth labels,KEEP
+CAPEC,data/knowledge/capec/raw/3000.csv/3000.csv,3000.csv,.csv,1433640,0.001335,CSV,Extracted flow features and ground truth labels,KEEP
+CAPEC,data/knowledge/capec/raw/capec_latest.xml,capec_latest.xml,.xml,3849998,0.003586,Other,Ancillary data file,REVIEW_REQUIRED

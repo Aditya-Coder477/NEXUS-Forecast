@@ -1,0 +1,131 @@
+# ==============================================================================
+# NEXUS-FORECAST .gitignore
+# Network Attack Forecasting & Threat Intelligence (SIH PS26153)
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. MASSIVE DATASETS & RAW CAPTURES (>56 GB)
+# Exclude raw PCAPs, binetflows, and raw dataset directories to keep git repo light
+# ------------------------------------------------------------------------------
+data/CIC-IDS2017/
+data/CIC-IDS2018/
+data/UNSW-NB15/
+data/CTU-13-Dataset/
+*.pcap
+*.pcapng
+*.cap
+*.binetflow
+*.pcap_ISCX.csv
+
+# Raw data dumps
+data/raw/
+data/temp/
+
+# Keep processed sequences & lightweight demo parquet files
+!data/demo/
+!data/demo/**
+!data/processed/
+
+# ------------------------------------------------------------------------------
+# 2. LARGE RAW KNOWLEDGE BASES (>50 MB GitHub limit)
+# Exclude 50MB+ raw STIX JSON bundles, keep normalized processed JSONs
+# ------------------------------------------------------------------------------
+data/knowledge/**/raw/*.json
+data/knowledge/**/raw/*.zip
+data/knowledge/**/raw/*.xml
+!data/knowledge/**/processed/**
+
+# ------------------------------------------------------------------------------
+# 3. RUNTIME OUTPUTS, LOGS & LARGE JSONL TRACES
+# ------------------------------------------------------------------------------
+outputs/*
+!outputs/.gitkeep
+reports/**/*.jsonl
+*.jsonl
+*.log
+scratch/
+temp/
+tmp/
+
+# ------------------------------------------------------------------------------
+# 4. PYTHON BYTECODE & COMPILED ARTIFACTS
+# ------------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ------------------------------------------------------------------------------
+# 5. TESTING & COVERAGE CACHES
+# ------------------------------------------------------------------------------
+.pytest_cache/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+
+# ------------------------------------------------------------------------------
+# 6. VIRTUAL ENVIRONMENTS
+# ------------------------------------------------------------------------------
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# ------------------------------------------------------------------------------
+# 7. ENVIRONMENT VARIABLES & SECRETS
+# ------------------------------------------------------------------------------
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# ------------------------------------------------------------------------------
+# 8. OS & IDE ARTIFACTS
+# ------------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+*.sublime-workspace
+*.sublime-project
+
+# ------------------------------------------------------------------------------
+# 9. FROZEN MODELS & WEIGHTS (ENSURE TRACKED)
+# Ensure the GRU model checkpoint (~920 KB) and scaler are preserved
+# ------------------------------------------------------------------------------
+!models/world_model/gru/best_model.pt
+!models/world_model/gru/scaler.pkl
+!models/calibration/**
+!models/manifest.json

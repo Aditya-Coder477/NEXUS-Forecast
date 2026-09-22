@@ -1,0 +1,211 @@
+nexus_stage,attack_id,technique_name,mitre_tactic,mapping_confidence,review_required,mapping_reason,linked_capec_patterns
+COMMAND_AND_CONTROL,T1001,Data Obfuscation,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1001.001,Junk Data,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1001.002,Steganography,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",CAPEC-636 (Hiding Malicious Data or Code within Files)
+COMMAND_AND_CONTROL,T1001.003,Protocol or Service Impersonation,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1008,Fallback Channels,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1071,Application Layer Protocol,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1071.001,Web Protocols,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1071.002,File Transfer Protocols,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1071.003,Mail Protocols,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1071.004,DNS,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1071.005,Publish/Subscribe Protocols,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1090,Proxy,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1090.001,Internal Proxy,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",CAPEC-465 (Transparent Proxy Abuse)
+COMMAND_AND_CONTROL,T1090.002,External Proxy,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1090.003,Multi-hop Proxy,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1090.004,Domain Fronting,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",CAPEC-481 (Contradictory Destinations in Traffic Routing Schemes)
+COMMAND_AND_CONTROL,T1092,Communication Through Removable Media,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",CAPEC-457 (USB Memory Attacks)
+COMMAND_AND_CONTROL,T1095,Non-Application Layer Protocol,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1102,Web Service,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1102.001,Dead Drop Resolver,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1102.002,Bidirectional Communication,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1102.003,One-Way Communication,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1104,Multi-Stage Channels,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1105,Ingress Tool Transfer,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1132,Data Encoding,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1132.001,Standard Encoding,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1132.002,Non-Standard Encoding,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1219,Remote Access Tools,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1219.001,IDE Tunneling,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1219.002,Remote Desktop Software,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1219.003,Remote Access Hardware,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1568,Dynamic Resolution,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1568.001,Fast Flux DNS,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1568.002,Domain Generation Algorithms,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1568.003,DNS Calculation,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1571,Non-Standard Port,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1572,Protocol Tunneling,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1573,Encrypted Channel,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1573.001,Symmetric Cryptography,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1573.002,Asymmetric Cryptography,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1665,Hide Infrastructure,command-and-control,HIGH,False,"Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",None Mapped
+COMMAND_AND_CONTROL,T1205,Traffic Signaling,stealth,REVIEW_REQUIRED,True,"Multi-tactic technique (stealth, persistence, command-and-control); stage depends on temporal network context (provisional: COMMAND_AND_CONTROL)",None Mapped
+COMMAND_AND_CONTROL,T1205.001,Port Knocking,stealth,REVIEW_REQUIRED,True,"Multi-tactic technique (stealth, persistence, command-and-control); stage depends on temporal network context (provisional: COMMAND_AND_CONTROL)",None Mapped
+COMMAND_AND_CONTROL,T1205.002,Socket Filters,stealth,REVIEW_REQUIRED,True,"Multi-tactic technique (stealth, persistence, command-and-control); stage depends on temporal network context (provisional: COMMAND_AND_CONTROL)",None Mapped
+CREDENTIAL_ACCESS,T1003,OS Credential Dumping,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-150 (Collect Data from Common Resource Locations)
+CREDENTIAL_ACCESS,T1003.001,LSASS Memory,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-150 (Collect Data from Common Resource Locations)
+CREDENTIAL_ACCESS,T1003.002,Security Account Manager,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-150 (Collect Data from Common Resource Locations)
+CREDENTIAL_ACCESS,T1003.003,NTDS,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-150 (Collect Data from Common Resource Locations)
+CREDENTIAL_ACCESS,T1003.004,LSA Secrets,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-150 (Collect Data from Common Resource Locations)
+CREDENTIAL_ACCESS,T1003.005,Cached Domain Credentials,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-150 (Collect Data from Common Resource Locations)
+CREDENTIAL_ACCESS,T1003.006,DCSync,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-150 (Collect Data from Common Resource Locations)
+CREDENTIAL_ACCESS,T1003.007,Proc Filesystem,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-150 (Collect Data from Common Resource Locations)
+CREDENTIAL_ACCESS,T1003.008,/etc/passwd and /etc/shadow,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-150 (Collect Data from Common Resource Locations)
+CREDENTIAL_ACCESS,T1110,Brute Force,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-112 (Brute Force)
+CREDENTIAL_ACCESS,T1110.001,Password Guessing,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-49 (Password Brute Forcing); CAPEC-112 (Brute Force)
+CREDENTIAL_ACCESS,T1110.002,Password Cracking,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-55 (Rainbow Table Password Cracking); CAPEC-112 (Brute Force)
+CREDENTIAL_ACCESS,T1110.003,Password Spraying,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-112 (Brute Force); CAPEC-565 (Password Spraying)
+CREDENTIAL_ACCESS,T1110.004,Credential Stuffing,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-112 (Brute Force); CAPEC-600 (Credential Stuffing)
+CREDENTIAL_ACCESS,T1552,Unsecured Credentials,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",None Mapped
+CREDENTIAL_ACCESS,T1552.001,Credentials In Files,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-191 (Read Sensitive Constants Within an Executable); CAPEC-639 (Probe System Files)
+CREDENTIAL_ACCESS,T1552.002,Credentials in Registry,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-647 (Collect Data from Registries)
+CREDENTIAL_ACCESS,T1552.003,Shell History,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-639 (Probe System Files)
+CREDENTIAL_ACCESS,T1552.004,Private Keys,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-37 (Retrieve Embedded Sensitive Data); CAPEC-474 (Signature Spoofing by Key Theft); CAPEC-485 (Signature Spoofing by Key Recreation); CAPEC-639 (Probe System Files)
+CREDENTIAL_ACCESS,T1552.005,Cloud Instance Metadata API,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",None Mapped
+CREDENTIAL_ACCESS,T1552.006,Group Policy Preferences,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-639 (Probe System Files)
+CREDENTIAL_ACCESS,T1552.007,Container API,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",None Mapped
+CREDENTIAL_ACCESS,T1552.008,Chat Messages,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",None Mapped
+CREDENTIAL_ACCESS,T1555,Credentials from Password Stores,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-150 (Collect Data from Common Resource Locations)
+CREDENTIAL_ACCESS,T1555.001,Keychain,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-150 (Collect Data from Common Resource Locations); CAPEC-545 (Pull Data from System Resources)
+CREDENTIAL_ACCESS,T1555.002,Securityd Memory,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-150 (Collect Data from Common Resource Locations)
+CREDENTIAL_ACCESS,T1555.003,Credentials from Web Browsers,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-150 (Collect Data from Common Resource Locations)
+CREDENTIAL_ACCESS,T1555.004,Windows Credential Manager,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-150 (Collect Data from Common Resource Locations)
+CREDENTIAL_ACCESS,T1555.005,Password Managers,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-150 (Collect Data from Common Resource Locations)
+CREDENTIAL_ACCESS,T1555.006,Cloud Secrets Management Stores,credential-access,HIGH,False,"Direct alignment with authentication probing, brute force, and credential harvesting",CAPEC-150 (Collect Data from Common Resource Locations)
+CREDENTIAL_ACCESS,T1040,Network Sniffing,credential-access,REVIEW_REQUIRED,True,"Multi-tactic technique (credential-access, discovery); stage depends on temporal network context (provisional: CREDENTIAL_ACCESS)",CAPEC-57 (Utilizing REST's Trust in the System Resource to Obtain Sensitive Data); CAPEC-65 (Sniff Application Code); CAPEC-158 (Sniffing Network Traffic)
+DISCOVERY,T1016,System Network Configuration Discovery,discovery,HIGH,False,"Direct alignment with internal network, port, or host discovery scanning",CAPEC-309 (Network Topology Mapping)
+DISCOVERY,T1016.001,Internet Connection Discovery,discovery,HIGH,False,"Direct alignment with internal network, port, or host discovery scanning",CAPEC-309 (Network Topology Mapping)
+DISCOVERY,T1016.002,Wi-Fi Discovery,discovery,HIGH,False,"Direct alignment with internal network, port, or host discovery scanning",CAPEC-309 (Network Topology Mapping)
+DISCOVERY,T1018,Remote System Discovery,discovery,HIGH,False,"Direct alignment with internal network, port, or host discovery scanning",CAPEC-292 (Host Discovery)
+DISCOVERY,T1046,Network Service Discovery,discovery,HIGH,False,"Direct alignment with internal network, port, or host discovery scanning",CAPEC-300 (Port Scanning)
+DISCOVERY,T1069,Permission Groups Discovery,discovery,HIGH,False,"Direct alignment with internal network, port, or host discovery scanning",CAPEC-576 (Group Permission Footprinting)
+DISCOVERY,T1069.001,Local Groups,discovery,HIGH,False,"Direct alignment with internal network, port, or host discovery scanning",CAPEC-576 (Group Permission Footprinting)
+DISCOVERY,T1069.002,Domain Groups,discovery,HIGH,False,"Direct alignment with internal network, port, or host discovery scanning",CAPEC-576 (Group Permission Footprinting)
+DISCOVERY,T1069.003,Cloud Groups,discovery,HIGH,False,"Direct alignment with internal network, port, or host discovery scanning",CAPEC-576 (Group Permission Footprinting)
+DISCOVERY,T1082,System Information Discovery,discovery,HIGH,False,"Direct alignment with internal network, port, or host discovery scanning",CAPEC-312 (Active OS Fingerprinting); CAPEC-313 (Passive OS Fingerprinting); CAPEC-580 (System Footprinting)
+DISCOVERY,T1087,Account Discovery,discovery,HIGH,False,"Direct alignment with internal network, port, or host discovery scanning",CAPEC-575 (Account Footprinting)
+DISCOVERY,T1087.001,Local Account,discovery,HIGH,False,"Direct alignment with internal network, port, or host discovery scanning",CAPEC-575 (Account Footprinting)
+DISCOVERY,T1087.002,Domain Account,discovery,HIGH,False,"Direct alignment with internal network, port, or host discovery scanning",CAPEC-575 (Account Footprinting)
+DISCOVERY,T1087.003,Email Account,discovery,HIGH,False,"Direct alignment with internal network, port, or host discovery scanning",CAPEC-575 (Account Footprinting)
+DISCOVERY,T1087.004,Cloud Account,discovery,HIGH,False,"Direct alignment with internal network, port, or host discovery scanning",CAPEC-575 (Account Footprinting)
+EXECUTION,T1059,Command and Scripting Interpreter,execution,HIGH,False,Direct alignment with malicious binary or script execution phase,None Mapped
+EXECUTION,T1059.001,PowerShell,execution,HIGH,False,Direct alignment with malicious binary or script execution phase,None Mapped
+EXECUTION,T1059.002,AppleScript,execution,HIGH,False,Direct alignment with malicious binary or script execution phase,None Mapped
+EXECUTION,T1059.003,Windows Command Shell,execution,HIGH,False,Direct alignment with malicious binary or script execution phase,None Mapped
+EXECUTION,T1059.004,Unix Shell,execution,HIGH,False,Direct alignment with malicious binary or script execution phase,None Mapped
+EXECUTION,T1059.005,Visual Basic,execution,HIGH,False,Direct alignment with malicious binary or script execution phase,None Mapped
+EXECUTION,T1059.006,Python,execution,HIGH,False,Direct alignment with malicious binary or script execution phase,None Mapped
+EXECUTION,T1059.007,JavaScript,execution,HIGH,False,Direct alignment with malicious binary or script execution phase,None Mapped
+EXECUTION,T1059.008,Network Device CLI,execution,HIGH,False,Direct alignment with malicious binary or script execution phase,None Mapped
+EXECUTION,T1059.009,Cloud API,execution,HIGH,False,Direct alignment with malicious binary or script execution phase,None Mapped
+EXECUTION,T1059.010,AutoHotKey & AutoIT,execution,HIGH,False,Direct alignment with malicious binary or script execution phase,None Mapped
+EXECUTION,T1059.011,Lua,execution,HIGH,False,Direct alignment with malicious binary or script execution phase,None Mapped
+EXECUTION,T1059.012,Hypervisor CLI,execution,HIGH,False,Direct alignment with malicious binary or script execution phase,None Mapped
+EXECUTION,T1059.013,Container CLI/API,execution,HIGH,False,Direct alignment with malicious binary or script execution phase,None Mapped
+EXECUTION,T1203,Exploitation for Client Execution,execution,HIGH,False,Direct alignment with malicious binary or script execution phase,None Mapped
+EXECUTION,T1569,System Services,execution,HIGH,False,Direct alignment with malicious binary or script execution phase,None Mapped
+EXECUTION,T1569.001,Launchctl,execution,HIGH,False,Direct alignment with malicious binary or script execution phase,None Mapped
+EXECUTION,T1569.002,Service Execution,execution,HIGH,False,Direct alignment with malicious binary or script execution phase,None Mapped
+EXECUTION,T1569.003,Systemctl,execution,HIGH,False,Direct alignment with malicious binary or script execution phase,None Mapped
+EXECUTION,T1053,Scheduled Task/Job,execution,REVIEW_REQUIRED,True,"Multi-tactic technique (execution, persistence, privilege-escalation); stage depends on temporal network context (provisional: EXECUTION)",None Mapped
+EXECUTION,T1053.002,At,execution,REVIEW_REQUIRED,True,"Multi-tactic technique (execution, persistence, privilege-escalation); stage depends on temporal network context (provisional: EXECUTION)",None Mapped
+EXECUTION,T1053.003,Cron,execution,REVIEW_REQUIRED,True,"Multi-tactic technique (execution, persistence, privilege-escalation); stage depends on temporal network context (provisional: EXECUTION)",None Mapped
+EXECUTION,T1053.005,Scheduled Task,execution,REVIEW_REQUIRED,True,"Multi-tactic technique (execution, persistence, privilege-escalation); stage depends on temporal network context (provisional: EXECUTION)",None Mapped
+EXECUTION,T1053.006,Systemd Timers,execution,REVIEW_REQUIRED,True,"Multi-tactic technique (execution, persistence, privilege-escalation); stage depends on temporal network context (provisional: EXECUTION)",None Mapped
+EXECUTION,T1053.007,Container Orchestration Job,execution,REVIEW_REQUIRED,True,"Multi-tactic technique (execution, persistence, privilege-escalation); stage depends on temporal network context (provisional: EXECUTION)",None Mapped
+EXECUTION,T1072,Software Deployment Tools,execution,REVIEW_REQUIRED,True,"Multi-tactic technique (execution, lateral-movement); stage depends on temporal network context (provisional: EXECUTION)",CAPEC-187 (Malicious Automated Software Update via Redirection); CAPEC-657 (Malicious Automated Software Update via Spoofing)
+EXFILTRATION,T1011,Exfiltration Over Other Network Medium,exfiltration,HIGH,False,Direct alignment with unauthorized data staging and outbound transfer,None Mapped
+EXFILTRATION,T1011.001,Exfiltration Over Bluetooth,exfiltration,HIGH,False,Direct alignment with unauthorized data staging and outbound transfer,None Mapped
+EXFILTRATION,T1020,Automated Exfiltration,exfiltration,HIGH,False,Direct alignment with unauthorized data staging and outbound transfer,None Mapped
+EXFILTRATION,T1020.001,Traffic Duplication,exfiltration,HIGH,False,Direct alignment with unauthorized data staging and outbound transfer,None Mapped
+EXFILTRATION,T1029,Scheduled Transfer,exfiltration,HIGH,False,Direct alignment with unauthorized data staging and outbound transfer,None Mapped
+EXFILTRATION,T1030,Data Transfer Size Limits,exfiltration,HIGH,False,Direct alignment with unauthorized data staging and outbound transfer,None Mapped
+EXFILTRATION,T1041,Exfiltration Over C2 Channel,exfiltration,HIGH,False,Direct alignment with unauthorized data staging and outbound transfer,None Mapped
+EXFILTRATION,T1048,Exfiltration Over Alternative Protocol,exfiltration,HIGH,False,Direct alignment with unauthorized data staging and outbound transfer,None Mapped
+EXFILTRATION,T1048.001,Exfiltration Over Symmetric Encrypted Non-C2 Protocol,exfiltration,HIGH,False,Direct alignment with unauthorized data staging and outbound transfer,None Mapped
+EXFILTRATION,T1048.002,Exfiltration Over Asymmetric Encrypted Non-C2 Protocol,exfiltration,HIGH,False,Direct alignment with unauthorized data staging and outbound transfer,None Mapped
+EXFILTRATION,T1048.003,Exfiltration Over Unencrypted Non-C2 Protocol,exfiltration,HIGH,False,Direct alignment with unauthorized data staging and outbound transfer,None Mapped
+EXFILTRATION,T1052,Exfiltration Over Physical Medium,exfiltration,HIGH,False,Direct alignment with unauthorized data staging and outbound transfer,CAPEC-675 (Retrieve Data from Decommissioned Devices)
+EXFILTRATION,T1052.001,Exfiltration over USB,exfiltration,HIGH,False,Direct alignment with unauthorized data staging and outbound transfer,CAPEC-675 (Retrieve Data from Decommissioned Devices)
+EXFILTRATION,T1537,Transfer Data to Cloud Account,exfiltration,HIGH,False,Direct alignment with unauthorized data staging and outbound transfer,None Mapped
+EXFILTRATION,T1567,Exfiltration Over Web Service,exfiltration,HIGH,False,Direct alignment with unauthorized data staging and outbound transfer,None Mapped
+EXFILTRATION,T1567.001,Exfiltration to Code Repository,exfiltration,HIGH,False,Direct alignment with unauthorized data staging and outbound transfer,None Mapped
+EXFILTRATION,T1567.002,Exfiltration to Cloud Storage,exfiltration,HIGH,False,Direct alignment with unauthorized data staging and outbound transfer,None Mapped
+EXFILTRATION,T1567.003,Exfiltration to Text Storage Sites,exfiltration,HIGH,False,Direct alignment with unauthorized data staging and outbound transfer,None Mapped
+EXFILTRATION,T1567.004,Exfiltration Over Webhook,exfiltration,HIGH,False,Direct alignment with unauthorized data staging and outbound transfer,None Mapped
+INITIAL_ACCESS,T1190,Exploit Public-Facing Application,initial-access,HIGH,False,Direct alignment with network boundary intrusion attempts,None Mapped
+INITIAL_ACCESS,T1200,Hardware Additions,initial-access,HIGH,False,Direct alignment with network boundary intrusion attempts,CAPEC-440 (Hardware Integrity Attack)
+INITIAL_ACCESS,T1078,Valid Accounts,stealth,REVIEW_REQUIRED,True,"Multi-tactic technique (stealth, persistence, privilege-escalation, initial-access); stage depends on temporal network context (provisional: INITIAL_ACCESS)",CAPEC-560 (Use of Known Domain Credentials)
+INITIAL_ACCESS,T1078.001,Default Accounts,stealth,REVIEW_REQUIRED,True,"Multi-tactic technique (stealth, persistence, privilege-escalation, initial-access); stage depends on temporal network context (provisional: INITIAL_ACCESS)",CAPEC-70 (Try Common or Default Usernames and Passwords); CAPEC-560 (Use of Known Domain Credentials)
+INITIAL_ACCESS,T1078.002,Domain Accounts,stealth,REVIEW_REQUIRED,True,"Multi-tactic technique (stealth, persistence, privilege-escalation, initial-access); stage depends on temporal network context (provisional: INITIAL_ACCESS)",CAPEC-560 (Use of Known Domain Credentials)
+INITIAL_ACCESS,T1078.003,Local Accounts,stealth,REVIEW_REQUIRED,True,"Multi-tactic technique (stealth, persistence, privilege-escalation, initial-access); stage depends on temporal network context (provisional: INITIAL_ACCESS)",CAPEC-560 (Use of Known Domain Credentials)
+INITIAL_ACCESS,T1078.004,Cloud Accounts,stealth,REVIEW_REQUIRED,True,"Multi-tactic technique (stealth, persistence, privilege-escalation, initial-access); stage depends on temporal network context (provisional: INITIAL_ACCESS)",CAPEC-560 (Use of Known Domain Credentials)
+INITIAL_ACCESS,T1133,External Remote Services,persistence,REVIEW_REQUIRED,True,"Multi-tactic technique (persistence, initial-access); stage depends on temporal network context (provisional: INITIAL_ACCESS)",CAPEC-555 (Remote Services with Stolen Credentials)
+INITIAL_ACCESS,T1659,Content Injection,initial-access,REVIEW_REQUIRED,True,"Multi-tactic technique (initial-access, command-and-control); stage depends on temporal network context (provisional: INITIAL_ACCESS)",None Mapped
+LATERAL_MOVEMENT,T1021,Remote Services,lateral-movement,HIGH,False,Direct alignment with internal pivot and remote service exploitation,CAPEC-555 (Remote Services with Stolen Credentials)
+LATERAL_MOVEMENT,T1021.001,Remote Desktop Protocol,lateral-movement,HIGH,False,Direct alignment with internal pivot and remote service exploitation,CAPEC-555 (Remote Services with Stolen Credentials)
+LATERAL_MOVEMENT,T1021.002,SMB/Windows Admin Shares,lateral-movement,HIGH,False,Direct alignment with internal pivot and remote service exploitation,CAPEC-555 (Remote Services with Stolen Credentials); CAPEC-561 (Windows Admin Shares with Stolen Credentials)
+LATERAL_MOVEMENT,T1021.003,Distributed Component Object Model,lateral-movement,HIGH,False,Direct alignment with internal pivot and remote service exploitation,CAPEC-555 (Remote Services with Stolen Credentials)
+LATERAL_MOVEMENT,T1021.004,SSH,lateral-movement,HIGH,False,Direct alignment with internal pivot and remote service exploitation,CAPEC-555 (Remote Services with Stolen Credentials)
+LATERAL_MOVEMENT,T1021.005,VNC,lateral-movement,HIGH,False,Direct alignment with internal pivot and remote service exploitation,CAPEC-555 (Remote Services with Stolen Credentials)
+LATERAL_MOVEMENT,T1021.006,Windows Remote Management,lateral-movement,HIGH,False,Direct alignment with internal pivot and remote service exploitation,CAPEC-555 (Remote Services with Stolen Credentials)
+LATERAL_MOVEMENT,T1021.007,Cloud Services,lateral-movement,HIGH,False,Direct alignment with internal pivot and remote service exploitation,CAPEC-555 (Remote Services with Stolen Credentials)
+LATERAL_MOVEMENT,T1021.008,Direct Cloud VM Connections,lateral-movement,HIGH,False,Direct alignment with internal pivot and remote service exploitation,CAPEC-555 (Remote Services with Stolen Credentials)
+LATERAL_MOVEMENT,T1080,Taint Shared Content,lateral-movement,HIGH,False,Direct alignment with internal pivot and remote service exploitation,CAPEC-562 (Modify Shared File)
+LATERAL_MOVEMENT,T1210,Exploitation of Remote Services,lateral-movement,HIGH,False,Direct alignment with internal pivot and remote service exploitation,None Mapped
+LATERAL_MOVEMENT,T1550,Use Alternate Authentication Material,lateral-movement,HIGH,False,Direct alignment with internal pivot and remote service exploitation,None Mapped
+LATERAL_MOVEMENT,T1550.001,Application Access Token,lateral-movement,HIGH,False,Direct alignment with internal pivot and remote service exploitation,CAPEC-593 (Session Hijacking)
+LATERAL_MOVEMENT,T1550.002,Pass the Hash,lateral-movement,HIGH,False,Direct alignment with internal pivot and remote service exploitation,CAPEC-644 (Use of Captured Hashes (Pass The Hash))
+LATERAL_MOVEMENT,T1550.003,Pass the Ticket,lateral-movement,HIGH,False,Direct alignment with internal pivot and remote service exploitation,CAPEC-645 (Use of Captured Tickets (Pass The Ticket))
+LATERAL_MOVEMENT,T1550.004,Web Session Cookie,lateral-movement,HIGH,False,Direct alignment with internal pivot and remote service exploitation,CAPEC-60 (Reusing Session IDs (aka Session Replay))
+LATERAL_MOVEMENT,T1563,Remote Service Session Hijacking,lateral-movement,HIGH,False,Direct alignment with internal pivot and remote service exploitation,CAPEC-593 (Session Hijacking)
+LATERAL_MOVEMENT,T1563.001,SSH Hijacking,lateral-movement,HIGH,False,Direct alignment with internal pivot and remote service exploitation,CAPEC-593 (Session Hijacking)
+LATERAL_MOVEMENT,T1563.002,RDP Hijacking,lateral-movement,HIGH,False,Direct alignment with internal pivot and remote service exploitation,CAPEC-593 (Session Hijacking)
+LATERAL_MOVEMENT,T1570,Lateral Tool Transfer,lateral-movement,HIGH,False,Direct alignment with internal pivot and remote service exploitation,None Mapped
+LATERAL_MOVEMENT,T1091,Replication Through Removable Media,lateral-movement,REVIEW_REQUIRED,True,"Multi-tactic technique (lateral-movement, initial-access); stage depends on temporal network context (provisional: LATERAL_MOVEMENT)",CAPEC-457 (USB Memory Attacks)
+RECONNAISSANCE,T1589,Gather Victim Identity Information,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-407 (Pretexting)
+RECONNAISSANCE,T1589.001,Credentials,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-407 (Pretexting)
+RECONNAISSANCE,T1589.002,Email Addresses,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-407 (Pretexting)
+RECONNAISSANCE,T1589.003,Employee Names,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-407 (Pretexting)
+RECONNAISSANCE,T1590,Gather Victim Network Information,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-309 (Network Topology Mapping)
+RECONNAISSANCE,T1590.001,Domain Properties,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-309 (Network Topology Mapping)
+RECONNAISSANCE,T1590.002,DNS,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-309 (Network Topology Mapping)
+RECONNAISSANCE,T1590.003,Network Trust Dependencies,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-309 (Network Topology Mapping)
+RECONNAISSANCE,T1590.004,Network Topology,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-309 (Network Topology Mapping)
+RECONNAISSANCE,T1590.005,IP Addresses,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-309 (Network Topology Mapping)
+RECONNAISSANCE,T1590.006,Network Security Appliances,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-309 (Network Topology Mapping)
+RECONNAISSANCE,T1591,Gather Victim Org Information,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,None Mapped
+RECONNAISSANCE,T1591.001,Determine Physical Locations,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,None Mapped
+RECONNAISSANCE,T1591.002,Business Relationships,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,None Mapped
+RECONNAISSANCE,T1591.003,Identify Business Tempo,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,None Mapped
+RECONNAISSANCE,T1591.004,Identify Roles,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,None Mapped
+RECONNAISSANCE,T1592,Gather Victim Host Information,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-169 (Footprinting)
+RECONNAISSANCE,T1592.001,Hardware,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-169 (Footprinting)
+RECONNAISSANCE,T1592.002,Software,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-169 (Footprinting); CAPEC-541 (Application Fingerprinting)
+RECONNAISSANCE,T1592.003,Firmware,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-169 (Footprinting)
+RECONNAISSANCE,T1592.004,Client Configurations,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-169 (Footprinting)
+RECONNAISSANCE,T1593,Search Open Websites/Domains,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,None Mapped
+RECONNAISSANCE,T1593.001,Social Media,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,None Mapped
+RECONNAISSANCE,T1593.002,Search Engines,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,None Mapped
+RECONNAISSANCE,T1593.003,Code Repositories,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,None Mapped
+RECONNAISSANCE,T1594,Search Victim-Owned Websites,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,None Mapped
+RECONNAISSANCE,T1595,Active Scanning,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-169 (Footprinting)
+RECONNAISSANCE,T1595.001,Scanning IP Blocks,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-169 (Footprinting)
+RECONNAISSANCE,T1595.002,Vulnerability Scanning,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-169 (Footprinting)
+RECONNAISSANCE,T1595.003,Wordlist Scanning,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-169 (Footprinting)
+RECONNAISSANCE,T1596,Search Open Technical Databases,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,None Mapped
+RECONNAISSANCE,T1596.001,DNS/Passive DNS,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,None Mapped
+RECONNAISSANCE,T1596.002,WHOIS,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,None Mapped
+RECONNAISSANCE,T1596.003,Digital Certificates,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,None Mapped
+RECONNAISSANCE,T1596.004,CDNs,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,None Mapped
+RECONNAISSANCE,T1596.005,Scan Databases,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,None Mapped
+RECONNAISSANCE,T1597,Search Closed Sources,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,None Mapped
+RECONNAISSANCE,T1597.001,Threat Intel Vendors,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,None Mapped
+RECONNAISSANCE,T1597.002,Purchase Technical Data,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,None Mapped
+RECONNAISSANCE,T1598.001,Spearphishing Service,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-98 (Phishing); CAPEC-163 (Spear Phishing)
+RECONNAISSANCE,T1598.002,Spearphishing Attachment,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-98 (Phishing); CAPEC-163 (Spear Phishing)
+RECONNAISSANCE,T1598.003,Spearphishing Link,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-98 (Phishing); CAPEC-163 (Spear Phishing)
+RECONNAISSANCE,T1598.004,Spearphishing Voice,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,CAPEC-98 (Phishing)
+RECONNAISSANCE,T1681,Search Threat Vendor Data,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,None Mapped
+RECONNAISSANCE,T1682,Query Public AI Services,reconnaissance,HIGH,False,Direct conceptual alignment with pre-compromise reconnaissance,None Mapped

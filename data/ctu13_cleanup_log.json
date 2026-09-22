@@ -1,0 +1,117 @@
+{
+  "timestamp": "2026-09-21T14:29:00.996146+00:00",
+  "mode": "execute",
+  "plan_file": "data/ctu13_deletion_plan.csv",
+  "total_candidates": 13,
+  "total_candidate_bytes": 77009987473,
+  "total_candidate_gb": 71.72,
+  "actions_taken": [
+    {
+      "file_path": "data/CTU-13-Dataset/1/botnet-capture-20110810-neris.pcap",
+      "size_bytes": 58266506,
+      "size_gb": 0.0543,
+      "action": "DELETED",
+      "replacement_file": "data/CTU-13-Dataset/1/capture20110810.binetflow",
+      "status": "SUCCESS"
+    },
+    {
+      "file_path": "data/CTU-13-Dataset/2/botnet-capture-20110811-neris.pcap",
+      "size_bytes": 36261479,
+      "size_gb": 0.0338,
+      "action": "DELETED",
+      "replacement_file": "data/CTU-13-Dataset/2/capture20110811.binetflow",
+      "status": "SUCCESS"
+    },
+    {
+      "file_path": "data/CTU-13-Dataset/3/botnet-capture-20110812-rbot.pcap",
+      "size_bytes": 128575191,
+      "size_gb": 0.1197,
+      "action": "DELETED",
+      "replacement_file": "data/CTU-13-Dataset/3/capture20110812.binetflow",
+      "status": "SUCCESS"
+    },
+    {
+      "file_path": "data/CTU-13-Dataset/4/botnet-capture-20110815-rbot-dos.pcap",
+      "size_bytes": 222379082,
+      "size_gb": 0.2071,
+      "action": "DELETED",
+      "replacement_file": "data/CTU-13-Dataset/4/capture20110815.binetflow",
+      "status": "SUCCESS"
+    },
+    {
+      "file_path": "data/CTU-13-Dataset/5/botnet-capture-20110815-fast-flux.pcap",
+      "size_bytes": 30941919,
+      "size_gb": 0.0288,
+      "action": "DELETED",
+      "replacement_file": "data/CTU-13-Dataset/5/capture20110815-2.binetflow",
+      "status": "SUCCESS"
+    },
+    {
+      "file_path": "data/CTU-13-Dataset/6/botnet-capture-20110816-donbot.pcap",
+      "size_bytes": 5284095,
+      "size_gb": 0.0049,
+      "action": "DELETED",
+      "replacement_file": "data/CTU-13-Dataset/6/capture20110816.binetflow",
+      "status": "SUCCESS"
+    },
+    {
+      "file_path": "data/CTU-13-Dataset/7/botnet-capture-20110816-sogou.pcap",
+      "size_bytes": 18868213,
+      "size_gb": 0.0176,
+      "action": "DELETED",
+      "replacement_file": "data/CTU-13-Dataset/7/capture20110816-2.binetflow",
+      "status": "SUCCESS"
+    },
+    {
+      "file_path": "data/CTU-13-Dataset/8/botnet-capture-20110816-qvod.pcap",
+      "size_bytes": 21366192,
+      "size_gb": 0.0199,
+      "action": "DELETED",
+      "replacement_file": "data/CTU-13-Dataset/8/capture20110816-3.binetflow",
+      "status": "SUCCESS"
+    },
+    {
+      "file_path": "data/CTU-13-Dataset/9/botnet-capture-20110817-bot.pcap",
+      "size_bytes": 1126596020,
+      "size_gb": 1.0492,
+      "action": "DELETED",
+      "replacement_file": "data/CTU-13-Dataset/9/capture20110817.binetflow",
+      "status": "SUCCESS"
+    },
+    {
+      "file_path": "data/CTU-13-Dataset/10/botnet-capture-20110818-bot.pcap",
+      "size_bytes": 70688336180,
+      "size_gb": 65.8336,
+      "action": "DELETED",
+      "replacement_file": "data/CTU-13-Dataset/10/capture20110818.binetflow",
+      "status": "SUCCESS"
+    },
+    {
+      "file_path": "data/CTU-13-Dataset/11/botnet-capture-20110818-bot-2.pcap",
+      "size_bytes": 4263638204,
+      "size_gb": 3.9708,
+      "action": "DELETED",
+      "replacement_file": "data/CTU-13-Dataset/11/capture20110818-2.binetflow",
+      "status": "SUCCESS"
+    },
+    {
+      "file_path": "data/CTU-13-Dataset/12/botnet-capture-20110819-bot.pcap",
+      "size_bytes": 294902378,
+      "size_gb": 0.2746,
+      "action": "DELETED",
+      "replacement_file": "data/CTU-13-Dataset/12/capture20110819.binetflow",
+      "status": "SUCCESS"
+    },
+    {
+      "file_path": "data/CTU-13-Dataset/13/botnet-capture-20110815-fast-flux-2.pcap",
+      "size_bytes": 114572014,
+      "size_gb": 0.1067,
+      "action": "DELETED",
+      "replacement_file": "data/CTU-13-Dataset/13/capture20110815-3.binetflow",
+      "status": "SUCCESS"
+    }
+  ],
+  "skipped_non_delete_count": 39,
+  "failed_items": [],
+  "status": "COMPLETED"
+}

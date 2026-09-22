@@ -1,0 +1,41 @@
+baseline:
+  model: "logistic_regression"
+  random_state: 42
+  max_iter: 2000
+  class_weight: "balanced"
+  solver: "lbfgs"
+  threshold: 0.50
+
+data:
+  sequence_dir: "data/processed/forecast_sequences"
+  datasets:
+    - name: "CIC-IDS2017"
+      file: "cic_ids2017_sequences.parquet"
+    - name: "UNSW-NB15"
+      file: "unsw_nb15_sequences.parquet"
+    - name: "CTU-13"
+      file: "ctu13_sequences.parquet"
+  input_feature_prefix: "S_t_"
+  prediction_origin_column: "prediction_origin"
+  split_column: "split"
+  sequence_id_column: "sequence_id"
+  scenario_id_column: "scenario_id"
+
+evaluation:
+  horizons: [1, 3, 6]
+  target_template: "future_attack_k{k}"
+  required_metrics:
+    - "f1"
+    - "precision"
+    - "recall"
+    - "false_positive_rate"
+  additional_metrics:
+    - "accuracy"
+    - "specificity"
+    - "roc_auc"
+    - "pr_auc"
+
+output:
+  model_dir: "models/baseline"
+  report_dir: "reports/baseline"
+  plots_dir: "reports/baseline/plots"

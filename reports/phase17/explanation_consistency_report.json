@@ -1,0 +1,14 @@
+{
+  "completeness_verification": {
+    "total_evaluations": 10545,
+    "pass_count": 8144,
+    "fail_count": 2401,
+    "pass_rate_percent": 77.23,
+    "mean_absolute_completeness_error": 0.127999,
+    "mean_relative_completeness_error": 0.048499
+  },
+  "attribution_dimensions_verified": "10 x 22 for all inputs",
+  "positive_negative_sign_integrity": "Preserved without absolute-value distortion",
+  "determinism_verified": "Identical seeds and baseline produce identical tensors",
+  "anti_leakage_guarantee": "Zero future windows or test partition data used for baseline"
+}

@@ -1,0 +1,17 @@
+{
+  "model": {
+    "path": "models\\world_model\\gru\\best_model.pt",
+    "sha256": "9f94d0aacff538096d2770e1b4f1509e5b38ae8f78f0cb31b850cb903fa8bc9f",
+    "size_bytes": 919925
+  },
+  "scaler": {
+    "path": "models\\world_model\\gru\\scaler.joblib",
+    "sha256": "9d1e26da627dd0879f2bb640fa762bce14e50ac9f875e9fff8ee6d2a969a2ff2",
+    "size_bytes": 1111
+  },
+  "calibration": {
+    "path": "models\\world_model\\gru\\calibration_model.joblib",
+    "sha256": "61b50aa5c47bde70c216714d04b0bf45c831c40e73f23c90214dc5a6f429fda7",
+    "size_bytes": 1694
+  }
+}

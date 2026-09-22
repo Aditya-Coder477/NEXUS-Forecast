@@ -1,0 +1,890 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NEXUS-Forecast Multilayer Cybersecurity Knowledge Schema",
+  "description": "Defines the 4-layer interpretive representation linking temporal network states to MITRE ATT&CK techniques and CAPEC attack patterns.",
+  "version": "1.0.0",
+  "architecture_pipeline": {
+    "layer_1": {
+      "name": "Network Evidence / Features",
+      "description": "Empirical network metrics extracted from NetFlow/Binetflow windows (duration, protocol, packet counts, byte volumes, directional flow ratios, state transitions).",
+      "nature": "Quantitative ML input features for temporal forecasting"
+    },
+    "layer_2": {
+      "name": "Forecasted Attack Stage",
+      "description": "Temporal state predicted by the NEXUS-Forecast world model.",
+      "allowed_stages": [
+        "BENIGN",
+        "RECONNAISSANCE",
+        "INITIAL_ACCESS",
+        "EXECUTION",
+        "DISCOVERY",
+        "CREDENTIAL_ACCESS",
+        "LATERAL_MOVEMENT",
+        "COMMAND_AND_CONTROL",
+        "EXFILTRATION"
+      ],
+      "nature": "Predicted macroscopic attack phase"
+    },
+    "layer_3": {
+      "name": "MITRE ATT&CK Technique Layer",
+      "description": "Adversary tactics and techniques associated with the predicted stage for operational enrichment and explainability.",
+      "source": "MITRE Enterprise ATT&CK v19.2",
+      "nature": "Adversary behavioral tactics/techniques"
+    },
+    "layer_4": {
+      "name": "CAPEC Attack Pattern Layer",
+      "description": "Detailed attack mechanism abstractions, execution flows, and weaknesses associated with mapped ATT&CK techniques.",
+      "source": "MITRE CAPEC v3.9",
+      "nature": "Attack pattern contextual enrichment"
+    }
+  },
+  "knowledge_contracts": {
+    "evidence_contract": {
+      "type": "object",
+      "properties": {
+        "flow_id": {
+          "type": "string"
+        },
+        "timestamp_start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "duration_seconds": {
+          "type": "number"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "src_ip": {
+          "type": "string"
+        },
+        "dst_ip": {
+          "type": "string"
+        },
+        "src_port": {
+          "type": "integer"
+        },
+        "dst_port": {
+          "type": "integer"
+        },
+        "total_packets": {
+          "type": "integer"
+        },
+        "total_bytes": {
+          "type": "integer"
+        },
+        "flow_rate_bytes_per_sec": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "timestamp_start",
+        "duration_seconds",
+        "protocol",
+        "src_ip",
+        "dst_ip",
+        "total_packets",
+        "total_bytes"
+      ]
+    },
+    "stage_prediction_contract": {
+      "type": "object",
+      "properties": {
+        "forecast_horizon_seconds": {
+          "type": "number"
+        },
+        "predicted_stage": {
+          "type": "string",
+          "enum": [
+            "BENIGN",
+            "RECONNAISSANCE",
+            "INITIAL_ACCESS",
+            "EXECUTION",
+            "DISCOVERY",
+            "CREDENTIAL_ACCESS",
+            "LATERAL_MOVEMENT",
+            "COMMAND_AND_CONTROL",
+            "EXFILTRATION"
+          ]
+        },
+        "stage_probability": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "world_model_confidence": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        }
+      },
+      "required": [
+        "forecast_horizon_seconds",
+        "predicted_stage",
+        "stage_probability"
+      ]
+    },
+    "attack_enrichment_contract": {
+      "type": "object",
+      "properties": {
+        "attack_id": {
+          "type": "string",
+          "pattern": "^T[0-9]{4}(\\.[0-9]{3})?$"
+        },
+        "technique_name": {
+          "type": "string"
+        },
+        "primary_tactic": {
+          "type": "string"
+        },
+        "mapping_confidence": {
+          "type": "string",
+          "enum": [
+            "HIGH",
+            "MEDIUM",
+            "REVIEW_REQUIRED"
+          ]
+        },
+        "mapping_reason": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "attack_id",
+        "technique_name",
+        "primary_tactic",
+        "mapping_confidence"
+      ]
+    },
+    "capec_enrichment_contract": {
+      "type": "object",
+      "properties": {
+        "capec_id": {
+          "type": "string",
+          "pattern": "^CAPEC-[0-9]+$"
+        },
+        "attack_pattern_name": {
+          "type": "string"
+        },
+        "abstraction_level": {
+          "type": "string",
+          "enum": [
+            "Meta",
+            "Standard",
+            "Detailed",
+            "Category",
+            "View"
+          ]
+        },
+        "typical_severity": {
+          "type": "string"
+        },
+        "related_cwe_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "mapping_provenance": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "capec_id",
+        "attack_pattern_name",
+        "abstraction_level",
+        "mapping_provenance"
+      ]
+    }
+  },
+  "non_fabrication_guarantee": {
+    "policy": "No speculative or synthesized ATT&CK-to-CAPEC links are admitted. Only links explicitly published in official MITRE taxonomy catalogs are populated.",
+    "total_supported_mappings_in_curated_set": 57,
+    "mappings": [
+      {
+        "capec_id": "CAPEC-37",
+        "capec_name": "Retrieve Embedded Sensitive Data",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "Very High",
+        "attack_id": "T1552.004",
+        "attack_name": "Private Keys",
+        "mitre_tactic": "credential-access",
+        "forecasted_nexus_stage": "CREDENTIAL_ACCESS",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-49",
+        "capec_name": "Password Brute Forcing",
+        "capec_abstraction": "Standard",
+        "capec_severity": "High",
+        "attack_id": "T1110.001",
+        "attack_name": "Password Guessing",
+        "mitre_tactic": "credential-access",
+        "forecasted_nexus_stage": "CREDENTIAL_ACCESS",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-55",
+        "capec_name": "Rainbow Table Password Cracking",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "Medium",
+        "attack_id": "T1110.002",
+        "attack_name": "Password Cracking",
+        "mitre_tactic": "credential-access",
+        "forecasted_nexus_stage": "CREDENTIAL_ACCESS",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-57",
+        "capec_name": "Utilizing REST's Trust in the System Resource to Obtain Sensitive Data",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "Very High",
+        "attack_id": "T1040",
+        "attack_name": "Network Sniffing",
+        "mitre_tactic": "credential-access",
+        "forecasted_nexus_stage": "CREDENTIAL_ACCESS",
+        "stage_mapping_confidence": "REVIEW_REQUIRED",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-60",
+        "capec_name": "Reusing Session IDs (aka Session Replay)",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "High",
+        "attack_id": "T1550.004",
+        "attack_name": "Web Session Cookie",
+        "mitre_tactic": "lateral-movement",
+        "forecasted_nexus_stage": "LATERAL_MOVEMENT",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-65",
+        "capec_name": "Sniff Application Code",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "High",
+        "attack_id": "T1040",
+        "attack_name": "Network Sniffing",
+        "mitre_tactic": "credential-access",
+        "forecasted_nexus_stage": "CREDENTIAL_ACCESS",
+        "stage_mapping_confidence": "REVIEW_REQUIRED",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-70",
+        "capec_name": "Try Common or Default Usernames and Passwords",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "High",
+        "attack_id": "T1078.001",
+        "attack_name": "Default Accounts",
+        "mitre_tactic": "stealth",
+        "forecasted_nexus_stage": "INITIAL_ACCESS",
+        "stage_mapping_confidence": "REVIEW_REQUIRED",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-98",
+        "capec_name": "Phishing",
+        "capec_abstraction": "Standard",
+        "capec_severity": "Very High",
+        "attack_id": "T1598.004",
+        "attack_name": "Spearphishing Voice",
+        "mitre_tactic": "reconnaissance",
+        "forecasted_nexus_stage": "RECONNAISSANCE",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-112",
+        "capec_name": "Brute Force",
+        "capec_abstraction": "Meta",
+        "capec_severity": "High",
+        "attack_id": "T1110",
+        "attack_name": "Brute Force",
+        "mitre_tactic": "credential-access",
+        "forecasted_nexus_stage": "CREDENTIAL_ACCESS",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-150",
+        "capec_name": "Collect Data from Common Resource Locations",
+        "capec_abstraction": "Standard",
+        "capec_severity": "Medium",
+        "attack_id": "T1003",
+        "attack_name": "OS Credential Dumping",
+        "mitre_tactic": "credential-access",
+        "forecasted_nexus_stage": "CREDENTIAL_ACCESS",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-150",
+        "capec_name": "Collect Data from Common Resource Locations",
+        "capec_abstraction": "Standard",
+        "capec_severity": "Medium",
+        "attack_id": "T1555",
+        "attack_name": "Credentials from Password Stores",
+        "mitre_tactic": "credential-access",
+        "forecasted_nexus_stage": "CREDENTIAL_ACCESS",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-158",
+        "capec_name": "Sniffing Network Traffic",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "Medium",
+        "attack_id": "T1040",
+        "attack_name": "Network Sniffing",
+        "mitre_tactic": "credential-access",
+        "forecasted_nexus_stage": "CREDENTIAL_ACCESS",
+        "stage_mapping_confidence": "REVIEW_REQUIRED",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-163",
+        "capec_name": "Spear Phishing",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "High",
+        "attack_id": "T1598.001",
+        "attack_name": "Spearphishing Service",
+        "mitre_tactic": "reconnaissance",
+        "forecasted_nexus_stage": "RECONNAISSANCE",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-163",
+        "capec_name": "Spear Phishing",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "High",
+        "attack_id": "T1598.002",
+        "attack_name": "Spearphishing Attachment",
+        "mitre_tactic": "reconnaissance",
+        "forecasted_nexus_stage": "RECONNAISSANCE",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-163",
+        "capec_name": "Spear Phishing",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "High",
+        "attack_id": "T1598.003",
+        "attack_name": "Spearphishing Link",
+        "mitre_tactic": "reconnaissance",
+        "forecasted_nexus_stage": "RECONNAISSANCE",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-169",
+        "capec_name": "Footprinting",
+        "capec_abstraction": "Meta",
+        "capec_severity": "Very Low",
+        "attack_id": "T1592",
+        "attack_name": "Gather Victim Host Information",
+        "mitre_tactic": "reconnaissance",
+        "forecasted_nexus_stage": "RECONNAISSANCE",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-169",
+        "capec_name": "Footprinting",
+        "capec_abstraction": "Meta",
+        "capec_severity": "Very Low",
+        "attack_id": "T1595",
+        "attack_name": "Active Scanning",
+        "mitre_tactic": "reconnaissance",
+        "forecasted_nexus_stage": "RECONNAISSANCE",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-187",
+        "capec_name": "Malicious Automated Software Update via Redirection",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "High",
+        "attack_id": "T1072",
+        "attack_name": "Software Deployment Tools",
+        "mitre_tactic": "execution",
+        "forecasted_nexus_stage": "EXECUTION",
+        "stage_mapping_confidence": "REVIEW_REQUIRED",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-191",
+        "capec_name": "Read Sensitive Constants Within an Executable",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "Low",
+        "attack_id": "T1552.001",
+        "attack_name": "Credentials In Files",
+        "mitre_tactic": "credential-access",
+        "forecasted_nexus_stage": "CREDENTIAL_ACCESS",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-292",
+        "capec_name": "Host Discovery",
+        "capec_abstraction": "Standard",
+        "capec_severity": "Low",
+        "attack_id": "T1018",
+        "attack_name": "Remote System Discovery",
+        "mitre_tactic": "discovery",
+        "forecasted_nexus_stage": "DISCOVERY",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-300",
+        "capec_name": "Port Scanning",
+        "capec_abstraction": "Standard",
+        "capec_severity": "Low",
+        "attack_id": "T1046",
+        "attack_name": "Network Service Discovery",
+        "mitre_tactic": "discovery",
+        "forecasted_nexus_stage": "DISCOVERY",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-309",
+        "capec_name": "Network Topology Mapping",
+        "capec_abstraction": "Standard",
+        "capec_severity": "Low",
+        "attack_id": "T1016",
+        "attack_name": "System Network Configuration Discovery",
+        "mitre_tactic": "discovery",
+        "forecasted_nexus_stage": "DISCOVERY",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-309",
+        "capec_name": "Network Topology Mapping",
+        "capec_abstraction": "Standard",
+        "capec_severity": "Low",
+        "attack_id": "T1590",
+        "attack_name": "Gather Victim Network Information",
+        "mitre_tactic": "reconnaissance",
+        "forecasted_nexus_stage": "RECONNAISSANCE",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-312",
+        "capec_name": "Active OS Fingerprinting",
+        "capec_abstraction": "Standard",
+        "capec_severity": "Low",
+        "attack_id": "T1082",
+        "attack_name": "System Information Discovery",
+        "mitre_tactic": "discovery",
+        "forecasted_nexus_stage": "DISCOVERY",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-313",
+        "capec_name": "Passive OS Fingerprinting",
+        "capec_abstraction": "Standard",
+        "capec_severity": "Low",
+        "attack_id": "T1082",
+        "attack_name": "System Information Discovery",
+        "mitre_tactic": "discovery",
+        "forecasted_nexus_stage": "DISCOVERY",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-407",
+        "capec_name": "Pretexting",
+        "capec_abstraction": "Standard",
+        "capec_severity": "Low",
+        "attack_id": "T1589",
+        "attack_name": "Gather Victim Identity Information",
+        "mitre_tactic": "reconnaissance",
+        "forecasted_nexus_stage": "RECONNAISSANCE",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-440",
+        "capec_name": "Hardware Integrity Attack",
+        "capec_abstraction": "Meta",
+        "capec_severity": "High",
+        "attack_id": "T1200",
+        "attack_name": "Hardware Additions",
+        "mitre_tactic": "initial-access",
+        "forecasted_nexus_stage": "INITIAL_ACCESS",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-457",
+        "capec_name": "USB Memory Attacks",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "High",
+        "attack_id": "T1091",
+        "attack_name": "Replication Through Removable Media",
+        "mitre_tactic": "lateral-movement",
+        "forecasted_nexus_stage": "LATERAL_MOVEMENT",
+        "stage_mapping_confidence": "REVIEW_REQUIRED",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-457",
+        "capec_name": "USB Memory Attacks",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "High",
+        "attack_id": "T1092",
+        "attack_name": "Communication Through Removable Media",
+        "mitre_tactic": "command-and-control",
+        "forecasted_nexus_stage": "COMMAND_AND_CONTROL",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-465",
+        "capec_name": "Transparent Proxy Abuse",
+        "capec_abstraction": "Standard",
+        "capec_severity": "Medium",
+        "attack_id": "T1090.001",
+        "attack_name": "Internal Proxy",
+        "mitre_tactic": "command-and-control",
+        "forecasted_nexus_stage": "COMMAND_AND_CONTROL",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-474",
+        "capec_name": "Signature Spoofing by Key Theft",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "High",
+        "attack_id": "T1552.004",
+        "attack_name": "Private Keys",
+        "mitre_tactic": "credential-access",
+        "forecasted_nexus_stage": "CREDENTIAL_ACCESS",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-481",
+        "capec_name": "Contradictory Destinations in Traffic Routing Schemes",
+        "capec_abstraction": "Standard",
+        "capec_severity": "High",
+        "attack_id": "T1090.004",
+        "attack_name": "Domain Fronting",
+        "mitre_tactic": "command-and-control",
+        "forecasted_nexus_stage": "COMMAND_AND_CONTROL",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-485",
+        "capec_name": "Signature Spoofing by Key Recreation",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "High",
+        "attack_id": "T1552.004",
+        "attack_name": "Private Keys",
+        "mitre_tactic": "credential-access",
+        "forecasted_nexus_stage": "CREDENTIAL_ACCESS",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-541",
+        "capec_name": "Application Fingerprinting",
+        "capec_abstraction": "Standard",
+        "capec_severity": "Low",
+        "attack_id": "T1592.002",
+        "attack_name": "Software",
+        "mitre_tactic": "reconnaissance",
+        "forecasted_nexus_stage": "RECONNAISSANCE",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-545",
+        "capec_name": "Pull Data from System Resources",
+        "capec_abstraction": "Standard",
+        "capec_severity": "",
+        "attack_id": "T1555.001",
+        "attack_name": "Keychain",
+        "mitre_tactic": "credential-access",
+        "forecasted_nexus_stage": "CREDENTIAL_ACCESS",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-555",
+        "capec_name": "Remote Services with Stolen Credentials",
+        "capec_abstraction": "Standard",
+        "capec_severity": "Very High",
+        "attack_id": "T1021",
+        "attack_name": "Remote Services",
+        "mitre_tactic": "lateral-movement",
+        "forecasted_nexus_stage": "LATERAL_MOVEMENT",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-555",
+        "capec_name": "Remote Services with Stolen Credentials",
+        "capec_abstraction": "Standard",
+        "capec_severity": "Very High",
+        "attack_id": "T1133",
+        "attack_name": "External Remote Services",
+        "mitre_tactic": "persistence",
+        "forecasted_nexus_stage": "INITIAL_ACCESS",
+        "stage_mapping_confidence": "REVIEW_REQUIRED",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-560",
+        "capec_name": "Use of Known Domain Credentials",
+        "capec_abstraction": "Meta",
+        "capec_severity": "High",
+        "attack_id": "T1078",
+        "attack_name": "Valid Accounts",
+        "mitre_tactic": "stealth",
+        "forecasted_nexus_stage": "INITIAL_ACCESS",
+        "stage_mapping_confidence": "REVIEW_REQUIRED",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-561",
+        "capec_name": "Windows Admin Shares with Stolen Credentials",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "",
+        "attack_id": "T1021.002",
+        "attack_name": "SMB/Windows Admin Shares",
+        "mitre_tactic": "lateral-movement",
+        "forecasted_nexus_stage": "LATERAL_MOVEMENT",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-562",
+        "capec_name": "Modify Shared File",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "",
+        "attack_id": "T1080",
+        "attack_name": "Taint Shared Content",
+        "mitre_tactic": "lateral-movement",
+        "forecasted_nexus_stage": "LATERAL_MOVEMENT",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-565",
+        "capec_name": "Password Spraying",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "High",
+        "attack_id": "T1110.003",
+        "attack_name": "Password Spraying",
+        "mitre_tactic": "credential-access",
+        "forecasted_nexus_stage": "CREDENTIAL_ACCESS",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-575",
+        "capec_name": "Account Footprinting",
+        "capec_abstraction": "Standard",
+        "capec_severity": "Low",
+        "attack_id": "T1087",
+        "attack_name": "Account Discovery",
+        "mitre_tactic": "discovery",
+        "forecasted_nexus_stage": "DISCOVERY",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-576",
+        "capec_name": "Group Permission Footprinting",
+        "capec_abstraction": "Standard",
+        "capec_severity": "Low",
+        "attack_id": "T1069",
+        "attack_name": "Permission Groups Discovery",
+        "mitre_tactic": "discovery",
+        "forecasted_nexus_stage": "DISCOVERY",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-580",
+        "capec_name": "System Footprinting",
+        "capec_abstraction": "Standard",
+        "capec_severity": "Low",
+        "attack_id": "T1082",
+        "attack_name": "System Information Discovery",
+        "mitre_tactic": "discovery",
+        "forecasted_nexus_stage": "DISCOVERY",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-593",
+        "capec_name": "Session Hijacking",
+        "capec_abstraction": "Standard",
+        "capec_severity": "Very High",
+        "attack_id": "T1550.001",
+        "attack_name": "Application Access Token",
+        "mitre_tactic": "lateral-movement",
+        "forecasted_nexus_stage": "LATERAL_MOVEMENT",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-593",
+        "capec_name": "Session Hijacking",
+        "capec_abstraction": "Standard",
+        "capec_severity": "Very High",
+        "attack_id": "T1563",
+        "attack_name": "Remote Service Session Hijacking",
+        "mitre_tactic": "lateral-movement",
+        "forecasted_nexus_stage": "LATERAL_MOVEMENT",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-600",
+        "capec_name": "Credential Stuffing",
+        "capec_abstraction": "Standard",
+        "capec_severity": "High",
+        "attack_id": "T1110.004",
+        "attack_name": "Credential Stuffing",
+        "mitre_tactic": "credential-access",
+        "forecasted_nexus_stage": "CREDENTIAL_ACCESS",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-636",
+        "capec_name": "Hiding Malicious Data or Code within Files",
+        "capec_abstraction": "Standard",
+        "capec_severity": "High",
+        "attack_id": "T1001.002",
+        "attack_name": "Steganography",
+        "mitre_tactic": "command-and-control",
+        "forecasted_nexus_stage": "COMMAND_AND_CONTROL",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-639",
+        "capec_name": "Probe System Files",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "Medium",
+        "attack_id": "T1552.001",
+        "attack_name": "Credentials In Files",
+        "mitre_tactic": "credential-access",
+        "forecasted_nexus_stage": "CREDENTIAL_ACCESS",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-639",
+        "capec_name": "Probe System Files",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "Medium",
+        "attack_id": "T1552.003",
+        "attack_name": "Shell History",
+        "mitre_tactic": "credential-access",
+        "forecasted_nexus_stage": "CREDENTIAL_ACCESS",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-639",
+        "capec_name": "Probe System Files",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "Medium",
+        "attack_id": "T1552.004",
+        "attack_name": "Private Keys",
+        "mitre_tactic": "credential-access",
+        "forecasted_nexus_stage": "CREDENTIAL_ACCESS",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-639",
+        "capec_name": "Probe System Files",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "Medium",
+        "attack_id": "T1552.006",
+        "attack_name": "Group Policy Preferences",
+        "mitre_tactic": "credential-access",
+        "forecasted_nexus_stage": "CREDENTIAL_ACCESS",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-644",
+        "capec_name": "Use of Captured Hashes (Pass The Hash)",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "High",
+        "attack_id": "T1550.002",
+        "attack_name": "Pass the Hash",
+        "mitre_tactic": "lateral-movement",
+        "forecasted_nexus_stage": "LATERAL_MOVEMENT",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-645",
+        "capec_name": "Use of Captured Tickets (Pass The Ticket)",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "High",
+        "attack_id": "T1550.003",
+        "attack_name": "Pass the Ticket",
+        "mitre_tactic": "lateral-movement",
+        "forecasted_nexus_stage": "LATERAL_MOVEMENT",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-647",
+        "capec_name": "Collect Data from Registries",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "Medium",
+        "attack_id": "T1552.002",
+        "attack_name": "Credentials in Registry",
+        "mitre_tactic": "credential-access",
+        "forecasted_nexus_stage": "CREDENTIAL_ACCESS",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-657",
+        "capec_name": "Malicious Automated Software Update via Spoofing",
+        "capec_abstraction": "Detailed",
+        "capec_severity": "High",
+        "attack_id": "T1072",
+        "attack_name": "Software Deployment Tools",
+        "mitre_tactic": "execution",
+        "forecasted_nexus_stage": "EXECUTION",
+        "stage_mapping_confidence": "REVIEW_REQUIRED",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      },
+      {
+        "capec_id": "CAPEC-675",
+        "capec_name": "Retrieve Data from Decommissioned Devices",
+        "capec_abstraction": "Standard",
+        "capec_severity": "Medium",
+        "attack_id": "T1052",
+        "attack_name": "Exfiltration Over Physical Medium",
+        "mitre_tactic": "exfiltration",
+        "forecasted_nexus_stage": "EXFILTRATION",
+        "stage_mapping_confidence": "HIGH",
+        "mapping_provenance": "Official MITRE CAPEC v3.9 Taxonomy Mapping (Unfabricated)"
+      }
+    ]
+  }
+}

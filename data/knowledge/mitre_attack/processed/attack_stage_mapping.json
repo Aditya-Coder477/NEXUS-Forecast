@@ -1,0 +1,2560 @@
+[
+  {
+    "attack_id": "T1001",
+    "technique": "Data Obfuscation",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1001.001",
+    "technique": "Junk Data",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1001.002",
+    "technique": "Steganography",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1001.003",
+    "technique": "Protocol or Service Impersonation",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1003",
+    "technique": "OS Credential Dumping",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1003.001",
+    "technique": "LSASS Memory",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1003.002",
+    "technique": "Security Account Manager",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1003.003",
+    "technique": "NTDS",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1003.004",
+    "technique": "LSA Secrets",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1003.005",
+    "technique": "Cached Domain Credentials",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1003.006",
+    "technique": "DCSync",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1003.007",
+    "technique": "Proc Filesystem",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1003.008",
+    "technique": "/etc/passwd and /etc/shadow",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1008",
+    "technique": "Fallback Channels",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1011",
+    "technique": "Exfiltration Over Other Network Medium",
+    "mitre_tactic": "exfiltration",
+    "all_mitre_tactics": [
+      "exfiltration"
+    ],
+    "nexus_stage": "EXFILTRATION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with unauthorized data staging and outbound transfer",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1011.001",
+    "technique": "Exfiltration Over Bluetooth",
+    "mitre_tactic": "exfiltration",
+    "all_mitre_tactics": [
+      "exfiltration"
+    ],
+    "nexus_stage": "EXFILTRATION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with unauthorized data staging and outbound transfer",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1016",
+    "technique": "System Network Configuration Discovery",
+    "mitre_tactic": "discovery",
+    "all_mitre_tactics": [
+      "discovery"
+    ],
+    "nexus_stage": "DISCOVERY",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal network, port, or host discovery scanning",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1016.001",
+    "technique": "Internet Connection Discovery",
+    "mitre_tactic": "discovery",
+    "all_mitre_tactics": [
+      "discovery"
+    ],
+    "nexus_stage": "DISCOVERY",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal network, port, or host discovery scanning",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1016.002",
+    "technique": "Wi-Fi Discovery",
+    "mitre_tactic": "discovery",
+    "all_mitre_tactics": [
+      "discovery"
+    ],
+    "nexus_stage": "DISCOVERY",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal network, port, or host discovery scanning",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1018",
+    "technique": "Remote System Discovery",
+    "mitre_tactic": "discovery",
+    "all_mitre_tactics": [
+      "discovery"
+    ],
+    "nexus_stage": "DISCOVERY",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal network, port, or host discovery scanning",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1020",
+    "technique": "Automated Exfiltration",
+    "mitre_tactic": "exfiltration",
+    "all_mitre_tactics": [
+      "exfiltration"
+    ],
+    "nexus_stage": "EXFILTRATION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with unauthorized data staging and outbound transfer",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1020.001",
+    "technique": "Traffic Duplication",
+    "mitre_tactic": "exfiltration",
+    "all_mitre_tactics": [
+      "exfiltration"
+    ],
+    "nexus_stage": "EXFILTRATION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with unauthorized data staging and outbound transfer",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1021",
+    "technique": "Remote Services",
+    "mitre_tactic": "lateral-movement",
+    "all_mitre_tactics": [
+      "lateral-movement"
+    ],
+    "nexus_stage": "LATERAL_MOVEMENT",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal pivot and remote service exploitation",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1021.001",
+    "technique": "Remote Desktop Protocol",
+    "mitre_tactic": "lateral-movement",
+    "all_mitre_tactics": [
+      "lateral-movement"
+    ],
+    "nexus_stage": "LATERAL_MOVEMENT",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal pivot and remote service exploitation",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1021.002",
+    "technique": "SMB/Windows Admin Shares",
+    "mitre_tactic": "lateral-movement",
+    "all_mitre_tactics": [
+      "lateral-movement"
+    ],
+    "nexus_stage": "LATERAL_MOVEMENT",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal pivot and remote service exploitation",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1021.003",
+    "technique": "Distributed Component Object Model",
+    "mitre_tactic": "lateral-movement",
+    "all_mitre_tactics": [
+      "lateral-movement"
+    ],
+    "nexus_stage": "LATERAL_MOVEMENT",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal pivot and remote service exploitation",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1021.004",
+    "technique": "SSH",
+    "mitre_tactic": "lateral-movement",
+    "all_mitre_tactics": [
+      "lateral-movement"
+    ],
+    "nexus_stage": "LATERAL_MOVEMENT",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal pivot and remote service exploitation",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1021.005",
+    "technique": "VNC",
+    "mitre_tactic": "lateral-movement",
+    "all_mitre_tactics": [
+      "lateral-movement"
+    ],
+    "nexus_stage": "LATERAL_MOVEMENT",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal pivot and remote service exploitation",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1021.006",
+    "technique": "Windows Remote Management",
+    "mitre_tactic": "lateral-movement",
+    "all_mitre_tactics": [
+      "lateral-movement"
+    ],
+    "nexus_stage": "LATERAL_MOVEMENT",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal pivot and remote service exploitation",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1021.007",
+    "technique": "Cloud Services",
+    "mitre_tactic": "lateral-movement",
+    "all_mitre_tactics": [
+      "lateral-movement"
+    ],
+    "nexus_stage": "LATERAL_MOVEMENT",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal pivot and remote service exploitation",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1021.008",
+    "technique": "Direct Cloud VM Connections",
+    "mitre_tactic": "lateral-movement",
+    "all_mitre_tactics": [
+      "lateral-movement"
+    ],
+    "nexus_stage": "LATERAL_MOVEMENT",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal pivot and remote service exploitation",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1029",
+    "technique": "Scheduled Transfer",
+    "mitre_tactic": "exfiltration",
+    "all_mitre_tactics": [
+      "exfiltration"
+    ],
+    "nexus_stage": "EXFILTRATION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with unauthorized data staging and outbound transfer",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1030",
+    "technique": "Data Transfer Size Limits",
+    "mitre_tactic": "exfiltration",
+    "all_mitre_tactics": [
+      "exfiltration"
+    ],
+    "nexus_stage": "EXFILTRATION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with unauthorized data staging and outbound transfer",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1040",
+    "technique": "Network Sniffing",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access",
+      "discovery"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "REVIEW_REQUIRED",
+    "mapping_reason": "Multi-tactic technique (credential-access, discovery); stage depends on temporal network context (provisional: CREDENTIAL_ACCESS)",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1041",
+    "technique": "Exfiltration Over C2 Channel",
+    "mitre_tactic": "exfiltration",
+    "all_mitre_tactics": [
+      "exfiltration"
+    ],
+    "nexus_stage": "EXFILTRATION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with unauthorized data staging and outbound transfer",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1046",
+    "technique": "Network Service Discovery",
+    "mitre_tactic": "discovery",
+    "all_mitre_tactics": [
+      "discovery"
+    ],
+    "nexus_stage": "DISCOVERY",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal network, port, or host discovery scanning",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1048",
+    "technique": "Exfiltration Over Alternative Protocol",
+    "mitre_tactic": "exfiltration",
+    "all_mitre_tactics": [
+      "exfiltration"
+    ],
+    "nexus_stage": "EXFILTRATION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with unauthorized data staging and outbound transfer",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1048.001",
+    "technique": "Exfiltration Over Symmetric Encrypted Non-C2 Protocol",
+    "mitre_tactic": "exfiltration",
+    "all_mitre_tactics": [
+      "exfiltration"
+    ],
+    "nexus_stage": "EXFILTRATION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with unauthorized data staging and outbound transfer",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1048.002",
+    "technique": "Exfiltration Over Asymmetric Encrypted Non-C2 Protocol",
+    "mitre_tactic": "exfiltration",
+    "all_mitre_tactics": [
+      "exfiltration"
+    ],
+    "nexus_stage": "EXFILTRATION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with unauthorized data staging and outbound transfer",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1048.003",
+    "technique": "Exfiltration Over Unencrypted Non-C2 Protocol",
+    "mitre_tactic": "exfiltration",
+    "all_mitre_tactics": [
+      "exfiltration"
+    ],
+    "nexus_stage": "EXFILTRATION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with unauthorized data staging and outbound transfer",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1052",
+    "technique": "Exfiltration Over Physical Medium",
+    "mitre_tactic": "exfiltration",
+    "all_mitre_tactics": [
+      "exfiltration"
+    ],
+    "nexus_stage": "EXFILTRATION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with unauthorized data staging and outbound transfer",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1052.001",
+    "technique": "Exfiltration over USB",
+    "mitre_tactic": "exfiltration",
+    "all_mitre_tactics": [
+      "exfiltration"
+    ],
+    "nexus_stage": "EXFILTRATION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with unauthorized data staging and outbound transfer",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1053",
+    "technique": "Scheduled Task/Job",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution",
+      "persistence",
+      "privilege-escalation"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "REVIEW_REQUIRED",
+    "mapping_reason": "Multi-tactic technique (execution, persistence, privilege-escalation); stage depends on temporal network context (provisional: EXECUTION)",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1053.002",
+    "technique": "At",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution",
+      "persistence",
+      "privilege-escalation"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "REVIEW_REQUIRED",
+    "mapping_reason": "Multi-tactic technique (execution, persistence, privilege-escalation); stage depends on temporal network context (provisional: EXECUTION)",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1053.003",
+    "technique": "Cron",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution",
+      "persistence",
+      "privilege-escalation"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "REVIEW_REQUIRED",
+    "mapping_reason": "Multi-tactic technique (execution, persistence, privilege-escalation); stage depends on temporal network context (provisional: EXECUTION)",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1053.005",
+    "technique": "Scheduled Task",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution",
+      "persistence",
+      "privilege-escalation"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "REVIEW_REQUIRED",
+    "mapping_reason": "Multi-tactic technique (execution, persistence, privilege-escalation); stage depends on temporal network context (provisional: EXECUTION)",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1053.006",
+    "technique": "Systemd Timers",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution",
+      "persistence",
+      "privilege-escalation"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "REVIEW_REQUIRED",
+    "mapping_reason": "Multi-tactic technique (execution, persistence, privilege-escalation); stage depends on temporal network context (provisional: EXECUTION)",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1053.007",
+    "technique": "Container Orchestration Job",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution",
+      "persistence",
+      "privilege-escalation"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "REVIEW_REQUIRED",
+    "mapping_reason": "Multi-tactic technique (execution, persistence, privilege-escalation); stage depends on temporal network context (provisional: EXECUTION)",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1059",
+    "technique": "Command and Scripting Interpreter",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with malicious binary or script execution phase",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1059.001",
+    "technique": "PowerShell",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with malicious binary or script execution phase",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1059.002",
+    "technique": "AppleScript",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with malicious binary or script execution phase",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1059.003",
+    "technique": "Windows Command Shell",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with malicious binary or script execution phase",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1059.004",
+    "technique": "Unix Shell",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with malicious binary or script execution phase",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1059.005",
+    "technique": "Visual Basic",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with malicious binary or script execution phase",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1059.006",
+    "technique": "Python",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with malicious binary or script execution phase",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1059.007",
+    "technique": "JavaScript",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with malicious binary or script execution phase",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1059.008",
+    "technique": "Network Device CLI",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with malicious binary or script execution phase",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1059.009",
+    "technique": "Cloud API",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with malicious binary or script execution phase",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1059.010",
+    "technique": "AutoHotKey & AutoIT",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with malicious binary or script execution phase",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1059.011",
+    "technique": "Lua",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with malicious binary or script execution phase",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1059.012",
+    "technique": "Hypervisor CLI",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with malicious binary or script execution phase",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1059.013",
+    "technique": "Container CLI/API",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with malicious binary or script execution phase",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1069",
+    "technique": "Permission Groups Discovery",
+    "mitre_tactic": "discovery",
+    "all_mitre_tactics": [
+      "discovery"
+    ],
+    "nexus_stage": "DISCOVERY",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal network, port, or host discovery scanning",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1069.001",
+    "technique": "Local Groups",
+    "mitre_tactic": "discovery",
+    "all_mitre_tactics": [
+      "discovery"
+    ],
+    "nexus_stage": "DISCOVERY",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal network, port, or host discovery scanning",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1069.002",
+    "technique": "Domain Groups",
+    "mitre_tactic": "discovery",
+    "all_mitre_tactics": [
+      "discovery"
+    ],
+    "nexus_stage": "DISCOVERY",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal network, port, or host discovery scanning",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1069.003",
+    "technique": "Cloud Groups",
+    "mitre_tactic": "discovery",
+    "all_mitre_tactics": [
+      "discovery"
+    ],
+    "nexus_stage": "DISCOVERY",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal network, port, or host discovery scanning",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1071",
+    "technique": "Application Layer Protocol",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1071.001",
+    "technique": "Web Protocols",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1071.002",
+    "technique": "File Transfer Protocols",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1071.003",
+    "technique": "Mail Protocols",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1071.004",
+    "technique": "DNS",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1071.005",
+    "technique": "Publish/Subscribe Protocols",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1072",
+    "technique": "Software Deployment Tools",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution",
+      "lateral-movement"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "REVIEW_REQUIRED",
+    "mapping_reason": "Multi-tactic technique (execution, lateral-movement); stage depends on temporal network context (provisional: EXECUTION)",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1078",
+    "technique": "Valid Accounts",
+    "mitre_tactic": "stealth",
+    "all_mitre_tactics": [
+      "stealth",
+      "persistence",
+      "privilege-escalation",
+      "initial-access"
+    ],
+    "nexus_stage": "INITIAL_ACCESS",
+    "mapping_confidence": "REVIEW_REQUIRED",
+    "mapping_reason": "Multi-tactic technique (stealth, persistence, privilege-escalation, initial-access); stage depends on temporal network context (provisional: INITIAL_ACCESS)",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1078.001",
+    "technique": "Default Accounts",
+    "mitre_tactic": "stealth",
+    "all_mitre_tactics": [
+      "stealth",
+      "persistence",
+      "privilege-escalation",
+      "initial-access"
+    ],
+    "nexus_stage": "INITIAL_ACCESS",
+    "mapping_confidence": "REVIEW_REQUIRED",
+    "mapping_reason": "Multi-tactic technique (stealth, persistence, privilege-escalation, initial-access); stage depends on temporal network context (provisional: INITIAL_ACCESS)",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1078.002",
+    "technique": "Domain Accounts",
+    "mitre_tactic": "stealth",
+    "all_mitre_tactics": [
+      "stealth",
+      "persistence",
+      "privilege-escalation",
+      "initial-access"
+    ],
+    "nexus_stage": "INITIAL_ACCESS",
+    "mapping_confidence": "REVIEW_REQUIRED",
+    "mapping_reason": "Multi-tactic technique (stealth, persistence, privilege-escalation, initial-access); stage depends on temporal network context (provisional: INITIAL_ACCESS)",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1078.003",
+    "technique": "Local Accounts",
+    "mitre_tactic": "stealth",
+    "all_mitre_tactics": [
+      "stealth",
+      "persistence",
+      "privilege-escalation",
+      "initial-access"
+    ],
+    "nexus_stage": "INITIAL_ACCESS",
+    "mapping_confidence": "REVIEW_REQUIRED",
+    "mapping_reason": "Multi-tactic technique (stealth, persistence, privilege-escalation, initial-access); stage depends on temporal network context (provisional: INITIAL_ACCESS)",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1078.004",
+    "technique": "Cloud Accounts",
+    "mitre_tactic": "stealth",
+    "all_mitre_tactics": [
+      "stealth",
+      "persistence",
+      "privilege-escalation",
+      "initial-access"
+    ],
+    "nexus_stage": "INITIAL_ACCESS",
+    "mapping_confidence": "REVIEW_REQUIRED",
+    "mapping_reason": "Multi-tactic technique (stealth, persistence, privilege-escalation, initial-access); stage depends on temporal network context (provisional: INITIAL_ACCESS)",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1080",
+    "technique": "Taint Shared Content",
+    "mitre_tactic": "lateral-movement",
+    "all_mitre_tactics": [
+      "lateral-movement"
+    ],
+    "nexus_stage": "LATERAL_MOVEMENT",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal pivot and remote service exploitation",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1082",
+    "technique": "System Information Discovery",
+    "mitre_tactic": "discovery",
+    "all_mitre_tactics": [
+      "discovery"
+    ],
+    "nexus_stage": "DISCOVERY",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal network, port, or host discovery scanning",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1087",
+    "technique": "Account Discovery",
+    "mitre_tactic": "discovery",
+    "all_mitre_tactics": [
+      "discovery"
+    ],
+    "nexus_stage": "DISCOVERY",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal network, port, or host discovery scanning",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1087.001",
+    "technique": "Local Account",
+    "mitre_tactic": "discovery",
+    "all_mitre_tactics": [
+      "discovery"
+    ],
+    "nexus_stage": "DISCOVERY",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal network, port, or host discovery scanning",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1087.002",
+    "technique": "Domain Account",
+    "mitre_tactic": "discovery",
+    "all_mitre_tactics": [
+      "discovery"
+    ],
+    "nexus_stage": "DISCOVERY",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal network, port, or host discovery scanning",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1087.003",
+    "technique": "Email Account",
+    "mitre_tactic": "discovery",
+    "all_mitre_tactics": [
+      "discovery"
+    ],
+    "nexus_stage": "DISCOVERY",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal network, port, or host discovery scanning",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1087.004",
+    "technique": "Cloud Account",
+    "mitre_tactic": "discovery",
+    "all_mitre_tactics": [
+      "discovery"
+    ],
+    "nexus_stage": "DISCOVERY",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal network, port, or host discovery scanning",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1090",
+    "technique": "Proxy",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1090.001",
+    "technique": "Internal Proxy",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1090.002",
+    "technique": "External Proxy",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1090.003",
+    "technique": "Multi-hop Proxy",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1090.004",
+    "technique": "Domain Fronting",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1091",
+    "technique": "Replication Through Removable Media",
+    "mitre_tactic": "lateral-movement",
+    "all_mitre_tactics": [
+      "lateral-movement",
+      "initial-access"
+    ],
+    "nexus_stage": "LATERAL_MOVEMENT",
+    "mapping_confidence": "REVIEW_REQUIRED",
+    "mapping_reason": "Multi-tactic technique (lateral-movement, initial-access); stage depends on temporal network context (provisional: LATERAL_MOVEMENT)",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1092",
+    "technique": "Communication Through Removable Media",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1095",
+    "technique": "Non-Application Layer Protocol",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1102",
+    "technique": "Web Service",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1102.001",
+    "technique": "Dead Drop Resolver",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1102.002",
+    "technique": "Bidirectional Communication",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1102.003",
+    "technique": "One-Way Communication",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1104",
+    "technique": "Multi-Stage Channels",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1105",
+    "technique": "Ingress Tool Transfer",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1110",
+    "technique": "Brute Force",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1110.001",
+    "technique": "Password Guessing",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1110.002",
+    "technique": "Password Cracking",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1110.003",
+    "technique": "Password Spraying",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1110.004",
+    "technique": "Credential Stuffing",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1132",
+    "technique": "Data Encoding",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1132.001",
+    "technique": "Standard Encoding",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1132.002",
+    "technique": "Non-Standard Encoding",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1133",
+    "technique": "External Remote Services",
+    "mitre_tactic": "persistence",
+    "all_mitre_tactics": [
+      "persistence",
+      "initial-access"
+    ],
+    "nexus_stage": "INITIAL_ACCESS",
+    "mapping_confidence": "REVIEW_REQUIRED",
+    "mapping_reason": "Multi-tactic technique (persistence, initial-access); stage depends on temporal network context (provisional: INITIAL_ACCESS)",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1190",
+    "technique": "Exploit Public-Facing Application",
+    "mitre_tactic": "initial-access",
+    "all_mitre_tactics": [
+      "initial-access"
+    ],
+    "nexus_stage": "INITIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with network boundary intrusion attempts",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1200",
+    "technique": "Hardware Additions",
+    "mitre_tactic": "initial-access",
+    "all_mitre_tactics": [
+      "initial-access"
+    ],
+    "nexus_stage": "INITIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with network boundary intrusion attempts",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1203",
+    "technique": "Exploitation for Client Execution",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with malicious binary or script execution phase",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1205",
+    "technique": "Traffic Signaling",
+    "mitre_tactic": "stealth",
+    "all_mitre_tactics": [
+      "stealth",
+      "persistence",
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "REVIEW_REQUIRED",
+    "mapping_reason": "Multi-tactic technique (stealth, persistence, command-and-control); stage depends on temporal network context (provisional: COMMAND_AND_CONTROL)",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1205.001",
+    "technique": "Port Knocking",
+    "mitre_tactic": "stealth",
+    "all_mitre_tactics": [
+      "stealth",
+      "persistence",
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "REVIEW_REQUIRED",
+    "mapping_reason": "Multi-tactic technique (stealth, persistence, command-and-control); stage depends on temporal network context (provisional: COMMAND_AND_CONTROL)",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1205.002",
+    "technique": "Socket Filters",
+    "mitre_tactic": "stealth",
+    "all_mitre_tactics": [
+      "stealth",
+      "persistence",
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "REVIEW_REQUIRED",
+    "mapping_reason": "Multi-tactic technique (stealth, persistence, command-and-control); stage depends on temporal network context (provisional: COMMAND_AND_CONTROL)",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1210",
+    "technique": "Exploitation of Remote Services",
+    "mitre_tactic": "lateral-movement",
+    "all_mitre_tactics": [
+      "lateral-movement"
+    ],
+    "nexus_stage": "LATERAL_MOVEMENT",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal pivot and remote service exploitation",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1219",
+    "technique": "Remote Access Tools",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1219.001",
+    "technique": "IDE Tunneling",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1219.002",
+    "technique": "Remote Desktop Software",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1219.003",
+    "technique": "Remote Access Hardware",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1537",
+    "technique": "Transfer Data to Cloud Account",
+    "mitre_tactic": "exfiltration",
+    "all_mitre_tactics": [
+      "exfiltration"
+    ],
+    "nexus_stage": "EXFILTRATION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with unauthorized data staging and outbound transfer",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1550",
+    "technique": "Use Alternate Authentication Material",
+    "mitre_tactic": "lateral-movement",
+    "all_mitre_tactics": [
+      "lateral-movement"
+    ],
+    "nexus_stage": "LATERAL_MOVEMENT",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal pivot and remote service exploitation",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1550.001",
+    "technique": "Application Access Token",
+    "mitre_tactic": "lateral-movement",
+    "all_mitre_tactics": [
+      "lateral-movement"
+    ],
+    "nexus_stage": "LATERAL_MOVEMENT",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal pivot and remote service exploitation",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1550.002",
+    "technique": "Pass the Hash",
+    "mitre_tactic": "lateral-movement",
+    "all_mitre_tactics": [
+      "lateral-movement"
+    ],
+    "nexus_stage": "LATERAL_MOVEMENT",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal pivot and remote service exploitation",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1550.003",
+    "technique": "Pass the Ticket",
+    "mitre_tactic": "lateral-movement",
+    "all_mitre_tactics": [
+      "lateral-movement"
+    ],
+    "nexus_stage": "LATERAL_MOVEMENT",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal pivot and remote service exploitation",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1550.004",
+    "technique": "Web Session Cookie",
+    "mitre_tactic": "lateral-movement",
+    "all_mitre_tactics": [
+      "lateral-movement"
+    ],
+    "nexus_stage": "LATERAL_MOVEMENT",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal pivot and remote service exploitation",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1552",
+    "technique": "Unsecured Credentials",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1552.001",
+    "technique": "Credentials In Files",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1552.002",
+    "technique": "Credentials in Registry",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1552.003",
+    "technique": "Shell History",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1552.004",
+    "technique": "Private Keys",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1552.005",
+    "technique": "Cloud Instance Metadata API",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1552.006",
+    "technique": "Group Policy Preferences",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1552.007",
+    "technique": "Container API",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1552.008",
+    "technique": "Chat Messages",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1555",
+    "technique": "Credentials from Password Stores",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1555.001",
+    "technique": "Keychain",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1555.002",
+    "technique": "Securityd Memory",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1555.003",
+    "technique": "Credentials from Web Browsers",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1555.004",
+    "technique": "Windows Credential Manager",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1555.005",
+    "technique": "Password Managers",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1555.006",
+    "technique": "Cloud Secrets Management Stores",
+    "mitre_tactic": "credential-access",
+    "all_mitre_tactics": [
+      "credential-access"
+    ],
+    "nexus_stage": "CREDENTIAL_ACCESS",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with authentication probing, brute force, and credential harvesting",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1563",
+    "technique": "Remote Service Session Hijacking",
+    "mitre_tactic": "lateral-movement",
+    "all_mitre_tactics": [
+      "lateral-movement"
+    ],
+    "nexus_stage": "LATERAL_MOVEMENT",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal pivot and remote service exploitation",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1563.001",
+    "technique": "SSH Hijacking",
+    "mitre_tactic": "lateral-movement",
+    "all_mitre_tactics": [
+      "lateral-movement"
+    ],
+    "nexus_stage": "LATERAL_MOVEMENT",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal pivot and remote service exploitation",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1563.002",
+    "technique": "RDP Hijacking",
+    "mitre_tactic": "lateral-movement",
+    "all_mitre_tactics": [
+      "lateral-movement"
+    ],
+    "nexus_stage": "LATERAL_MOVEMENT",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal pivot and remote service exploitation",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1567",
+    "technique": "Exfiltration Over Web Service",
+    "mitre_tactic": "exfiltration",
+    "all_mitre_tactics": [
+      "exfiltration"
+    ],
+    "nexus_stage": "EXFILTRATION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with unauthorized data staging and outbound transfer",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1567.001",
+    "technique": "Exfiltration to Code Repository",
+    "mitre_tactic": "exfiltration",
+    "all_mitre_tactics": [
+      "exfiltration"
+    ],
+    "nexus_stage": "EXFILTRATION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with unauthorized data staging and outbound transfer",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1567.002",
+    "technique": "Exfiltration to Cloud Storage",
+    "mitre_tactic": "exfiltration",
+    "all_mitre_tactics": [
+      "exfiltration"
+    ],
+    "nexus_stage": "EXFILTRATION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with unauthorized data staging and outbound transfer",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1567.003",
+    "technique": "Exfiltration to Text Storage Sites",
+    "mitre_tactic": "exfiltration",
+    "all_mitre_tactics": [
+      "exfiltration"
+    ],
+    "nexus_stage": "EXFILTRATION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with unauthorized data staging and outbound transfer",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1567.004",
+    "technique": "Exfiltration Over Webhook",
+    "mitre_tactic": "exfiltration",
+    "all_mitre_tactics": [
+      "exfiltration"
+    ],
+    "nexus_stage": "EXFILTRATION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with unauthorized data staging and outbound transfer",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1568",
+    "technique": "Dynamic Resolution",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1568.001",
+    "technique": "Fast Flux DNS",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1568.002",
+    "technique": "Domain Generation Algorithms",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1568.003",
+    "technique": "DNS Calculation",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1569",
+    "technique": "System Services",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with malicious binary or script execution phase",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1569.001",
+    "technique": "Launchctl",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with malicious binary or script execution phase",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1569.002",
+    "technique": "Service Execution",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with malicious binary or script execution phase",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1569.003",
+    "technique": "Systemctl",
+    "mitre_tactic": "execution",
+    "all_mitre_tactics": [
+      "execution"
+    ],
+    "nexus_stage": "EXECUTION",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with malicious binary or script execution phase",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1570",
+    "technique": "Lateral Tool Transfer",
+    "mitre_tactic": "lateral-movement",
+    "all_mitre_tactics": [
+      "lateral-movement"
+    ],
+    "nexus_stage": "LATERAL_MOVEMENT",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with internal pivot and remote service exploitation",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1571",
+    "technique": "Non-Standard Port",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1572",
+    "technique": "Protocol Tunneling",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1573",
+    "technique": "Encrypted Channel",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1573.001",
+    "technique": "Symmetric Cryptography",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1573.002",
+    "technique": "Asymmetric Cryptography",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1589",
+    "technique": "Gather Victim Identity Information",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1589.001",
+    "technique": "Credentials",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1589.002",
+    "technique": "Email Addresses",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1589.003",
+    "technique": "Employee Names",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1590",
+    "technique": "Gather Victim Network Information",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1590.001",
+    "technique": "Domain Properties",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1590.002",
+    "technique": "DNS",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1590.003",
+    "technique": "Network Trust Dependencies",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1590.004",
+    "technique": "Network Topology",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1590.005",
+    "technique": "IP Addresses",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1590.006",
+    "technique": "Network Security Appliances",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1591",
+    "technique": "Gather Victim Org Information",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1591.001",
+    "technique": "Determine Physical Locations",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1591.002",
+    "technique": "Business Relationships",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1591.003",
+    "technique": "Identify Business Tempo",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1591.004",
+    "technique": "Identify Roles",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1592",
+    "technique": "Gather Victim Host Information",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1592.001",
+    "technique": "Hardware",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1592.002",
+    "technique": "Software",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1592.003",
+    "technique": "Firmware",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1592.004",
+    "technique": "Client Configurations",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1593",
+    "technique": "Search Open Websites/Domains",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1593.001",
+    "technique": "Social Media",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1593.002",
+    "technique": "Search Engines",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1593.003",
+    "technique": "Code Repositories",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1594",
+    "technique": "Search Victim-Owned Websites",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1595",
+    "technique": "Active Scanning",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1595.001",
+    "technique": "Scanning IP Blocks",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1595.002",
+    "technique": "Vulnerability Scanning",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1595.003",
+    "technique": "Wordlist Scanning",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1596",
+    "technique": "Search Open Technical Databases",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1596.001",
+    "technique": "DNS/Passive DNS",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1596.002",
+    "technique": "WHOIS",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1596.003",
+    "technique": "Digital Certificates",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1596.004",
+    "technique": "CDNs",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1596.005",
+    "technique": "Scan Databases",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1597",
+    "technique": "Search Closed Sources",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1597.001",
+    "technique": "Threat Intel Vendors",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1597.002",
+    "technique": "Purchase Technical Data",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1598.001",
+    "technique": "Spearphishing Service",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1598.002",
+    "technique": "Spearphishing Attachment",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1598.003",
+    "technique": "Spearphishing Link",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1598.004",
+    "technique": "Spearphishing Voice",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1659",
+    "technique": "Content Injection",
+    "mitre_tactic": "initial-access",
+    "all_mitre_tactics": [
+      "initial-access",
+      "command-and-control"
+    ],
+    "nexus_stage": "INITIAL_ACCESS",
+    "mapping_confidence": "REVIEW_REQUIRED",
+    "mapping_reason": "Multi-tactic technique (initial-access, command-and-control); stage depends on temporal network context (provisional: INITIAL_ACCESS)",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1665",
+    "technique": "Hide Infrastructure",
+    "mitre_tactic": "command-and-control",
+    "all_mitre_tactics": [
+      "command-and-control"
+    ],
+    "nexus_stage": "COMMAND_AND_CONTROL",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct alignment with outbound beaconing, remote agent tunneling, and C2 interaction",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1681",
+    "technique": "Search Threat Vendor Data",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  },
+  {
+    "attack_id": "T1682",
+    "technique": "Query Public AI Services",
+    "mitre_tactic": "reconnaissance",
+    "all_mitre_tactics": [
+      "reconnaissance"
+    ],
+    "nexus_stage": "RECONNAISSANCE",
+    "mapping_confidence": "HIGH",
+    "mapping_reason": "Direct conceptual alignment with pre-compromise reconnaissance",
+    "source": "NEXUS-Forecast Application Mapping v1.0 (Derived from MITRE ATT&CK v19.2)"
+  }
+]

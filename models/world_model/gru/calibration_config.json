@@ -1,0 +1,48 @@
+{
+  "calibration_method": "Platt Scaling (Logistic Regression on Logits)",
+  "fit_partition": "VAL",
+  "num_val_samples": 3483,
+  "horizons": {
+    "1": {
+      "horizon_seconds": "+30s",
+      "slope": 0.195016,
+      "intercept": -0.354302,
+      "val_brier_raw": 0.295434,
+      "val_brier_calibrated": 0.232338,
+      "val_ece_raw": 0.289328,
+      "val_ece_calibrated": 0.062261,
+      "test_brier_raw": 0.123791,
+      "test_brier_calibrated": 0.219272,
+      "test_ece_raw": 0.113527,
+      "test_ece_calibrated": 0.282904
+    },
+    "3": {
+      "horizon_seconds": "+90s",
+      "slope": 0.198975,
+      "intercept": -0.371968,
+      "val_brier_raw": 0.298008,
+      "val_brier_calibrated": 0.233077,
+      "val_ece_raw": 0.294772,
+      "val_ece_calibrated": 0.082565,
+      "test_brier_raw": 0.116775,
+      "test_brier_calibrated": 0.21713,
+      "test_ece_raw": 0.095836,
+      "test_ece_calibrated": 0.277018
+    },
+    "6": {
+      "horizon_seconds": "+180s",
+      "slope": 0.200363,
+      "intercept": -0.336124,
+      "val_brier_raw": 0.293991,
+      "val_brier_calibrated": 0.232487,
+      "val_ece_raw": 0.291284,
+      "val_ece_calibrated": 0.073765,
+      "test_brier_raw": 0.127262,
+      "test_brier_calibrated": 0.21799,
+      "test_ece_raw": 0.108748,
+      "test_ece_calibrated": 0.280272
+    }
+  },
+  "selected_operating_threshold": 0.45,
+  "default_threshold": 0.5
+}

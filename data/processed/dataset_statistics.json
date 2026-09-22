@@ -1,0 +1,250 @@
+{
+  "CIC-IDS2017": {
+    "Friday-WorkingHours-Afternoon-DDos": {
+      "flows": 225745,
+      "windows": 184,
+      "attack_windows": 42,
+      "benign_windows": 142,
+      "sequences": 168,
+      "time_span": [
+        "2017-07-07T03:30:00",
+        "2017-07-07T05:02:30"
+      ]
+    },
+    "Friday-WorkingHours-Afternoon-PortScan": {
+      "flows": 286467,
+      "windows": 298,
+      "attack_windows": 54,
+      "benign_windows": 244,
+      "sequences": 282,
+      "time_span": [
+        "2017-07-07T01:00:00",
+        "2017-07-07T03:29:30"
+      ]
+    },
+    "Friday-WorkingHours-Morning": {
+      "flows": 191033,
+      "windows": 480,
+      "attack_windows": 325,
+      "benign_windows": 155,
+      "sequences": 464,
+      "time_span": [
+        "2017-07-07T08:59:00",
+        "2017-07-07T12:59:30"
+      ]
+    },
+    "Monday-WorkingHours": {
+      "flows": 529918,
+      "windows": 974,
+      "attack_windows": 0,
+      "benign_windows": 974,
+      "sequences": 958,
+      "time_span": [
+        "2017-03-07T01:00:01",
+        "2017-03-07T13:00:31"
+      ]
+    },
+    "Thursday-WorkingHours-Afternoon-Infilteration": {
+      "flows": 288602,
+      "windows": 488,
+      "attack_windows": 56,
+      "benign_windows": 432,
+      "sequences": 472,
+      "time_span": [
+        "2017-06-07T01:00:00",
+        "2017-06-07T05:04:30"
+      ]
+    },
+    "Thursday-WorkingHours-Morning-WebAttacks": {
+      "flows": 170366,
+      "windows": 480,
+      "attack_windows": 136,
+      "benign_windows": 344,
+      "sequences": 464,
+      "time_span": [
+        "2017-06-07T08:59:00",
+        "2017-06-07T12:59:30"
+      ]
+    },
+    "Tuesday-WorkingHours": {
+      "flows": 445909,
+      "windows": 974,
+      "attack_windows": 254,
+      "benign_windows": 720,
+      "sequences": 958,
+      "time_span": [
+        "2017-04-07T01:00:00",
+        "2017-04-07T12:59:30"
+      ]
+    },
+    "Wednesday-workingHours": {
+      "flows": 692703,
+      "windows": 1016,
+      "attack_windows": 172,
+      "benign_windows": 844,
+      "sequences": 1000,
+      "time_span": [
+        "2017-05-07T01:00:00",
+        "2017-05-07T12:59:30"
+      ]
+    }
+  },
+  "UNSW-NB15": {
+    "full_capture": {
+      "flows": 3540241,
+      "windows": 2920,
+      "attack_windows": 1641,
+      "benign_windows": 1279,
+      "sequences": 2904,
+      "time_span": [
+        "2015-01-22T07:49:41",
+        "2015-02-18T08:30:11"
+      ]
+    }
+  },
+  "CTU-13": {
+    "scenario_01": {
+      "flows": 2824636,
+      "windows": 735,
+      "attack_windows": 568,
+      "benign_windows": 167,
+      "sequences": 719,
+      "time_span": [
+        "2011-08-10T09:46:53.047277",
+        "2011-08-10T15:54:53.047277"
+      ]
+    },
+    "scenario_02": {
+      "flows": 1808122,
+      "windows": 504,
+      "attack_windows": 408,
+      "benign_windows": 96,
+      "sequences": 488,
+      "time_span": [
+        "2011-08-11T09:49:35.721274",
+        "2011-08-11T14:02:05.721274"
+      ]
+    },
+    "scenario_03": {
+      "flows": 4710638,
+      "windows": 8019,
+      "attack_windows": 1840,
+      "benign_windows": 6179,
+      "sequences": 8003,
+      "time_span": [
+        "2011-08-12T15:24:01.105063",
+        "2011-08-15T10:14:01.105063"
+      ]
+    },
+    "scenario_04": {
+      "flows": 1121076,
+      "windows": 509,
+      "attack_windows": 180,
+      "benign_windows": 329,
+      "sequences": 493,
+      "time_span": [
+        "2011-08-15T10:42:52.613616",
+        "2011-08-15T15:11:52.613616"
+      ]
+    },
+    "scenario_05": {
+      "flows": 129832,
+      "windows": 61,
+      "attack_windows": 42,
+      "benign_windows": 19,
+      "sequences": 45,
+      "time_span": [
+        "2011-08-15T16:43:20.931208",
+        "2011-08-15T17:14:20.931208"
+      ]
+    },
+    "scenario_06": {
+      "flows": 558919,
+      "windows": 259,
+      "attack_windows": 243,
+      "benign_windows": 16,
+      "sequences": 243,
+      "time_span": [
+        "2011-08-16T10:01:46.972101",
+        "2011-08-16T12:11:46.972101"
+      ]
+    },
+    "scenario_07": {
+      "flows": 114077,
+      "windows": 43,
+      "attack_windows": 9,
+      "benign_windows": 34,
+      "sequences": 27,
+      "time_span": [
+        "2011-08-16T13:51:24.049047",
+        "2011-08-16T14:13:24.049047"
+      ]
+    },
+    "scenario_08": {
+      "flows": 2954230,
+      "windows": 2337,
+      "attack_windows": 2185,
+      "benign_windows": 152,
+      "sequences": 2321,
+      "time_span": [
+        "2011-08-16T14:18:55.889839",
+        "2011-08-17T09:47:55.889839"
+      ]
+    },
+    "scenario_09": {
+      "flows": 2087508,
+      "windows": 629,
+      "attack_windows": 365,
+      "benign_windows": 264,
+      "sequences": 613,
+      "time_span": [
+        "2011-08-17T11:34:49.436881",
+        "2011-08-17T17:12:49.436881"
+      ]
+    },
+    "scenario_10": {
+      "flows": 1309791,
+      "windows": 577,
+      "attack_windows": 143,
+      "benign_windows": 434,
+      "sequences": 561,
+      "time_span": [
+        "2011-08-18T09:56:29.146156",
+        "2011-08-18T15:05:59.146156"
+      ]
+    },
+    "scenario_11": {
+      "flows": 107251,
+      "windows": 33,
+      "attack_windows": 11,
+      "benign_windows": 22,
+      "sequences": 17,
+      "time_span": [
+        "2011-08-18T15:39:35.087798",
+        "2011-08-18T15:56:35.087798"
+      ]
+    },
+    "scenario_12": {
+      "flows": 325471,
+      "windows": 157,
+      "attack_windows": 119,
+      "benign_windows": 38,
+      "sequences": 141,
+      "time_span": [
+        "2011-08-19T10:02:43.748728",
+        "2011-08-19T11:46:13.748728"
+      ]
+    },
+    "scenario_13": {
+      "flows": 1925149,
+      "windows": 1965,
+      "attack_windows": 1956,
+      "benign_windows": 9,
+      "sequences": 1949,
+      "time_span": [
+        "2011-08-15T17:13:40.449530",
+        "2011-08-16T09:36:40.449530"
+      ]
+    }
+  }
+}
