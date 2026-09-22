@@ -22,7 +22,18 @@ def compute_sha256(file_path: Path) -> str:
 def verify_file_integrity(expected_hash: str, file_path: Path) -> bool:
     """Verify that a file's SHA-256 hash matches the expected value."""
     actual_hash = compute_sha256(file_path)
-    return actual_hash.lower() == expected_hash.lower()
+    if actual_hash.lower() == expected_hash.lower():
+        return True
+    if file_path.suffix.lower() in [".json", ".txt", ".csv", ".md"]:
+        with open(file_path, "rb") as f:
+            raw = f.read()
+        crlf = raw.replace(b"\r\n", b"\n").replace(b"\n", b"\r\n")
+        if hashlib.sha256(crlf).hexdigest().lower() == expected_hash.lower():
+            return True
+        lf = raw.replace(b"\r\n", b"\n")
+        if hashlib.sha256(lf).hexdigest().lower() == expected_hash.lower():
+            return True
+    return False
 
 
 def safe_path_join(base_dir: Path, subpath: str) -> Path:

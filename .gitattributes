@@ -1,0 +1,23 @@
+# Git Line Ending and Binary Attributes
+# Ensure binary files are strictly preserved byte-for-byte across OS platforms
+*.pt binary
+*.joblib binary
+*.pkl binary
+*.parquet binary
+*.pcap binary
+*.pcapng binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+
+# Standardize text line endings
+* text=auto eol=lf
+*.json text eol=lf
+*.py text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.md text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf

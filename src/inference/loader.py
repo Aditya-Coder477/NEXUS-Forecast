@@ -74,6 +74,16 @@ class ModelLoader:
 
             actual_hash = self.calculate_sha256(resolved_path)
             if actual_hash != expected_hash:
+                # Handle cross-platform line-ending differences (CRLF vs LF) for text/JSON artifacts
+                if resolved_path.endswith((".json", ".txt", ".csv", ".md")):
+                    with open(resolved_path, "rb") as f:
+                        raw_bytes = f.read()
+                    crlf_hash = hashlib.sha256(raw_bytes.replace(b"\r\n", b"\n").replace(b"\n", b"\r\n")).hexdigest()
+                    lf_hash = hashlib.sha256(raw_bytes.replace(b"\r\n", b"\n")).hexdigest()
+                    if expected_hash in (crlf_hash, lf_hash):
+                        actual_hash = expected_hash
+
+            if actual_hash != expected_hash:
                 raise IntegrityError(
                     f"Cryptographic hash mismatch for {rel_path}!\n"
                     f"Expected: {expected_hash}\n"
