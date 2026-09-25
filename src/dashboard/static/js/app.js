@@ -45,6 +45,47 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalReportBody = document.getElementById("modal-report-body");
   const modalDownloadBtn = document.getElementById("modal-download-btn");
 
+  const themeToggleBtn = document.getElementById("theme-toggle-btn");
+  const themeToggleLabel = document.getElementById("theme-toggle-label");
+
+  // --------------------------------------------------------------------------
+  // THEME MANAGEMENT (DARK / LIGHT MODE)
+  // --------------------------------------------------------------------------
+  function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    try {
+      localStorage.setItem("nexus_theme", theme);
+    } catch (e) {}
+
+    if (themeToggleLabel) {
+      themeToggleLabel.textContent = theme === "dark" ? "Light" : "Dark";
+    }
+    if (themeToggleBtn) {
+      themeToggleBtn.setAttribute(
+        "title",
+        theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"
+      );
+    }
+  }
+
+  function initTheme() {
+    let savedTheme = "dark";
+    try {
+      savedTheme = localStorage.getItem("nexus_theme") || "dark";
+    } catch (e) {}
+    applyTheme(savedTheme);
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener("click", () => {
+        const currentTheme = document.documentElement.getAttribute("data-theme") || "dark";
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+        applyTheme(newTheme);
+      });
+    }
+  }
+
+  initTheme();
+
   // --------------------------------------------------------------------------
   // DYNAMIC HEADER SELECTORS INITIALIZATION
   // --------------------------------------------------------------------------
