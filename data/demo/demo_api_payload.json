@@ -249,5 +249,5 @@
   ],
   "explain_mode": "full",
   "enrich_mode": "full",
-  "description": "NEXUS-Forecast REST API Live Inference Payload (10 timesteps x 22 canonical features)"
+  "description": "NEXUS-Forecast REST API Active Attack Payload (Volumetric DDoS SYN Flood)"
 }

@@ -1,122 +1,86 @@
-# NEXUS-Forecast: Demo Telemetry & Traffic Files
+# NEXUS-Forecast: Production Demo Telemetry & Traffic Files
 
-This directory contains production-grade demonstration datasets designed to showcase all core analytical, forecasting, and explainability capabilities of **NEXUS-Forecast**:
+This directory contains a comprehensive suite of real-world security telemetry, packet captures, sequence matrices, and API payloads representing various network threat archetypes across **CIC-IDS2017**, **CTU-13**, and **UNSW-NB15**.
 
-| Demo File | Format | Scenario Type | Target Capability Demonstrated |
+All files are directly compatible with the **NEXUS-Forecast Analyst Dashboard** (drag-and-drop file uploader), the offline CLI runner, and the REST API.
+
+---
+
+## Complete Demo Catalog
+
+### 1. CSV Telemetry Files (10 Windows x 22 Canonical Features)
+Drag and drop any of these directly into the **Live Inference** tab in the Dashboard, or pass them to the CLI:
+
+| File | Attack Category | Dataset Source | Key Characteristics |
 | :--- | :--- | :--- | :--- |
-| `demo_attack_scenarios.parquet` | `.parquet` | Multi-scenario (DDoS, Infiltration, PortScan, Benign) | Multi-horizon forecasting, kill-chain trajectory, and cross-dataset comparison |
-| `demo_attack_telemetry.csv` | `.csv` | Volumetric DDoS SYN Flood | Attack alert triggering, MITRE ATT&CK & CAPEC mapping, feature attribution |
-| `demo_benign_telemetry.csv` | `.csv` | Normal enterprise operations | Baseline stability, negative attribution, zero false-alarm confirmation |
-| `demo_portscan_traffic.pcap` | `.pcap` | Multi-target TCP SYN Reconnaissance | Raw packet ingestion, pure-Python frame parsing, and temporal state windowing |
-| `demo_api_payload.json` | `.json` | Ready-to-use API payload | REST API endpoint integration (`POST /api/v1/inference/predict`) |
-| `example_sequence.parquet` | `.parquet` | Canonical test sequences | Air-gapped pipeline integration tests |
+| `demo_attack_telemetry.csv` | **Volumetric DDoS SYN Flood** | CIC-IDS2017 | Extreme packet rate surge, elevated SYN ratio, high IAT variance |
+| `demo_benign_telemetry.csv` | **Normal Baseline Traffic** | CIC-IDS2017 | Stable flow rates, balanced bidirectional traffic, zero anomaly |
+| `demo_botnet_ctu13.csv` | **Botnet C2 & Beaconing** | CTU-13 (Neris) | Periodic interarrival times, persistent external C&C channels |
+| `demo_web_attacks.csv` | **Web Brute Force & SQLi** | CIC-IDS2017 | High connection failure rate, repeated HTTP target probes |
+| `demo_infiltration_lateral.csv` | **Infiltration & Lateral Recon** | CIC-IDS2017 | Internal IP port dispersion, expanding destination footprint |
+| `demo_unsw_multistage.csv` | **Multi-Stage Kill-Chain** | UNSW-NB15 | Progressive transition across Recon $\to$ C2 $\to$ Execution |
 
 ---
 
-## 1. Multi-Scenario Parquet Testing (`demo_attack_scenarios.parquet`)
+### 2. Raw Binary Packet Captures (.pcap)
+Processed in real time by the pure-Python zero-dependency PCAP parser (`UploadService.parse_pcap_stream`):
 
-Run the full offline inference engine across multiple distinct attack and benign scenarios:
-
-```bash
-# Run CLI inference and generate a formatted SOC Analyst Markdown brief
-python -m src.inference.run \
-    --input data/demo/demo_attack_scenarios.parquet \
-    --explain full \
-    --enrich full \
-    --format markdown \
-    --output outputs/demo_scenarios_brief.md
-```
-
-### Expected Behavior:
-- **Sample 1 (DDoS Attack)**: Forecasts `ATTACK` (Calibrated Prob: **~59%**, Threshold: **0.45**), Threat Level: `ELEVATED`, MITRE Stage: `COMMAND_AND_CONTROL`, top features: `std_iat, mean_packet_rate, total_flows`.
-- **Sample 2 (UNSW Infiltration)**: Forecasts `ATTACK` (Calibrated Prob: **~62%**), Trajectory: `COMMAND_AND_CONTROL -> EXECUTION -> EXECUTION`.
-- **Sample 3 (PortScan)**: Flags network reconnaissance and host diversity anomalies.
-- **Samples 4 & 5 (Benign)**: Safely forecast `BENIGN` (Prob: **~29-32%**), Threat Level: `BENIGN`.
+| File | Protocol & Type | Target Scenario |
+| :--- | :--- | :--- |
+| `demo_portscan_traffic.pcap` | TCP SYN / Multi-Port | Horizontal reconnaissance scanning across 20 common service ports |
+| `demo_synflood_traffic.pcap` | TCP SYN Flood | High-frequency SYN flood directed at web servers (ports 80 & 443) |
+| `demo_dns_amplification.pcap` | UDP DNS Reflection | Heavy UDP port 53 amplification packets with large response payloads |
 
 ---
 
-## 2. CSV Telemetry Testing (`demo_attack_telemetry.csv` & `demo_benign_telemetry.csv`)
+### 3. Multi-Scenario Parquet Files (.parquet)
+Pre-windowed canonical sequence collections suitable for batch evaluation and comparative analysis:
 
-These CSV files contain 10 consecutive temporal telemetry windows across all 22 canonical features. You can open and edit them in Excel or text editors:
+| File | Scenarios Included | Description |
+| :--- | :--- | :--- |
+| `demo_attack_scenarios.parquet` | DDoS, PortScan, Infiltration, Benign | Flagship evaluation dataset across multiple threat categories |
+| `demo_ctu13_botnet_scenarios.parquet` | Scenario 01 (Neris), Scenario 03 (RBot), Benign | Real enterprise botnet infections from CTU University |
+| `demo_unsw_nb15_scenarios.parquet` | Advanced Fuzzers, Backdoors, Exploits | Complex multi-stage modern attack vectors |
+| `example_sequence.parquet` | Canonical Test Sequence | Baseline sequence used for internal integration tests |
 
-### Run Attack Telemetry:
-```bash
-python -m src.inference.run \
-    --input data/demo/demo_attack_telemetry.csv \
-    --explain lightweight \
-    --enrich full \
-    --format json
-```
+---
 
-### Run Benign Telemetry:
-```bash
-python -m src.inference.run \
-    --input data/demo/demo_benign_telemetry.csv \
-    --explain lightweight \
-    --enrich full \
-    --format json
-```
+### 4. REST API Payloads (.json)
+Ready-to-use payloads for testing the `POST /api/v1/inference/predict` or `POST /api/inference/run` endpoints:
 
-### Web UI Drag-and-Drop:
-1. Open the Analyst Workstation Dashboard (`http://localhost:8000/dashboard` or on Render).
+| File | Scenario | Purpose |
+| :--- | :--- | :--- |
+| `demo_api_payload.json` | Volumetric Attack | Tests automated threat detection, alerts, and MITRE mapping |
+| `demo_benign_payload.json` | Baseline Normal | Confirms low false-alarm rate and benign classification |
+| `demo_botnet_payload.json` | Botnet Command & Control | Tests persistence and command-and-control stage attribution |
+
+---
+
+## How to Use These Files
+
+### Option A: Via the Web Dashboard
+1. Open the workstation in your browser: `http://localhost:8000`
 2. Navigate to the **Live Inference** tab.
-3. Drag and drop either `demo_attack_telemetry.csv` or `demo_benign_telemetry.csv` into the file uploader.
-4. Watch the neural model execute real-time multi-horizon forward simulation.
+3. Drag and drop any `.csv`, `.pcap`, or `.parquet` file from this folder into the upload dropzone.
+4. View the real-time GRU forward simulation, multi-horizon trajectories (+30s, +90s, +180s), and integrated gradient attributions.
 
----
-
-## 3. Raw Packet Capture Ingestion (`demo_portscan_traffic.pcap`)
-
-NEXUS-Forecast features a zero-dependency, pure-Python PCAP parser (`UploadService.parse_pcap_stream`) that extracts Ethernet, IPv4, TCP flags, and UDP headers directly from raw packet captures.
-
-### Uploading via Web UI:
-- Drag `data/demo/demo_portscan_traffic.pcap` directly into the Dashboard upload dropzone.
-- The backend parses the raw packets into 10 temporal windows, computes packet rates, entropy, and SYN ratios, and feeds the sequence tensor into the GRU world model.
-
-### Uploading via cURL:
+### Option B: Via Command Line (CLI)
 ```bash
-curl -X POST "http://localhost:8000/api/v1/inference/upload" \
-    -F "file=@data/demo/demo_portscan_traffic.pcap" \
-    -F "explain_mode=lightweight" \
-    -F "enrich_mode=full"
+# Run inference on any CSV file
+python -m src.inference.run --input data/demo/demo_botnet_ctu13.csv --explain lightweight
+
+# Run inference on multi-scenario parquet and generate a Markdown report
+python -m src.inference.run --input data/demo/demo_attack_scenarios.parquet --format markdown --output outputs/demo_brief.md
 ```
 
----
-
-## 4. REST API Live Payload Testing (`demo_api_payload.json`)
-
-Integrate directly with external SIEMs (Splunk, Elastic SIEM, Microsoft Sentinel):
-
+### Option C: Via cURL / API
 ```bash
-curl -X POST "http://localhost:8000/api/v1/inference/predict" \
-    -H "Content-Type: application/json" \
-    -d @data/demo/demo_api_payload.json
+# Upload a PCAP file to the REST API
+curl -X POST "http://localhost:8000/api/inference/upload" \
+  -F "file=@data/demo/demo_synflood_traffic.pcap"
+
+# Post a JSON state sequence
+curl -X POST "http://localhost:8000/api/inference/run" \
+  -H "Content-Type: application/json" \
+  -d @data/demo/demo_api_payload.json
 ```
-
----
-
-## Schema Reference: 22 Canonical Network State Features
-
-Each temporal window in NEXUS-Forecast aggregates traffic across 22 canonical dimensions:
-1. `total_flows`
-2. `unique_src_hosts`
-3. `unique_dst_hosts`
-4. `unique_dst_ports`
-5. `unique_protocols`
-6. `total_packets`
-7. `total_bytes`
-8. `inbound_bytes`
-9. `outbound_bytes`
-10. `inbound_outbound_ratio`
-11. `mean_flow_duration`
-12. `mean_packet_rate`
-13. `mean_byte_rate`
-14. `mean_iat`
-15. `std_iat`
-16. `syn_count`
-17. `ack_count`
-18. `rst_count`
-19. `fin_count`
-20. `connection_failure_rate`
-21. `unique_host_pair_count`
-22. `fan_out_ratio`
