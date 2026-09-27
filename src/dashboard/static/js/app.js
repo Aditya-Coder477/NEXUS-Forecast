@@ -359,29 +359,35 @@ document.addEventListener("DOMContentLoaded", () => {
     const container = typeof containerElementOrId === "string" 
       ? document.getElementById(containerElementOrId) 
       : containerElementOrId;
-    if (!container || !points || points.length === 0) return;
+    if (!container) return;
+    if (!points || !Array.isArray(points) || points.length === 0) return;
 
-    const width = container.clientWidth > 100 ? container.clientWidth : 800;
+    const rect = container.getBoundingClientRect();
+    const width = (rect && rect.width > 200) ? Math.round(rect.width) : (container.clientWidth > 200 ? container.clientWidth : 800);
     const height = chartHeight;
     const padX = 60;
     const padY = 30;
-    const chartW = width - padX * 2;
-    const chartH = height - padY * 2;
+    const chartW = Math.max(width - padX * 2, 200);
+    const chartH = Math.max(height - padY * 2, 80);
 
-    const stepX = chartW / (points.length - 1);
+    const stepX = chartW / Math.max(points.length - 1, 1);
 
     // Helper: value to Y
-    const toY = (val) => height - padY - val * chartH;
+    const toY = (val) => {
+      const num = Number(val);
+      const safe = isNaN(num) ? 0.5 : Math.max(0, Math.min(1, num));
+      return height - padY - safe * chartH;
+    };
     const thresholdY = toY(0.45);
 
     // Build SVG
-    let svg = `<svg width="100%" height="${height}" viewBox="0 0 ${width} ${height}" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">`;
+    let svg = `<svg width="100%" height="${height}" viewBox="0 0 ${width} ${height}" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" style="display:block; width:100%; height:${height}px;">`;
 
-    // Gridlines (0.25, 0.50, 0.75, 1.00)
+    // Gridlines (0.0, 0.25, 0.50, 0.75, 1.00)
     [0.0, 0.25, 0.50, 0.75, 1.0].forEach((level) => {
       const y = toY(level);
-      svg += `<line x1="${padX}" y1="${y}" x2="${width - padX}" y2="${y}" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>`;
-      svg += `<text x="${padX - 10}" y="${y + 4}" fill="#6b7280" font-size="10" font-family="monospace" text-anchor="end">${(level * 100).toFixed(0)}%</text>`;
+      svg += `<line x1="${padX}" y1="${y}" x2="${width - padX}" y2="${y}" stroke="currentColor" stroke-opacity="0.08" stroke-width="1"/>`;
+      svg += `<text x="${padX - 10}" y="${y + 4}" fill="currentColor" fill-opacity="0.45" font-size="10" font-family="monospace" text-anchor="end">${(level * 100).toFixed(0)}%</text>`;
     });
 
     // Operational Threshold Line (0.45)
@@ -389,7 +395,8 @@ document.addEventListener("DOMContentLoaded", () => {
     svg += `<text x="${width - padX + 8}" y="${thresholdY + 3}" fill="#c94a4a" font-size="10" font-family="monospace">θ*=45%</text>`;
 
     // Prediction origin vertical separator ("NOW")
-    const nowIdx = points.findIndex((p) => p.type === "current");
+    let nowIdx = points.findIndex((p) => p.type === "current");
+    if (nowIdx === -1) nowIdx = Math.floor(points.length / 2);
     if (nowIdx !== -1) {
       const nowX = padX + nowIdx * stepX;
       svg += `<line x1="${nowX}" y1="${padY}" x2="${nowX}" y2="${height - padY}" stroke="#c59a68" stroke-dasharray="2,3" stroke-width="1"/>`;
@@ -403,7 +410,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     points.forEach((p, i) => {
       const x = padX + i * stepX;
-      const y = toY(p.probability);
+      const y = toY(p.probability != null ? p.probability : 0.5);
 
       if (i <= nowIdx) {
         obsD += (i === 0 ? `M ${x} ${y}` : ` L ${x} ${y}`);
@@ -419,13 +426,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // Render Data Points
     points.forEach((p, i) => {
       const x = padX + i * stepX;
-      const y = toY(p.probability);
+      const y = toY(p.probability != null ? p.probability : 0.5);
       const isFc = i >= nowIdx;
       const color = isFc ? "#c59a68" : "#85888e";
       const r = i === nowIdx ? 5.5 : 4.5;
+      const label = p.label || (i < nowIdx ? `t-${(nowIdx - i) * 30}s` : (i === nowIdx ? "Now (t)" : `t+${(i - nowIdx) * 30}s`));
 
       svg += `<circle cx="${x}" cy="${y}" r="${r}" fill="${color}" stroke="#0c0d0e" stroke-width="2" class="timeline-point" data-idx="${i}" style="cursor:pointer;"/>`;
-      svg += `<text x="${x}" y="${height - padY + 18}" fill="#9aa0a6" font-size="10.5" font-family="monospace" text-anchor="middle">${p.label}</text>`;
+      svg += `<text x="${x}" y="${height - padY + 18}" fill="currentColor" fill-opacity="0.6" font-size="10.5" font-family="monospace" text-anchor="middle">${label}</text>`;
     });
 
     svg += `</svg>`;
@@ -1184,10 +1192,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const activeSc = activeItem.scenario || "Recorded Sequence";
       const titleEl = document.getElementById("results-timeline-title");
       if (titleEl) titleEl.textContent = `Forecast Timeline — ${activeFid} (${activeSc})`;
-      setTimeout(() => {
+      
+      const drawResultsChart = () => {
         const pts = ensureTimelinePoints(activeItem);
         renderTimelineChart(pts, "results-timeline-svg-container", 220);
-      }, 30);
+      };
+      drawResultsChart();
+      setTimeout(drawResultsChart, 40);
+      setTimeout(drawResultsChart, 180);
     }
 
     tbody.innerHTML = results
@@ -1219,6 +1231,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       )
       .join("");
+
+    // Highlight active selected row
+    const targetFid = activeItem ? (activeItem.forecast_id || activeItem.id) : null;
+    if (targetFid) {
+      const activeTr = tbody.querySelector(`tr[data-id="${targetFid}"]`);
+      if (activeTr) activeTr.style.background = "var(--bg-surface)";
+    }
 
     tbody.querySelectorAll("tr.clickable-row").forEach((tr) => {
       tr.addEventListener("click", () => {
@@ -1716,6 +1735,18 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Escape") {
       drawer.classList.remove("open");
       modalOverlay.classList.remove("open");
+    }
+  });
+
+  // Window Resize listener for responsive timeline redraw
+  window.addEventListener("resize", () => {
+    if (state.activePage === "dashboard" && state.dashboardData && state.dashboardData.timeline) {
+      renderTimelineChart(state.dashboardData.timeline, "timeline-svg-container", 220);
+    } else if (state.activePage === "results" && state.forecastResults && state.forecastResults.length > 0) {
+      const activeItem = state.selectedForecast || state.forecastResults[0];
+      if (activeItem) {
+        renderTimelineChart(ensureTimelinePoints(activeItem), "results-timeline-svg-container", 220);
+      }
     }
   });
 

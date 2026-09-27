@@ -11,12 +11,14 @@ class ForecastSummaryItem(BaseModel):
     timestamp: str
     scenario: str
     dataset: str
+    horizon: str = "+30s"
     attack_probability: float
     decision: str
     predicted_stage: str
     stage_confidence: float
     threat_level: str
     operational_threshold: float = 0.45
+    timeline: Optional[List[Dict[str, Any]]] = None
 
 
 class ForecastDetailResponse(BaseModel):
