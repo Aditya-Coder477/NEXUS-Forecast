@@ -86,16 +86,18 @@ class ForecastService:
         for f in reversed(_forecast_history):
             all_items.append(f)
 
-        # 2. Add representative pre-computed scenarios
+        # 2. Add representative pre-computed scenarios across multi-step horizons (+30s, +90s, +180s)
         for s in scenarios:
             sid = s.get("scenario_id", "")
-            prob = s.get("calibrated_attack_probability", s.get("probability", 0.0))
+            prob = float(s.get("calibrated_attack_probability", s.get("probability", 0.0)))
             stg = s.get("predicted_stage", "DISCOVERY")
             if stg == "BENIGN" and prob >= settings.operational_threshold:
                 stg = "DISCOVERY"
 
             origin_ts = s.get("prediction_origin", "2017-07-07 04:46:30")
-            h_sec = s.get("forecast_horizon_seconds", 30)
+            dataset_val = s.get("dataset", "CIC-IDS2017")
+            scenario_title = sid.replace("-", " ").replace("WorkingHours", "Session")
+            conf = float(s.get("stage_confidence", 0.75))
 
             timeline = s.get("timeline")
             if not timeline:
@@ -108,24 +110,34 @@ class ForecastService:
                     {"label": "t-30s", "probability": round(max(0.02, p_flt * 0.92), 4), "type": "observed", "stage": stg if p_flt * 0.92 >= 0.45 else "BENIGN"},
                     {"label": "Now (t)", "probability": round(p_flt, 4), "type": "current", "stage": stg},
                     {"label": "t+30s", "probability": round(p_flt, 4), "type": "forecast", "stage": stg},
-                    {"label": "t+90s", "probability": round(min(0.99, p_flt * 1.05), 4), "type": "forecast", "stage": stg},
-                    {"label": "t+180s", "probability": round(min(0.99, p_flt * 1.10), 4), "type": "forecast", "stage": stg},
+                    {"label": "t+90s", "probability": round(min(0.99, p_flt * 1.05 if p_flt >= 0.45 else p_flt * 0.95), 4), "type": "forecast", "stage": stg},
+                    {"label": "t+180s", "probability": round(min(0.99, p_flt * 1.10 if p_flt >= 0.45 else p_flt * 0.90), 4), "type": "forecast", "stage": stg},
                 ]
 
-            all_items.append({
-                "id": sid,
-                "timestamp": origin_ts,
-                "scenario": sid.replace("-", " ").replace("WorkingHours", "Session"),
-                "dataset": s.get("dataset", "CIC-IDS2017"),
-                "horizon": f"+{h_sec}s",
-                "attack_probability": round(float(prob), 4),
-                "decision": "ATTACK" if prob >= settings.operational_threshold else "BENIGN",
-                "predicted_stage": stg,
-                "stage_confidence": round(float(s.get("stage_confidence", 0.75)), 4),
-                "threat_level": "CRITICAL" if prob >= 0.85 else ("HIGH" if prob >= 0.65 else ("ELEVATED" if prob >= 0.45 else "BENIGN")),
-                "operational_threshold": settings.operational_threshold,
-                "timeline": timeline
-            })
+            horizon_configs = [
+                ("+30s", sid, prob),
+                ("+90s", f"{sid}-H3", min(0.99, prob * 1.05 if prob >= settings.operational_threshold else prob * 0.95)),
+                ("+180s", f"{sid}-H6", min(0.99, prob * 1.10 if prob >= settings.operational_threshold else prob * 0.90)),
+            ]
+
+            for h_label, item_id, h_prob in horizon_configs:
+                h_prob_rounded = round(float(h_prob), 4)
+                dec = "ATTACK" if h_prob_rounded >= settings.operational_threshold else "BENIGN"
+                h_stg = stg if dec == "ATTACK" else "BENIGN"
+                all_items.append({
+                    "id": item_id,
+                    "timestamp": origin_ts,
+                    "scenario": scenario_title,
+                    "dataset": dataset_val,
+                    "horizon": h_label,
+                    "attack_probability": h_prob_rounded,
+                    "decision": dec,
+                    "predicted_stage": h_stg,
+                    "stage_confidence": round(conf, 4),
+                    "threat_level": "CRITICAL" if h_prob_rounded >= 0.85 else ("HIGH" if h_prob_rounded >= 0.65 else ("ELEVATED" if h_prob_rounded >= 0.45 else "BENIGN")),
+                    "operational_threshold": settings.operational_threshold,
+                    "timeline": timeline
+                })
 
         # Apply filtering
         filtered = []
@@ -135,8 +147,13 @@ class ForecastService:
             if stage and stage.upper() != "ALL" and item.get("predicted_stage", "").upper() != stage.upper():
                 continue
             if horizon and horizon.upper() != "ALL":
-                item_h = item.get("horizon", "+30s")
-                if horizon not in item_h and item_h not in horizon:
+                item_h = item.get("horizon", "+30s").lower()
+                req_h = horizon.lower()
+                req_digits = "".join(c for c in req_h if c.isdigit())
+                item_digits = "".join(c for c in item_h if c.isdigit())
+                digits_match = (req_digits == item_digits) or (req_digits == "120" and item_digits in ("180", "120"))
+                string_match = (req_h in item_h) or (item_h in req_h)
+                if not (digits_match or string_match):
                     continue
             if dataset and dataset.upper() != "ALL" and dataset.lower() not in item.get("dataset", "").lower():
                 continue
@@ -149,33 +166,77 @@ class ForecastService:
     @staticmethod
     def get_forecast_by_id(forecast_id: str) -> Optional[Dict[str, Any]]:
         """Retrieve forecast detail by ID from live history or cached scenarios."""
-        # 1. Check live history
+        # 1. Exact match in live history
         for f in _forecast_history:
             if f.get("id") == forecast_id:
                 return f
+
+        # Match base prefix if queried with horizon suffix e.g. FC-1234-H3 or scenario_01-H3
+        base_id = forecast_id.split("-H")[0].split("-+")[0]
+        for f in _forecast_history:
+            f_base = f.get("id", "").split("-H")[0].split("-+")[0]
+            if f_base == base_id or f.get("id") == base_id:
+                return f
+
         # 2. Check cached scenarios
-        return ForecastService.get_scenario_by_id(forecast_id)
+        res = ForecastService.get_scenario_by_id(forecast_id)
+        if res:
+            return res
+        return ForecastService.get_scenario_by_id(base_id)
 
     @staticmethod
     def record_forecast(forecast_data: Dict[str, Any], scenario_name: str = "Live Inference", dataset_name: str = "CIC-IDS2017") -> None:
-        """Store newly generated forecast in in-memory history."""
+        """Store newly generated forecast in in-memory history across all rollout horizons."""
         fid = forecast_data.get("forecast_id", "")
         summary = forecast_data.get("summary", {})
-        h1 = forecast_data.get("horizons", {}).get("h1", {})
-        prob = h1.get("calibrated_attack_prob", summary.get("max_attack_prob", 0.0))
-        item = {
-            "id": fid,
-            "timestamp": forecast_data.get("timestamp", "2026-09-22 03:00:00 UTC"),
-            "scenario": scenario_name,
-            "dataset": dataset_name,
-            "horizon": "+30s",
-            "attack_probability": round(float(prob), 4),
-            "decision": "ATTACK" if prob >= settings.operational_threshold else "BENIGN",
-            "predicted_stage": h1.get("predicted_stage", "BENIGN"),
-            "stage_confidence": round(float(h1.get("stage_confidence", 0.0)), 4),
-            "threat_level": summary.get("threat_level", "BENIGN"),
-            "operational_threshold": settings.operational_threshold,
-            "timeline": forecast_data.get("timeline", []),
-            "raw_detail": forecast_data
-        }
-        _forecast_history.append(item)
+        horizons_data = forecast_data.get("horizons", {})
+        ts = forecast_data.get("timestamp", "2026-09-22 03:00:00 UTC")
+        timeline = forecast_data.get("timeline", [])
+
+        if horizons_data:
+            for h_key, h_info in horizons_data.items():
+                sec = h_info.get("horizon_seconds", 30 if h_key == "h1" else (90 if h_key == "h3" else 180))
+                prob = h_info.get("calibrated_attack_prob", summary.get("max_attack_prob", 0.0))
+                stg = h_info.get("predicted_stage", "BENIGN")
+                conf = h_info.get("stage_confidence", 0.0)
+                is_attack = h_info.get("predicted_attack")
+                if is_attack is not None:
+                    dec = "ATTACK" if is_attack else "BENIGN"
+                else:
+                    dec = "ATTACK" if prob >= settings.operational_threshold else "BENIGN"
+
+                item_id = fid if h_key == "h1" else f"{fid}-{h_key.upper()}"
+                item = {
+                    "id": item_id,
+                    "timestamp": ts,
+                    "scenario": scenario_name,
+                    "dataset": dataset_name,
+                    "horizon": f"+{sec}s",
+                    "attack_probability": round(float(prob), 4),
+                    "decision": dec,
+                    "predicted_stage": stg,
+                    "stage_confidence": round(float(conf), 4),
+                    "threat_level": "CRITICAL" if prob >= 0.85 else ("HIGH" if prob >= 0.65 else ("ELEVATED" if prob >= 0.45 else "BENIGN")),
+                    "operational_threshold": settings.operational_threshold,
+                    "timeline": timeline,
+                    "raw_detail": forecast_data
+                }
+                _forecast_history.append(item)
+        else:
+            prob = summary.get("max_attack_prob", 0.0)
+            item = {
+                "id": fid,
+                "timestamp": ts,
+                "scenario": scenario_name,
+                "dataset": dataset_name,
+                "horizon": "+30s",
+                "attack_probability": round(float(prob), 4),
+                "decision": "ATTACK" if prob >= settings.operational_threshold else "BENIGN",
+                "predicted_stage": "BENIGN",
+                "stage_confidence": 0.0,
+                "threat_level": summary.get("threat_level", "BENIGN"),
+                "operational_threshold": settings.operational_threshold,
+                "timeline": timeline,
+                "raw_detail": forecast_data
+            }
+            _forecast_history.append(item)

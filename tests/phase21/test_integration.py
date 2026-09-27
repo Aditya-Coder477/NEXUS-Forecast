@@ -289,6 +289,25 @@ def test_forecast_filtering():
     data_stage = res_stage.json()
     assert all(f["predicted_stage"] == "DISCOVERY" for f in data_stage)
 
+    # Test multi-horizon filtering (+30s, +90s, +180s)
+    res_h30 = client.get("/api/forecasts?horizon=+30s")
+    assert res_h30.status_code == 200
+    data_h30 = res_h30.json()
+    assert len(data_h30) > 0
+    assert all("30" in f["horizon"] for f in data_h30)
+
+    res_h90 = client.get("/api/forecasts?horizon=+90s")
+    assert res_h90.status_code == 200
+    data_h90 = res_h90.json()
+    assert len(data_h90) > 0
+    assert all("90" in f["horizon"] for f in data_h90)
+
+    res_h180 = client.get("/api/forecasts?horizon=+180s")
+    assert res_h180.status_code == 200
+    data_h180 = res_h180.json()
+    assert len(data_h180) > 0
+    assert all("180" in f["horizon"] for f in data_h180)
+
 
 # 13. Dual Schema on Explanations
 def test_explanations_dual_schema():
