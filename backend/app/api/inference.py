@@ -18,8 +18,10 @@ def execute_inference(req: InferenceRequest):
     Run offline inference using the frozen GRU World Model.
     """
     try:
+        ds_name = req.dataset or "CIC-IDS2017"
         result = InferenceService.run_inference(
             input_type=req.input_type,
+            dataset=ds_name,
             scenario_id=req.scenario_id,
             raw_sequence=req.raw_sequence,
             horizons=req.horizons,
@@ -28,7 +30,7 @@ def execute_inference(req: InferenceRequest):
         )
         # Store in forecast history
         sc_name = req.scenario_id or "Custom Inference"
-        ForecastService.record_forecast(result, scenario_name=sc_name)
+        ForecastService.record_forecast(result, scenario_name=sc_name, dataset_name=ds_name)
         return result
     except ValueError as ve:
         raise HTTPException(status_code=400, detail=str(ve))
