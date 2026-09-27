@@ -26,6 +26,79 @@ def get_feature_time_matrix() -> pd.DataFrame:
     return _matrix_df
 
 
+_baseline_stats: Optional[Dict[str, Any]] = None
+_scenario_sequences_cache: Dict[str, pd.Series] = {}
+
+FEATURE_CATEGORIES = {
+    "total_flows": "TRAFFIC_VOLUME",
+    "unique_src_hosts": "HOST_DIVERSITY",
+    "unique_dst_hosts": "HOST_DIVERSITY",
+    "unique_dst_ports": "PORT_DIVERSITY",
+    "unique_protocols": "PROTOCOL_BEHAVIOR",
+    "total_packets": "TRAFFIC_VOLUME",
+    "total_bytes": "TRAFFIC_VOLUME",
+    "inbound_bytes": "DIRECTIONALITY",
+    "outbound_bytes": "DIRECTIONALITY",
+    "inbound_outbound_ratio": "DIRECTIONALITY",
+    "mean_flow_duration": "CONNECTION_BEHAVIOR",
+    "mean_packet_rate": "TRAFFIC_VOLUME",
+    "mean_byte_rate": "TRAFFIC_VOLUME",
+    "mean_iat": "CONNECTION_BEHAVIOR",
+    "std_iat": "CONNECTION_BEHAVIOR",
+    "syn_count": "CONNECTION_BEHAVIOR",
+    "ack_count": "CONNECTION_BEHAVIOR",
+    "rst_count": "CONNECTION_BEHAVIOR",
+    "fin_count": "CONNECTION_BEHAVIOR",
+    "connection_failure_rate": "CONNECTION_BEHAVIOR",
+    "unique_host_pair_count": "HOST_DIVERSITY",
+    "fan_out_ratio": "HOST_DIVERSITY",
+}
+
+
+def get_baseline_stats() -> Dict[str, Any]:
+    """Load pre-computed empirical baseline distributions from models/explainability/baseline_statistics.json."""
+    global _baseline_stats
+    if _baseline_stats is None:
+        p = settings.models_dir / "explainability" / "baseline_statistics.json"
+        if p.exists():
+            try:
+                with open(p, "r", encoding="utf-8") as f:
+                    raw = json.load(f)
+                    _baseline_stats = raw.get("feature_statistics", raw)
+            except Exception:
+                _baseline_stats = {}
+        else:
+            _baseline_stats = {}
+    return _baseline_stats
+
+
+def get_sequence_row_for_scenario(dataset: str, scenario_id: str, prediction_origin: str) -> Optional[pd.Series]:
+    """Retrieve the authoritative 10-step sequence row from processed parquet for exact feature values."""
+    cache_key = f"{dataset}_{scenario_id}_{prediction_origin}"
+    if cache_key in _scenario_sequences_cache:
+        return _scenario_sequences_cache[cache_key]
+
+    parquet_name = "cic_ids2017_sequences.parquet"
+    ds_lower = dataset.lower()
+    if "unsw" in ds_lower:
+        parquet_name = "unsw_nb15_sequences.parquet"
+    elif "ctu" in ds_lower:
+        parquet_name = "ctu13_sequences.parquet"
+
+    p = settings.data_dir / "processed" / "forecast_sequences" / parquet_name
+    if p.exists():
+        try:
+            df = pd.read_parquet(p)
+            match = df[(df["prediction_origin"] == prediction_origin) & (df["scenario_id"] == scenario_id)]
+            if len(match) > 0:
+                row = match.iloc[0]
+                _scenario_sequences_cache[cache_key] = row
+                return row
+        except Exception:
+            pass
+    return None
+
+
 class ExplanationService:
     @staticmethod
     def get_explanation(forecast_id: str) -> Optional[Dict[str, Any]]:
@@ -91,22 +164,59 @@ class ExplanationService:
             evidence_data = scenario.get("evidence", {})
             cf_data = scenario.get("counterfactual", {})
 
+            dataset = scenario.get("dataset", "CIC-IDS2017")
+            orig_scenario_id = scenario.get("scenario_id", "")
+            prediction_origin = scenario.get("prediction_origin", "")
+
             # Baseline deviations lookup for category & values
             dev_map = {}
             for d in evidence_data.get("baseline_deviations", []):
                 dev_map[d.get("feature_name")] = d
+
+            # Authoritative baseline statistics (all 22 canonical features)
+            baseline_stats = get_baseline_stats()
+            # Authoritative sequence row for observed values
+            seq_row = get_sequence_row_for_scenario(dataset, orig_scenario_id, prediction_origin)
 
             # 1. Top Features
             top_feats = []
             for f in expl_data.get("top_features", []):
                 feat_name = f.get("feature", "")
                 dev = dev_map.get(feat_name, {})
+                f_stat = baseline_stats.get(feat_name, {})
+
                 score = round(float(f.get("absolute_attribution", f.get("raw_attribution", 0.0))), 4)
                 raw_score = round(float(f.get("raw_attribution", f.get("absolute_attribution", 0.0))), 4)
-                cur_v = round(float(dev.get("current_value", 0.0)), 2)
-                base_v = round(float(dev.get("baseline_mean", dev.get("baseline_median", 0.0))), 2)
-                iqr = round(float(dev.get("iqr_deviation", 1.5)), 1)
+
+                # Observed / Current Value
+                if "current_value" in dev:
+                    cur_v = round(float(dev["current_value"]), 2)
+                elif seq_row is not None and f"S_t_{feat_name}" in seq_row:
+                    cur_v = round(float(seq_row[f"S_t_{feat_name}"]), 2)
+                else:
+                    cur_v = round(float(dev.get("current_value", 0.0)), 2)
+
+                # Baseline Value (empirical benign median / mean)
+                if "baseline_mean" in dev:
+                    base_v = round(float(dev["baseline_mean"]), 2)
+                elif "baseline_median" in dev:
+                    base_v = round(float(dev["baseline_median"]), 2)
+                elif f_stat:
+                    base_val = f_stat.get("benign_median_unscaled", f_stat.get("train_median", f_stat.get("train_mean", 0.0)))
+                    base_v = round(float(base_val), 2)
+                else:
+                    base_v = 0.0
+
+                # IQR deviation
+                if "iqr_deviation" in dev:
+                    iqr = round(float(dev["iqr_deviation"]), 1)
+                elif f_stat and float(f_stat.get("train_iqr", 0.0)) > 0:
+                    iqr = round(float((cur_v - base_v) / float(f_stat["train_iqr"])), 1)
+                else:
+                    iqr = 1.0 if abs(cur_v - base_v) > 0.001 else 0.0
+
                 direction = f.get("direction", "attack_supporting")
+                cat = dev.get("category") or FEATURE_CATEGORIES.get(feat_name, "General Telemetry")
 
                 top_feats.append({
                     "feature_name": feat_name,
@@ -114,7 +224,7 @@ class ExplanationService:
                     "percentage": round(float(f.get("normalized_importance", 0.0)) * 100, 1),
                     "baseline_mean": base_v,
                     "observed_value": cur_v,
-                    "category": dev.get("category", "General Telemetry")
+                    "category": cat
                 })
 
             # 1b. Feature Attribution for frontend table
@@ -122,11 +232,40 @@ class ExplanationService:
             for f in expl_data.get("top_features", []):
                 feat_name = f.get("feature", "")
                 dev = dev_map.get(feat_name, {})
+                f_stat = baseline_stats.get(feat_name, {})
+
                 raw_score = round(float(f.get("raw_attribution", f.get("absolute_attribution", 0.0))), 4)
-                cur_v = round(float(dev.get("current_value", 0.0)), 2)
-                base_v = round(float(dev.get("baseline_mean", dev.get("baseline_median", 0.0))), 2)
-                iqr = round(float(dev.get("iqr_deviation", 1.5)), 1)
+
+                # Observed / Current Value
+                if "current_value" in dev:
+                    cur_v = round(float(dev["current_value"]), 2)
+                elif seq_row is not None and f"S_t_{feat_name}" in seq_row:
+                    cur_v = round(float(seq_row[f"S_t_{feat_name}"]), 2)
+                else:
+                    cur_v = round(float(dev.get("current_value", 0.0)), 2)
+
+                # Baseline Value
+                if "baseline_mean" in dev:
+                    base_v = round(float(dev["baseline_mean"]), 2)
+                elif "baseline_median" in dev:
+                    base_v = round(float(dev["baseline_median"]), 2)
+                elif f_stat:
+                    base_val = f_stat.get("benign_median_unscaled", f_stat.get("train_median", f_stat.get("train_mean", 0.0)))
+                    base_v = round(float(base_val), 2)
+                else:
+                    base_v = 0.0
+
+                # IQR deviation
+                if "iqr_deviation" in dev:
+                    iqr = round(float(dev["iqr_deviation"]), 1)
+                elif f_stat and float(f_stat.get("train_iqr", 0.0)) > 0:
+                    iqr = round(float((cur_v - base_v) / float(f_stat["train_iqr"])), 1)
+                else:
+                    iqr = 1.0 if abs(cur_v - base_v) > 0.001 else 0.0
+
                 direction = f.get("direction", "attack_supporting")
+                cat = dev.get("category") or FEATURE_CATEGORIES.get(feat_name, "General Telemetry")
+
                 feature_attr_list.append({
                     "feature": feat_name,
                     "feature_name": feat_name,
@@ -138,7 +277,7 @@ class ExplanationService:
                     "direction": direction,
                     "attribution": raw_score,
                     "attribution_score": raw_score,
-                    "category": dev.get("category", "General Telemetry")
+                    "category": cat
                 })
             
             # 2. Temporal Attribution

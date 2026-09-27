@@ -27,6 +27,9 @@ class BackendSettings(BaseModel):
     MODELS_DIR: Path = MODELS_DIR
     DATA_DIR: Path = DATA_DIR
     REPORTS_DIR: Path = REPORTS_DIR
+    base_dir: Path = BASE_DIR
+    models_dir: Path = MODELS_DIR
+    data_dir: Path = DATA_DIR
     
     # Model Artifacts
     model_path: Path = MODELS_DIR / "world_model" / "gru" / "best_model.pt"
