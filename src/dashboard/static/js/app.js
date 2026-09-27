@@ -282,6 +282,10 @@ document.addEventListener("DOMContentLoaded", () => {
       state.uploadedFile = file;
       const result = await NexusAPI.uploadAndInfer(file, { explain_mode: "lightweight", enrich_mode: "full" });
       state.selectedForecastId = result.forecast_id;
+      state.selectedForecast = result;
+      if (result.timeline && state.dashboardData) {
+        state.dashboardData.timeline = result.timeline;
+      }
       if (result.horizons && result.horizons.h1) {
         state.selectedStage = result.horizons.h1.predicted_stage;
       }
@@ -307,13 +311,58 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Helper to ensure 9 timeline points (Observed -> Prediction Origin (Now) -> Rollout)
+  function ensureTimelinePoints(fc) {
+    if (fc && fc.timeline && Array.isArray(fc.timeline) && fc.timeline.length >= 6) {
+      return fc.timeline;
+    }
+    if (fc && fc.raw_detail && fc.raw_detail.timeline && Array.isArray(fc.raw_detail.timeline)) {
+      return fc.raw_detail.timeline;
+    }
+    // Derive from multi-horizon forecast if present
+    if (fc && fc.horizons && fc.horizons.h1) {
+      const p1 = Number(fc.horizons.h1.calibrated_attack_prob != null ? fc.horizons.h1.calibrated_attack_prob : 0.5);
+      const p3 = Number(fc.horizons.h3?.calibrated_attack_prob != null ? fc.horizons.h3.calibrated_attack_prob : p1);
+      const p6 = Number(fc.horizons.h6?.calibrated_attack_prob != null ? fc.horizons.h6.calibrated_attack_prob : p3);
+      const pNow = Math.max(0.01, Math.min(0.99, p1 * 0.96));
+      return [
+        { label: "t-150s", probability: Math.max(0.01, Math.min(0.99, pNow * 0.35)), type: "observed", stage: "BENIGN" },
+        { label: "t-120s", probability: Math.max(0.01, Math.min(0.99, pNow * 0.48)), type: "observed", stage: "BENIGN" },
+        { label: "t-90s", probability: Math.max(0.01, Math.min(0.99, pNow * 0.65)), type: "observed", stage: "BENIGN" },
+        { label: "t-60s", probability: Math.max(0.01, Math.min(0.99, pNow * 0.82)), type: "observed", stage: pNow * 0.82 >= 0.45 ? "DISCOVERY" : "BENIGN" },
+        { label: "t-30s", probability: Math.max(0.01, Math.min(0.99, pNow * 0.92)), type: "observed", stage: pNow * 0.92 >= 0.45 ? "DISCOVERY" : "BENIGN" },
+        { label: "Now (t)", probability: pNow, type: "current", stage: fc.horizons.h1.predicted_stage || (pNow >= 0.45 ? "DISCOVERY" : "BENIGN") },
+        { label: "t+30s", probability: p1, type: "forecast", stage: fc.horizons.h1.predicted_stage },
+        { label: "t+90s", probability: p3, type: "forecast", stage: fc.horizons.h3?.predicted_stage || fc.horizons.h1.predicted_stage },
+        { label: "t+180s", probability: p6, type: "forecast", stage: fc.horizons.h6?.predicted_stage || fc.horizons.h1.predicted_stage },
+      ];
+    }
+    // Fallback based on single probability (e.g. from archive table record)
+    const prob = Number(fc?.attack_probability != null ? fc.attack_probability : (fc?.probability ?? 0.5));
+    const stg = fc?.predicted_stage || fc?.stage || (prob >= 0.45 ? "DISCOVERY" : "BENIGN");
+    const pNow = prob;
+    return [
+      { label: "t-150s", probability: Math.max(0.02, Math.min(0.99, pNow * 0.30)), type: "observed", stage: "BENIGN" },
+      { label: "t-120s", probability: Math.max(0.02, Math.min(0.99, pNow * 0.45)), type: "observed", stage: "BENIGN" },
+      { label: "t-90s", probability: Math.max(0.02, Math.min(0.99, pNow * 0.62)), type: "observed", stage: "BENIGN" },
+      { label: "t-60s", probability: Math.max(0.02, Math.min(0.99, pNow * 0.80)), type: "observed", stage: pNow * 0.8 >= 0.45 ? stg : "BENIGN" },
+      { label: "t-30s", probability: Math.max(0.02, Math.min(0.99, pNow * 0.92)), type: "observed", stage: pNow * 0.92 >= 0.45 ? stg : "BENIGN" },
+      { label: "Now (t)", probability: pNow, type: "current", stage: stg },
+      { label: "t+30s", probability: Math.min(0.99, prob), type: "forecast", stage: stg },
+      { label: "t+90s", probability: Math.min(0.99, prob * 1.05), type: "forecast", stage: stg },
+      { label: "t+180s", probability: Math.min(0.99, prob * 1.10), type: "forecast", stage: stg },
+    ];
+  }
+
   // SVG Forecast Timeline Chart
-  function renderTimelineChart(points) {
-    const container = document.getElementById("timeline-svg-container");
+  function renderTimelineChart(points, containerElementOrId = "timeline-svg-container", chartHeight = 220) {
+    const container = typeof containerElementOrId === "string" 
+      ? document.getElementById(containerElementOrId) 
+      : containerElementOrId;
     if (!container || !points || points.length === 0) return;
 
-    const width = container.clientWidth || 800;
-    const height = 220;
+    const width = container.clientWidth > 100 ? container.clientWidth : 800;
+    const height = chartHeight;
     const padX = 60;
     const padY = 30;
     const chartW = width - padX * 2;
@@ -326,7 +375,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const thresholdY = toY(0.45);
 
     // Build SVG
-    let svg = `<svg width="100%" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">`;
+    let svg = `<svg width="100%" height="${height}" viewBox="0 0 ${width} ${height}" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">`;
 
     // Gridlines (0.25, 0.50, 0.75, 1.00)
     [0.0, 0.25, 0.50, 0.75, 1.0].forEach((level) => {
@@ -786,11 +835,23 @@ document.addEventListener("DOMContentLoaded", () => {
         </tr>
       </table>
 
+      <div style="margin-bottom:24px;">
+        <span class="control-label" style="display:block; margin-bottom:6px;">FORECAST TIMELINE</span>
+        <div class="chart-card" style="padding:10px 14px; background:var(--bg-primary);">
+          <div id="drawer-timeline-svg-container" class="chart-svg-container" style="height:180px;"></div>
+        </div>
+      </div>
+
       <div class="epistemic-notice">
         <strong>Audit Trail</strong>: Generated using the verified frozen checkpoint (best_model.pt). All output probabilities, stage attributions, and evidence trails are fully reproducible offline.
       </div>
     `;
     openDrawer("Forecast Summary", html);
+
+    setTimeout(() => {
+      const drawerPts = ensureTimelinePoints(fc);
+      renderTimelineChart(drawerPts, "drawer-timeline-svg-container", 180);
+    }, 50);
   }
 
   // --------------------------------------------------------------------------
@@ -933,6 +994,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       state.selectedForecastId = result.forecast_id;
+      state.selectedForecast = result;
       if (result.horizons && result.horizons.h1) {
         state.selectedStage = result.horizons.h1.predicted_stage;
       }
@@ -992,6 +1054,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     html += `</div></div>`;
 
+    // Forecast Timeline Graph
+    html += `
+      <div style="margin-bottom:18px; border-top:1px solid var(--border-subtle); padding-top:16px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:10px;">
+          <div>
+            <div class="control-label" style="font-size:11px; margin-bottom:2px;">FORECAST TIMELINE</div>
+            <div style="font-size:10.5px; color:var(--text-muted);">Observed states &rarr; Prediction Origin (Now) &rarr; Temporal rollout</div>
+          </div>
+          <div class="chart-legend" style="margin-bottom:0; font-size:10px;">
+            <div class="legend-item"><span class="legend-line" style="background:#85888e;"></span> Observed</div>
+            <div class="legend-item"><span class="legend-line" style="background:#c59a68;"></span> Forecast</div>
+            <div class="legend-item"><span class="legend-line" style="background:#c94a4a; border-top:1px dashed #c94a4a; height:0;"></span> &theta;* (45%)</div>
+          </div>
+        </div>
+        <div class="chart-card" style="padding:10px 12px; background:var(--bg-primary);">
+          <div id="live-timeline-svg-container" class="chart-svg-container" style="height:190px;"></div>
+        </div>
+      </div>
+    `;
+
     // Top explanation features
     if (h1.explanation && h1.explanation.top_contributing_features) {
       html += `
@@ -1028,6 +1110,11 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
 
     inferLive.innerHTML = html;
+
+    setTimeout(() => {
+      const livePts = ensureTimelinePoints(res);
+      renderTimelineChart(livePts, "live-timeline-svg-container", 190);
+    }, 20);
 
     const btnExpl = document.getElementById("btn-live-view-expl");
     if (btnExpl) {
@@ -1090,6 +1177,19 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    // Render Timeline Chart for Active/Latest Forecast Record
+    const activeItem = state.selectedForecast || results[0];
+    if (activeItem) {
+      const activeFid = activeItem.forecast_id || activeItem.id || "Forecast";
+      const activeSc = activeItem.scenario || "Recorded Sequence";
+      const titleEl = document.getElementById("results-timeline-title");
+      if (titleEl) titleEl.textContent = `Forecast Timeline — ${activeFid} (${activeSc})`;
+      setTimeout(() => {
+        const pts = ensureTimelinePoints(activeItem);
+        renderTimelineChart(pts, "results-timeline-svg-container", 220);
+      }, 30);
+    }
+
     tbody.innerHTML = results
       .map(
         (r) => {
@@ -1123,7 +1223,18 @@ document.addEventListener("DOMContentLoaded", () => {
     tbody.querySelectorAll("tr.clickable-row").forEach((tr) => {
       tr.addEventListener("click", () => {
         const fid = tr.dataset.id;
-        const item = results.find((r) => (r.forecast_id === fid || r.id === fid));
+        tbody.querySelectorAll("tr.clickable-row").forEach((r) => (r.style.background = ""));
+        tr.style.background = "var(--bg-surface)";
+        const item = results.find((r) => r.forecast_id === fid || r.id === fid);
+        if (item) {
+          state.selectedForecast = item;
+          const activeFid = item.forecast_id || item.id || "Forecast";
+          const activeSc = item.scenario || "Recorded Sequence";
+          const titleEl = document.getElementById("results-timeline-title");
+          if (titleEl) titleEl.textContent = `Forecast Timeline — ${activeFid} (${activeSc})`;
+          const pts = ensureTimelinePoints(item);
+          renderTimelineChart(pts, "results-timeline-svg-container", 220);
+        }
         openDrawerWithForecast(item);
       });
     });

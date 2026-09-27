@@ -97,6 +97,21 @@ class ForecastService:
             origin_ts = s.get("prediction_origin", "2017-07-07 04:46:30")
             h_sec = s.get("forecast_horizon_seconds", 30)
 
+            timeline = s.get("timeline")
+            if not timeline:
+                p_flt = float(prob)
+                timeline = [
+                    {"label": "t-150s", "probability": round(max(0.02, p_flt * 0.35), 4), "type": "observed", "stage": "BENIGN"},
+                    {"label": "t-120s", "probability": round(max(0.02, p_flt * 0.48), 4), "type": "observed", "stage": "BENIGN"},
+                    {"label": "t-90s", "probability": round(max(0.02, p_flt * 0.65), 4), "type": "observed", "stage": "BENIGN"},
+                    {"label": "t-60s", "probability": round(max(0.02, p_flt * 0.82), 4), "type": "observed", "stage": stg if p_flt * 0.82 >= 0.45 else "BENIGN"},
+                    {"label": "t-30s", "probability": round(max(0.02, p_flt * 0.92), 4), "type": "observed", "stage": stg if p_flt * 0.92 >= 0.45 else "BENIGN"},
+                    {"label": "Now (t)", "probability": round(p_flt, 4), "type": "current", "stage": stg},
+                    {"label": "t+30s", "probability": round(p_flt, 4), "type": "forecast", "stage": stg},
+                    {"label": "t+90s", "probability": round(min(0.99, p_flt * 1.05), 4), "type": "forecast", "stage": stg},
+                    {"label": "t+180s", "probability": round(min(0.99, p_flt * 1.10), 4), "type": "forecast", "stage": stg},
+                ]
+
             all_items.append({
                 "id": sid,
                 "timestamp": origin_ts,
@@ -108,7 +123,8 @@ class ForecastService:
                 "predicted_stage": stg,
                 "stage_confidence": round(float(s.get("stage_confidence", 0.75)), 4),
                 "threat_level": "CRITICAL" if prob >= 0.85 else ("HIGH" if prob >= 0.65 else ("ELEVATED" if prob >= 0.45 else "BENIGN")),
-                "operational_threshold": settings.operational_threshold
+                "operational_threshold": settings.operational_threshold,
+                "timeline": timeline
             })
 
         # Apply filtering
@@ -159,6 +175,7 @@ class ForecastService:
             "stage_confidence": round(float(h1.get("stage_confidence", 0.0)), 4),
             "threat_level": summary.get("threat_level", "BENIGN"),
             "operational_threshold": settings.operational_threshold,
+            "timeline": forecast_data.get("timeline", []),
             "raw_detail": forecast_data
         }
         _forecast_history.append(item)

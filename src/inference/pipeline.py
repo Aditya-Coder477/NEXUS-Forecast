@@ -278,12 +278,32 @@ class OfflineInferencePipeline:
         elif max_prob >= self.config.operational_threshold:
             threat_level = "ELEVATED"
 
+        # Generate Forecast Timeline (Observed states -> Prediction Origin (Now) -> Rollout)
+        with torch.no_grad():
+            gru_seq_out, _ = self.model.gru(x_tensor)
+            normed_seq = self.model.latent_norm(gru_seq_out)
+            hist_logits = self.model.attack_heads["1"](normed_seq).squeeze(-1).squeeze(0).cpu().numpy()
+            hist_calibrated = [round(self.calibrate_logit(float(l), 1), 4) for l in hist_logits]
+
+        timeline_points = [
+            {"label": "t-150s", "probability": float(hist_calibrated[4]), "type": "observed", "stage": "BENIGN" if hist_calibrated[4] < self.config.operational_threshold else "DISCOVERY"},
+            {"label": "t-120s", "probability": float(hist_calibrated[5]), "type": "observed", "stage": "BENIGN" if hist_calibrated[5] < self.config.operational_threshold else "DISCOVERY"},
+            {"label": "t-90s", "probability": float(hist_calibrated[6]), "type": "observed", "stage": "BENIGN" if hist_calibrated[6] < self.config.operational_threshold else "DISCOVERY"},
+            {"label": "t-60s", "probability": float(hist_calibrated[7]), "type": "observed", "stage": "BENIGN" if hist_calibrated[7] < self.config.operational_threshold else "DISCOVERY"},
+            {"label": "t-30s", "probability": float(hist_calibrated[8]), "type": "observed", "stage": "BENIGN" if hist_calibrated[8] < self.config.operational_threshold else "DISCOVERY"},
+            {"label": "Now (t)", "probability": float(hist_calibrated[9]), "type": "current", "stage": "BENIGN" if hist_calibrated[9] < self.config.operational_threshold else "DISCOVERY"},
+            {"label": "t+30s", "probability": float(horizons_output["h1"]["calibrated_attack_prob"]), "type": "forecast", "stage": horizons_output["h1"]["predicted_stage"]},
+            {"label": "t+90s", "probability": float(horizons_output["h3"]["calibrated_attack_prob"]), "type": "forecast", "stage": horizons_output["h3"]["predicted_stage"]},
+            {"label": "t+180s", "probability": float(horizons_output["h6"]["calibrated_attack_prob"]), "type": "forecast", "stage": horizons_output["h6"]["predicted_stage"]},
+        ]
+
         return {
             "forecast_id": fid,
             "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat(),
             "device": str(self.device),
             "execution_time_ms": round(elapsed_ms, 2),
             "origin_window_index": origin_window_index,
+            "timeline": timeline_points,
             "horizons": horizons_output,
             "summary": {
                 "overall_attack_forecasted": any(all_predicted_attacks),

@@ -462,6 +462,24 @@
             </div>
           </div>
 
+          <!-- FORECAST TIMELINE -->
+          <div class="dashboard-block" id="results-timeline-block" style="margin-bottom:24px;">
+            <div class="block-header">
+              <div>
+                <h3 class="block-title" id="results-timeline-title">Forecast Timeline</h3>
+                <span class="block-subtitle" id="results-timeline-subtitle">Observed states &rarr; Prediction Origin (Now) &rarr; Temporal rollout</span>
+              </div>
+              <div class="chart-legend">
+                <div class="legend-item"><span class="legend-line" style="background:#85888e;"></span> Observed Probability</div>
+                <div class="legend-item"><span class="legend-line" style="background:#c59a68;"></span> Forecast Probability</div>
+                <div class="legend-item"><span class="legend-line" style="background:#c94a4a; border-top:1px dashed #c94a4a; height:0;"></span> Threshold (45%)</div>
+              </div>
+            </div>
+            <div class="chart-card">
+              <div id="results-timeline-svg-container" class="chart-svg-container"></div>
+            </div>
+          </div>
+
           <table class="editorial-table">
             <thead>
               <tr>
