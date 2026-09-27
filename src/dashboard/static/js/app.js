@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initTheme();
 
   // --------------------------------------------------------------------------
-  // DYNAMIC HEADER SELECTORS INITIALIZATION
+  // DYNAMIC SELECTORS INITIALIZATION
   // --------------------------------------------------------------------------
   async function initHeaderSelectors() {
     try {
@@ -96,23 +96,25 @@ document.addEventListener("DOMContentLoaded", () => {
         NexusAPI.getScenarios(),
       ]);
 
-      if (datasetSelect && datasets && datasets.length > 0) {
-        datasetSelect.innerHTML = datasets
+      if (datasets && datasets.length > 0) {
+        const dsHtml = datasets
           .map((d) => `<option value="${d.id}" ${d.id === state.dataset ? "selected" : ""}>${d.name || d.id}</option>`)
           .join("");
+        if (datasetSelect) datasetSelect.innerHTML = dsHtml;
         const inferDs = document.getElementById("infer-dataset-select");
-        if (inferDs) inferDs.innerHTML = datasetSelect.innerHTML;
+        if (inferDs) inferDs.innerHTML = dsHtml;
       }
 
-      if (scenarioSelect && scenarios && scenarios.length > 0) {
-        scenarioSelect.innerHTML = scenarios
+      if (scenarios && scenarios.length > 0) {
+        const scHtml = scenarios
           .map((s) => `<option value="${s.id}" ${s.id === state.scenario ? "selected" : ""}>${s.name || s.id}</option>`)
           .join("");
+        if (scenarioSelect) scenarioSelect.innerHTML = scHtml;
         const inferSc = document.getElementById("infer-scenario-select");
-        if (inferSc) inferSc.innerHTML = scenarioSelect.innerHTML;
+        if (inferSc) inferSc.innerHTML = scHtml;
       }
     } catch (err) {
-      console.warn("Could not dynamically populate header selectors:", err.message);
+      console.warn("Could not dynamically populate selectors:", err.message);
     }
   }
 
