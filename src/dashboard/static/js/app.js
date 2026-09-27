@@ -1672,7 +1672,6 @@ document.addEventListener("DOMContentLoaded", () => {
           return `
           <tr>
             <td><strong style="color:var(--text-primary); font-size:13px;">${r.title}</strong></td>
-            <td style="font-family:var(--font-mono); font-size:11px; color:var(--accent-bronze);">${r.phase}</td>
             <td style="font-size:12px; color:var(--text-secondary); max-width:320px;">${desc}</td>
             <td style="font-family:var(--font-mono); font-size:11px;">${date}</td>
             <td><span class="badge-compact ${status === "APPROVED" || status === "FROZEN" ? "benign" : "review"}">${status}</span></td>
